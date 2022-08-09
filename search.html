@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.c0{
+				width: 400px;
+				height: 30px;
+				margin: 0 auto;
+				position: relative;
+				top: -4px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			.c1{
+				text-align: center; /*让div内部文字居中*/
+				background-color: white;
+				border-radius: 20px;
+				width: 300px;
+				height: 30px;
+				transition: all 0.4s;
+				box-shadow: 0 0 0px #999;
+			}
+			.c1:hover{
+				background: antiquewhite;
+				box-shadow: 0 0 14px #999;
+			}
+			#bt1{
+				background: orange;
+				text-align: center;
+				width: 45px;
+				height: 30px;
+				border-radius: 10px;
+				position: relative;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				transition: all 0.3s;
+			}
+			#bt1:hover{
+				background: yellow;
+			}
+			.background1{
+				background: lightseagreen;
+				font-weight: bold;
+				font-family: "黑体";
+			}
+			.background2{
+				height: 1000px;
+				width: auto;
+				background-color: darkolivegreen;
+			}
+			#back1{
+				height: 620px;
+				width: auto;
+				
+				position: relative;
+				top: 100px;
+				left: 30px;
+				right: 0;
+				bottom: 0;
+			}
+			#mian{
+				text-align: center;
+			}
+			#idh1{
+				color: orange;
+				line-height: 10px;
+				text-shadow: 10px 5px 5px black;
+			}
+			#id0{
+				background: black;
+				width: 0 auto;
+				height: 4px;
+			}
+			#content1{
+				height: 20px;
+				width: 0 auto;
+				line-height: 0px;
+				color: blue;
+			}
+			#line{
+				height: 10px;
+				background: darkolivegreen;
+			}
+			.class1{
+				/* 按钮间隔 */
+				width: 120px;
+				height: 30px;
+				float: left;
+				position: relative;
+			}
+			.right{
+				/* 按钮属性 */
+				font-size: 20px;
+				width: 100px;
+				border-radius: 6px;
+				height: 34px;
+				
+				box-shadow: 0 0 0px #999;
+				transition: all 0.2s;
+			}
+			.right:hover{
+				color: orangered;
+				background: skyblue;
+				box-shadow: 0 5px 10px #999;
+			}
+			#back0{
+				width: 1000px;
+				position: relative;
+				margin: auto;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="background1">
+			<div id="mian">
+				<h1 id="idh1">专属网址导航</h1>
+				<p>您已获得至尊VIP会员(永久),可免费使用全部功能</p>
+			</div>
+			<div id="content1">
+				<h2 id="mian">选择一个网站以继续</h2>
+			</div>
+		</div>
+		<div id="id0"></div>
+		<div id="line"></div>
+		<div class="background2">
+			<div class="c0">
+				<form action="https://cn.bing.com/search" method="get">
+					<input type="text" name="q" placeholder="必应搜索" id="" class="c1" value=""/>
+					<button id="bt1">
+						搜索
+						<input type="submit" value="搜索" hidden="hidden"/>
+					</button>
+				</form>
+			</div>
+			<hr style="background-color: black; height: 3px; border: none;">
+			<div id="back0" class="clear">
+				<div class="class1">
+					<a href="https://www.msn.cn/zh-cn?OCID=fwdbahp">
+						<button class="right">MSN</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://www.baidu.com/">
+						<button class="right">百度</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://class.seewo.com/student/app/">
+						<button class="right">希沃</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://www.ewt360.com/">
+						<button class="right">易网通</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://sotool.net/replace.html">
+						<button class="right">工具列表</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://www.bilibili.com">
+						<button class="right">哔哩哔哩</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="edge://surf/">
+						<button class="right">离线游戏</button>
+					</a>
+				</div>
+				<div class="class1">
+					<a href="https://github.com/">
+						<button class="right">GitHub</button>
+					</a>
+				</div>
+				<!-- https://tts.baidu.com/text2audio?tex=内容&cuid=baike&lan=ZH&ctp=1&pdt=301&vol=9&rate=32&pelJ -->
+			</div>
+			<div id="back1">
+				<h2 style="color: azure;">感谢使用本网站,网址详情:</h2>
+				<ol style="color: lightsalmon; font-weight: normal; font-size: 15px;">
+					<li>MSN : https://www.msn.cn/zh-cn?OCID=fwdbahp</li>
+					<li>百度 : https://www.baidu.com/</li>
+					<li>希沃 : https://class.seewo.com/student/app/</li>
+					<li>易网通 : https://www.ewt360.com/</li>
+					<li>工具列表 : https://sotool.net/</li>
+					<li>哔哩哔哩 : https://www.bilibili.com/</li>
+					<li>离线游戏 : edge://surf/</li>
+					<li>Github : https://github.com/</li>
+				</ol>
+			</div>
+		</div>
+	</body>
+</html>
