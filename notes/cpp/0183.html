@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++±Ê¼Ç</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* °´Å¥ÊôĞÔ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* °´Å¥¼ä¸ô */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µ¼º½Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">·µ»ØÄ¿Â¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ÕıÎÄ -->
+        <h1 class="code">54 setÈİÆ÷ - setºÍmultisetÇø±ğ.cpp</h1>
+        <pre>
+            <code class="code">
+ï»¿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;string&gt;
+#include&lt;set&gt;
+
+//setå®¹å™¨æ’åºï¼Œå­˜æ”¾è‡ªå®šä¹‰æ•°æ®ç±»å‹
+
+class Person
+{
+public:
+	Person(string name, int age)
+	{
+		this-&gt;m_Name = name;
+		this-&gt;m_Age = age;
+	}
+	string m_Name;
+	int m_Age;
+};
+
+class comparePerson
+{
+public:
+	bool operator()(const Person& p1, const Person p2) const
+	{
+		//æŒ‰ç…§å¹´é¾„ é™åº
+		return p1.m_Age &gt; p2.m_Age;
+	}
+};
+
+void test01()
+{
+	//è‡ªå®šä¹‰æ•°æ®ç±»å‹ éƒ½ä¼šæŒ‡å®šæ’åºè§„åˆ™
+	set&lt;Person, comparePerson&gt; s;
+
+	//åˆ›å»ºPersonå¯¹è±¡
+	Person p1("åˆ˜å¤‡", 24);
+	Person p2("å…³ç¾½", 28);
+	Person p3("å¼ é£", 25);
+	Person p4("èµµäº‘", 21);
+
+	s.insert(p1);
+	s.insert(p2);
+	s.insert(p3);
+	s.insert(p4);
+
+	for (set&lt;Person, comparePerson&gt;::iterator it = s.begin(); it != s.end(); it++)
+	{
+		cout &lt;&lt; "å§“å: " &lt;&lt; it-&gt;m_Name &lt;&lt; " å¹´é¾„: " &lt;&lt; it-&gt;m_Age &lt;&lt; endl;
+	}
+	cout &lt;&lt; endl;
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++±Ê¼Ç</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* °´Å¥ÊôĞÔ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* °´Å¥¼ä¸ô */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µ¼º½Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">·µ»ØÄ¿Â¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ÕıÎÄ -->
+        <h1 class="code">39 dequeÈİÆ÷ - ÅÅĞò.cpp</h1>
+        <pre>
+            <code class="code">
+ï»¿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;stack&gt;
+
+//æ ˆstackå®¹å™¨
+
+void test01()
+{
+	//ç‰¹ç‚¹ï¼šç¬¦åˆå…ˆè¿›åå‡ºæ•°æ®ç»“æ„
+	stack&lt;int&gt; s;
+
+	//å…¥æ ˆ
+	s.push(10);
+	s.push(20);
+	s.push(30);
+	s.push(40);
+
+	cout &lt;&lt; "æ ˆçš„å¤§å°: " &lt;&lt; s.size() &lt;&lt; endl;
+
+	//åªè¦æ ˆä¸ä¸ºç©ºï¼ŒæŸ¥çœ‹æ ˆé¡¶ï¼Œå¹¶ä¸”æ‰§è¡Œå‡ºæ ˆæ“ä½œ
+	while (!s.empty())
+	{
+		//æŸ¥çœ‹æ ˆé¡¶å…ƒç´ 
+		cout &lt;&lt; "æ ˆé¡¶å…ƒç´ ä¸º: " &lt;&lt; s.top() &lt;&lt; endl;
+
+		//å‡ºæ ˆ
+		s.pop();
+	}
+
+	cout &lt;&lt; "æ ˆçš„å¤§å°: " &lt;&lt; s.size() &lt;&lt; endl;
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

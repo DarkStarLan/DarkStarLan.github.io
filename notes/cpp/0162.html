@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++± º«</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* –ﬁ∏ƒÕ∑≤ø—°œÓ¿∏≥§∂»(√ø∏ˆ120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* ∞¥≈• Ù–‘ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* ∞¥≈•º‰∏Ù */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">ƒ¨»œ÷˜“≥</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µº∫Ω“≥</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">∑µªÿƒø¬º</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">œ‡πÿœ¬‘ÿ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ’˝Œƒ -->
+        <h1 class="code">33 vector»›∆˜ - ‘§¡Ùø’º‰.cpp</h1>
+        <pre>
+            <code class="code">
+Ôªø#include&lt;iostream&gt;
+using namespace std;
+#include&lt;deque&gt;
+//deque ÊûÑÈÄ†ÂáΩÊï∞
+
+void printDeque(const deque&lt;int&gt;& d)
+{
+	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
+	{
+		//*it = 100;  ÂÆπÂô®‰∏≠ÁöÑÊï∞ÊçÆ‰∏çÂèØ‰øÆÊîπ‰∫Ü
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+void test01()
+{
+	deque&lt;int&gt; d1;
+	for (int i = 0; i &lt; 10; i++)
+	{
+		d1.push_back(i);
+	}
+	printDeque(d1);
+
+	deque&lt;int&gt; d2(d1.begin(), d1.end());
+	printDeque(d2);
+
+	deque&lt;int&gt; d3(10, 100);
+	printDeque(d3);
+
+	deque&lt;int&gt; d4(d3);
+	printDeque(d4);
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

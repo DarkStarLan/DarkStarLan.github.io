@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++±Ê¼Ç</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* °´Å¥ÊôĞÔ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* °´Å¥¼ä¸ô */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µ¼º½Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">·µ»ØÄ¿Â¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ÕıÎÄ -->
+        <h1 class="code">36 dequeÈİÆ÷ - ´óĞ¡²Ù×÷.cpp</h1>
+        <pre>
+            <code class="code">
+ï»¿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;deque&gt;
+//dequeå®¹å™¨æ’å…¥å’Œåˆ é™¤
+
+void printDeque(const deque&lt;int&gt;& d)
+{
+	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+//ä¸¤ç«¯æ“ä½œ
+void test01()
+{
+	deque&lt;int&gt; d1;
+
+	//å°¾æ’
+	d1.push_back(10);
+	d1.push_back(20);
+
+	//å¤´æ’
+	d1.push_front(100);
+	d1.push_front(200);
+
+	//200 100 10 20
+	printDeque(d1);
+
+	//å°¾åˆ 
+	d1.pop_back();
+	//200 100 10
+	printDeque(d1);
+
+	//å¤´åˆ 
+	d1.pop_front();
+	//100 10
+	printDeque(d1);
+}
+
+void test02()
+{
+	deque&lt;int&gt; d1;
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	// 200 100 10 20
+	printDeque(d1);
+
+	//insertæ’å…¥
+	d1.insert(d1.begin(), 1000);
+	// 1000 200 100 10 20
+	printDeque(d1);
+
+	d1.insert(d1.begin(), 2, 10000);
+	// 10000 10000 1000 200 100 10 20
+	printDeque(d1);
+
+	//æŒ‰ç…§åŒºé—´è¿›è¡Œæ’å…¥
+	deque&lt;int&gt; d2;
+	d2.push_back(1);
+	d2.push_back(2);
+	d2.push_back(3);
+	
+	d1.insert(d1.begin(), d2.begin(), d2.end());
+	// 10000 10000 1000 200 100 10 20
+	printDeque(d1);
+}
+
+void test03()
+{
+	deque&lt;int&gt; d1;
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	//åˆ é™¤
+	deque&lt;int&gt;::iterator it = d1.begin();
+	it++;
+	d1.erase(it);
+	// 200 10 20
+	printDeque(d1);
+
+	//æŒ‰åŒºé—´æ–¹å¼åˆ é™¤
+	//d1.erase(d1.begin(), d1.end());
+	//æ¸…ç©º
+	d1.clear();
+	printDeque(d1);
+}
+
+int main()
+{
+	//test01();
+	//test02();
+	test03();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

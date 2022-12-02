@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++�ʼ�</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* ��ť���� */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* ��ť��� */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ĭ����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">����Ŀ¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">�������</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ���� -->
+        <h1 class="code">89 ���ü����㷨 - set_union.cpp</h1>
+        <pre>
+            <code class="code">
+﻿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;string&gt;
+#include&lt;list&gt;
+
+//list容器 排序案例 对于自定义数据类型 做排序
+
+//按照年龄进行升序，如果年龄相同按照身高进行降序
+
+class Person
+{
+public:
+	Person(string name, int age, int height)
+	{
+		this-&gt;m_Name = name;
+		this-&gt;m_Age = age;
+		this-&gt;m_Height = height;
+	}
+
+	string m_Name;  //姓名
+	int m_Age;  //年龄
+	int m_Height;  //身高
+};
+
+//指定排序规则
+bool comparePerson(Person& p1, Person& p2)
+{
+	//按照年龄 升序
+	if (p1.m_Age == p2.m_Age)
+	{
+		//年龄相同 按照身高降序
+		return p1.m_Height &gt; p2.m_Height;
+	}
+	else
+	{
+		return p1.m_Age &lt; p2.m_Age;
+	}
+}
+
+void test01()
+{
+	list&lt;Person&gt; L;  //创建容器
+
+	//准备数据
+	Person p1("刘备", 35, 175);
+	Person p2("曹操", 45, 180);
+	Person p3("孙权", 40, 170);
+	Person p4("赵云", 25, 190);
+	Person p5("张飞", 35, 160);
+	Person p6("关羽", 35, 200);
+
+	//插入数据
+	L.push_back(p1);
+	L.push_back(p2);
+	L.push_back(p3);
+	L.push_back(p4);
+	L.push_back(p5);
+	L.push_back(p6);
+
+	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
+	}
+
+	//排序
+	cout &lt;&lt; "---------------------------------" &lt;&lt; endl;
+	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	
+	L.sort(comparePerson);
+
+	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
+	}
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

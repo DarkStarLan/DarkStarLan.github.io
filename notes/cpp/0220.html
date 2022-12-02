@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">MyArray.hpp</h1>
+        <pre>
+            <code class="code">
+//自己的通用的数组类
+#pragma once
+#include&lt;iostream&gt;
+using namespace std;
+
+template&lt;class T&gt;
+class MyArray
+{
+public:
+
+	//有参构造  参数 容量
+	MyArray(int capacity)
+	{
+		//cout &lt;&lt; "MyArray有参构造调用" &lt;&lt; endl;
+		this-&gt;m_Capacity = capacity;
+		this-&gt;m_Size = 0;
+		this-&gt;pAddress = new T[this-&gt;m_Capacity];
+	}
+
+	//拷贝构造
+	MyArray(const MyArray& arr)
+	{
+		//cout &lt;&lt; "MyArray拷贝构造调用" &lt;&lt; endl;
+		this-&gt;m_Capacity = arr.m_Capacity;
+		this-&gt;m_Size = arr.m_Size;
+		//this-&gt;pAddress = arr.pAddress;
+
+		//深拷贝
+		this-&gt;pAddress = new T[arr.m_Capacity];
+
+		//将arr中的数据都拷贝过来
+		for (int i = 0; i &lt; this-&gt;m_Size; i++)
+		{
+			this-&gt;pAddress[i] = arr.pAddress[i];
+		}
+	}
+
+	//operator= 防止浅拷贝问题  a = b = c
+	MyArray& operator=(const MyArray& arr)
+	{
+		//cout &lt;&lt; "MyArray的operator=构造调用" &lt;&lt; endl;
+		//先判断原来堆区是否有数据，如果有先释放
+		if (this-&gt;pAddress != NULL)
+		{
+			delete[] this-&gt;pAddress;
+			this-&gt;pAddress = NULL;
+			this-&gt;m_Capacity = 0;
+			this-&gt;m_Size = 0;
+		}
+
+		//深拷贝
+		this-&gt;m_Capacity = arr.m_Capacity;
+		this-&gt;m_Size = arr.m_Size;
+		this-&gt;pAddress = new T[arr.m_Capacity];
+		for (int i = 0; i &lt; this-&gt;m_Size; i++)
+		{
+			this-&gt;pAddress[i] = arr.pAddress[i];
+		}
+		return *this;
+	}
+
+	//尾插法
+	void Push_Back(const T& val)
+	{
+		//判断容量是否等于大小
+		if (this-&gt;m_Capacity == this-&gt;m_Size)
+		{
+			return;
+		}
+		this-&gt;pAddress[this-&gt;m_Size] = val;  //在数组末尾插入数据
+		this-&gt;m_Size++;  //更新数组大小
+	}
+
+	//尾删法
+	void Pop_Back()
+	{
+		//让用户访问不到最后一个元素，即为尾删，逻辑删除
+		if (this-&gt;m_Size == 0)
+		{
+			return;
+		}
+		this-&gt;m_Size--;
+	}
+
+	//通过下标方式访问数组中的元素
+	T& operator[](int index)
+	{
+		return this-&gt;pAddress[index];
+	}
+
+	//返回数组容量
+	int getCapacity()
+	{
+		return this-&gt;m_Capacity;
+	}
+	//返回数组大小
+	int getSize()
+	{
+		return this-&gt;m_Size;
+	}
+
+	//析构函数
+	~MyArray()
+	{
+		if (this-&gt;pAddress != NULL)
+		{
+			//cout &lt;&lt; "MyArray析构函数调用" &lt;&lt; endl;
+			delete[] this-&gt;pAddress;
+			this-&gt;pAddress = NULL;
+		}
+	}
+
+private:
+
+	T* pAddress;  //指针指向堆区开辟的真实数组
+
+	int m_Capacity;  //数组容量
+
+	int m_Size;  //数组大小
+};
+            </code>
+        </pre>
+    </body>
+</html>

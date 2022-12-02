@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++�ʼ�</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* ��ť���� */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* ��ť��� */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ĭ����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">����Ŀ¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">�������</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ���� -->
+        <h1 class="code">90 ���ü����㷨 - set_difference.cpp</h1>
+        <pre>
+            <code class="code">
+﻿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;vector&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+#include&lt;ctime&gt;
+
+//-公司今天招聘了10个员工(ABCDEFGHIJ)，10名员工进入公司之后，需要指派员工在哪个部门工作
+//-员工信息有：姓名  工资组成；部门分为：策划、美术、研发
+//-随机给10名员工分配部门和工资
+//-通过multimap进行信息的插入   key(部门编号) value(员工)
+//-分部门显示员工信息
+
+#define CEHUA 0
+#define MEISHU 1
+#define YANFA 2
+
+class Worker
+{
+public:
+	string m_Name;
+	int m_Salary;
+};
+
+void createWorker(vector&lt;Worker&gt;& v)
+{
+	string nameSeed = "ABCDEFGHIJ";
+	for (int i = 0; i &lt; 10; ++i)
+	{
+		Worker worker;
+		worker.m_Name = "员工";
+		worker.m_Name += nameSeed[i];
+
+		worker.m_Salary = rand() % 10000 + 10000;  // 10000 ~ 19999
+		//将员工放入到容器中
+		v.push_back(worker);
+	}
+}
+
+//员工分组
+void setGroup(vector&lt;Worker&gt;& v, multimap&lt;int, Worker&gt;& m)
+{
+	for (vector&lt;Worker&gt;::iterator it = v.begin(); it != v.end(); it++)
+	{
+		//产生随机部门编号
+		int deptId = rand() % 3;  // 0 1 2
+
+		//将员工插入到分组中
+		//key部门编号，value具体员工
+		m.insert(make_pair(deptId, *it));
+	}
+}
+
+void showWorkerByGroup(multimap&lt;int, Worker&gt;& m)
+{
+	// 0 A B C   1 D E   2 F G ...
+	cout &lt;&lt; "策划部门: " &lt;&lt; endl;
+
+	multimap&lt;int, Worker&gt;::iterator pos = m.find(CEHUA);
+	int count = m.count(CEHUA);  //统计具体人数
+	int index = 0;
+	for (; pos != m.end() && index &lt; count; pos++, index++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; pos-&gt;second.m_Name &lt;&lt; " 工资: " &lt;&lt; pos-&gt;second.m_Salary &lt;&lt; endl;
+	}
+
+	cout &lt;&lt; "----------------------" &lt;&lt; endl;
+	cout &lt;&lt; "美术部门: " &lt;&lt; endl;
+	pos = m.find(MEISHU);
+	count = m.count(MEISHU);  //统计具体人数
+	index = 0;
+	for (; pos != m.end() && index &lt; count; pos++, index++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; pos-&gt;second.m_Name &lt;&lt; " 工资: " &lt;&lt; pos-&gt;second.m_Salary &lt;&lt; endl;
+	}
+
+	cout &lt;&lt; "----------------------" &lt;&lt; endl;
+	cout &lt;&lt; "研发部门: " &lt;&lt; endl;
+	pos = m.find(YANFA);
+	count = m.count(YANFA);  //统计具体人数
+	index = 0;
+	for (; pos != m.end() && index &lt; count; pos++, index++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; pos-&gt;second.m_Name &lt;&lt; " 工资: " &lt;&lt; pos-&gt;second.m_Salary &lt;&lt; endl;
+	}
+}
+
+int main()
+{
+	srand((unsigned int)time(NULL));
+
+	//1.创建员工
+	vector&lt;Worker&gt; vWorker;
+	createWorker(vWorker);
+
+	//2.员工分组
+	multimap&lt;int, Worker&gt; mWorker;
+	setGroup(vWorker, mWorker);
+
+	//3.分组显示员工
+	showWorkerByGroup(mWorker);
+
+	//测试
+	//for (vector&lt;Worker&gt;::iterator it = vWorker.begin(); it != vWorker.end(); it++)
+	//{
+	//	cout &lt;&lt; "姓名: " &lt;&lt; it-&gt;m_Name &lt;&lt; " 工资: " &lt;&lt; it-&gt;m_Salary &lt;&lt; endl;
+	//}
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

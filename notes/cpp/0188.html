@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++± º«</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* –ﬁ∏ƒÕ∑≤ø—°œÓ¿∏≥§∂»(√ø∏ˆ120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* ∞¥≈• Ù–‘ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* ∞¥≈•º‰∏Ù */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">ƒ¨»œ÷˜“≥</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µº∫Ω“≥</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">∑µªÿƒø¬º</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">œ‡πÿœ¬‘ÿ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ’˝Œƒ -->
+        <h1 class="code">59 map»›∆˜ - ¥Û–°∫ÕΩªªª.cpp</h1>
+        <pre>
+            <code class="code">
+Ôªø#include&lt;iostream&gt;
+using namespace std;
+#include&lt;map&gt;
+
+class MyCompare
+{
+public:
+	bool operator()(int v1, int v2) const
+	{
+		//ÈôçÂ∫è
+		return v1 &gt; v2;
+	}
+};
+
+//mapÂÆπÂô® ÊéíÂ∫è
+void test01()
+{
+	map&lt;int, int, MyCompare&gt; m;
+	m.insert(make_pair(1, 10));
+	m.insert(make_pair(2, 20));
+	m.insert(make_pair(3, 30));
+	m.insert(make_pair(4, 40));
+	m.insert(make_pair(5, 50));
+
+	for (map&lt;int, int&gt;::iterator it = m.begin(); it != m.end(); it++)
+	{
+		cout &lt;&lt; "key = " &lt;&lt; it-&gt;first &lt;&lt; " value = " &lt;&lt; it-&gt;second &lt;&lt; endl;
+	}
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

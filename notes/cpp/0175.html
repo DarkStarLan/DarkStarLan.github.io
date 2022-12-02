@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++�ʼ�</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* ��ť���� */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* ��ť��� */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ĭ����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">����ҳ</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">����Ŀ¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">�������</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ���� -->
+        <h1 class="code">46 list���� - �����ɾ��.cpp</h1>
+        <pre>
+            <code class="code">
+﻿#include&lt;iostream&gt;
+using namespace std;
+#include&lt;list&gt;
+#include&lt;algorithm&gt;  //最终代码未使用
+
+//list容器反转和排序
+
+void printList(const list&lt;int&gt;& L)
+{
+	for (list&lt;int&gt;::const_iterator it = L.begin(); it != L.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+void test01()
+{
+	//反转
+	list&lt;int&gt; L1;
+
+	L1.push_back(20);
+	L1.push_back(10);
+	L1.push_back(50);
+	L1.push_back(40);
+	L1.push_back(30);
+
+	cout &lt;&lt; "反转前: " &lt;&lt; endl;
+	printList(L1);
+
+	//反转
+	L1.reverse();
+	cout &lt;&lt; "反转后: " &lt;&lt; endl;
+	printList(L1);
+
+}
+
+bool myCompare(int v1, int v2)
+{
+	//降序  让第一个数大于第一个数
+	return v1 &gt; v2;
+}
+
+//排序
+void test02()
+{
+	list&lt;int&gt; L1;
+
+	L1.push_back(20);
+	L1.push_back(10);
+	L1.push_back(50);
+	L1.push_back(40);
+	L1.push_back(30);
+
+	//排序
+	cout &lt;&lt; "排序前: " &lt;&lt; endl;
+	printList(L1);
+
+	//所有不支持随机访问迭代器的容器，不可以用标准算法
+	//不支持随机访问迭代器的容器，内部会提供对应的一些算法
+	
+	L1.sort();  //默认排序规则 从小到大 升序
+	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	printList(L1);
+
+	//L1.sort([](int v1, int v2) {return v1 &gt; v2; });  //可以通过匿名函数实现(我写的)
+	L1.sort(myCompare);
+	printList(L1);
+
+}
+
+int main()
+{
+	//test01();
+	test02();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>
