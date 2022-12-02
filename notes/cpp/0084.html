@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">20 封装案例-立方体.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//1.构造函数的分类及调用
+//分类
+//按照参数分类  无参构造(默认构造)	有参构造
+//按照类型分类  普通构造  			拷贝构造 
+class Person
+{
+public:
+	//构造函数
+	Person()
+	{
+		cout &lt;&lt; "Person的无参构造函数调用" &lt;&lt; endl;
+	}
+	Person(int a)
+	{
+		age = a;
+		cout &lt;&lt; "Person的有参构造函数调用" &lt;&lt; endl;
+	}
+	//拷贝构造函数
+	Person(const Person &p)
+	{
+		//将传入的人身上的所有属性，拷贝到我身上
+		cout &lt;&lt; "Person的拷贝构造函数调用" &lt;&lt; endl;
+		age = p.age;
+	}
+	
+	~Person()
+	{
+		cout &lt;&lt; "Person的无参析构函数调用" &lt;&lt; endl;
+	}
+	
+	int age;
+};
+
+//调用
+void test01()
+{
+	//1.括号法
+	//Person p;  //默认构造函数调用
+	//Person p2(10);  //有参构造函数
+	//Person p3(p2);  //拷贝构造函数
+	
+	//注意事项
+	//调用默认构造函数的时候 ，不要加()
+	//因为下面这行代码，编译器会认为是一个函数的声明，不会认为在创建对象
+	//Person p1();
+	
+	
+	//cout &lt;&lt; "p2的年龄为" &lt;&lt; p2.age &lt;&lt; endl;
+	//cout &lt;&lt; "p3的年龄为" &lt;&lt; p3.age &lt;&lt; endl;
+	
+	//2.显示法
+	//Person p1;
+	//Person p2 = Person(10);  //有参构造
+	//Person p3 = Person(p2);  //拷贝构造
+	
+	//Person(10);  //匿名对象  特点：当前行执行结束后，系统会立即回收掉匿名对象
+	//cout &lt;&lt; "aaaa" &lt;&lt; endl; 
+	
+	//注意事项2 
+	//不要利用拷贝构造函数 初始化匿名对象  编译器会认为Person(p3); === Person p3; 对象声明
+	//Person(p3);
+	
+	//3.隐式转换法
+	Person p4 = 10;  //相当于写了 Person p4 = Person(10);  有参构造
+	Person p5 = p4;  //拷贝构造
+}
+
+int main()
+{
+	test01();
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

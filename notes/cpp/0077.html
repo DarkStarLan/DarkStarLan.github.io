@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">13 函数重载.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//函数重载
+//可以让函数名相同，提高复用性
+
+//函数重载的满足条件
+//1.同一个作用域下
+//2.函数名称相同
+//3.函数参数类型不同，或者个数不同，或者顺序不同
+void func()
+{
+	cout &lt;&lt; "func 的调用" &lt;&lt; endl;
+}
+
+void func(int a)
+{
+	cout &lt;&lt; "func (int a) 的调用" &lt;&lt; endl;
+}
+
+void func(double a)
+{
+	cout &lt;&lt; "func (double a) 的调用" &lt;&lt; endl;
+}
+
+void func(int a, double b)
+{
+	cout &lt;&lt; "func (int a, double b) 的调用" &lt;&lt; endl;
+}
+
+void func(double a, int b)
+{
+	cout &lt;&lt; "func (double a, int b) 的调用" &lt;&lt; endl;
+}
+
+//注意事项
+//函数的返回值不可以作为函数重载的条件
+//int func(double a, int b)
+//{
+//	cout &lt;&lt; "func (double a, int b) 的调用" &lt;&lt; endl;
+//}
+
+int main()
+{
+	//func();
+	//func(10);
+	//func(3.14);
+	//func(10, 3.14);
+	func(3.14, 10);
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

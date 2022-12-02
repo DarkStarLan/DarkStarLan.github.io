@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">18 struct和class区别.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+#include&lt;string&gt;
+
+//成员属性设置为私有
+//1.可以自己控制读写的权限
+//2.对于写可以检测数据的有效性
+
+//设计人类
+class Person
+{
+public:
+	
+	//设置姓名
+	void setName(string name)
+	{
+		m_Name = name;
+	}
+	//获取姓名
+	string getName()
+	{
+		return m_Name;
+	}
+	
+	//获取年龄  可读可写 如果想修改(年龄的范围必须是0~150之间)
+	int getAge()
+	{
+		//m_Age = 0;  //初始化为0岁
+		return m_Age;
+	}
+	
+	//设置年龄
+	void setAge(int age)
+	{
+		if(age &lt; 0 || age &gt; 150)
+		{
+			m_Age = 0;
+			cout &lt;&lt; "你这个老妖精！" &lt;&lt; endl;
+			return;
+		}
+		m_Age = age;
+	}
+	
+	//设置情人  只写
+	void setLover(string lover)
+	{
+		m_Lover = lover;
+	}
+	
+private:
+	//姓名  可读可写
+	string m_Name;
+	//年龄  只读
+	int m_Age;
+	//情人  只写
+	string m_Lover;
+};
+int main()
+{
+	
+	Person p;
+	p.setName("张三");
+	
+	cout &lt;&lt; "姓名为:" &lt;&lt; p.getName() &lt;&lt; endl;
+	
+	//p.m_Age = 18;
+	//p.setAge(18);
+	p.setAge(18);
+	cout &lt;&lt; "年龄为:" &lt;&lt; p.getAge() &lt;&lt; endl;
+	
+	//设置情人为苍井女士
+	p.setLover("苍井");
+	//cout &lt;&lt; "情人为:" &lt;&lt; p.getLover() &lt;&lt; endl;
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

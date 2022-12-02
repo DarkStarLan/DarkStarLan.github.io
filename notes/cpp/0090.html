@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">24 拷贝构造函数调用时机.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//静态成员变量
+class Person
+{
+public:
+	
+	//1.所有对象都共享同一份数据
+	//2.编译阶段就分配内存
+	//3.类内声明，类外初始化
+	static int m_A;
+	
+	//静态成员变量也是有访问权限的
+private:
+	static int m_B;
+};
+
+int Person:: m_A = 100;
+int Person:: m_B = 200;
+
+void test01()
+{
+	Person p;
+	//100
+	cout &lt;&lt; p.m_A &lt;&lt; endl;
+	
+	Person p2;
+	p2.m_A = 200;
+	
+	//200
+	cout &lt;&lt; p.m_A &lt;&lt; endl;
+}
+
+void test02()
+{
+	//静态成员变量 不属于某个对象上，所有对象都共享同一份数据
+	//因此静态成员变量有两种访问方式
+	
+	//1.通过对象进行访问
+	//Person p;
+	//cout &lt;&lt; p.m_A &lt;&lt; endl;
+	
+	//2.通过类名进行访问
+	cout &lt;&lt; Person::m_A &lt;&lt; endl;
+	
+	//cout &lt;&lt; Person::m_B &lt;&lt; endl;  类外访问不到私有静态成员变量
+}
+
+int main()
+{
+	//test01();
+	test02();
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">60 文本文件-读文件.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+#include&lt;string&gt;
+
+//分别利用普通写法和多态技术实现计算器
+
+//普通写法
+class Calculator
+{
+public:
+
+	int getResult(string oper)
+	{
+		if (oper == "+")
+		{
+			return m_Num1 + m_Num2;
+		}
+		else if (oper == "-")
+		{
+			return m_Num1 - m_Num2;
+		}
+		else if (oper == "*")
+		{
+			return m_Num1 * m_Num2;
+		}
+		//如果想扩展新的功能，需修改源代码
+		//在真实的开发中 提倡 开闭原则
+		//开闭原则: 对扩展进行开放，对修改进行关闭
+	}
+
+	int m_Num1;  //操作数1
+	int m_Num2;  //操作数2
+};
+
+void test01()
+{
+	//创建计算器对象
+	Calculator c;
+	c.m_Num1 = 10;
+	c.m_Num2 = 10;
+
+	cout &lt;&lt; c.m_Num1 &lt;&lt; "+" &lt;&lt; c.m_Num2 &lt;&lt; " = " &lt;&lt; c.getResult("+") &lt;&lt; endl;
+
+	cout &lt;&lt; c.m_Num1 &lt;&lt; "-" &lt;&lt; c.m_Num2 &lt;&lt; " = " &lt;&lt; c.getResult("-") &lt;&lt; endl;
+
+	cout &lt;&lt; c.m_Num1 &lt;&lt; "*" &lt;&lt; c.m_Num2 &lt;&lt; " = " &lt;&lt; c.getResult("*") &lt;&lt; endl;
+}
+
+//利用多态实现计算器
+//多态好处:
+//1.组织结构清晰
+//2.可读性强
+//3.对于前期和后期扩展以及维护性高
+
+//实现计算器抽象类
+class AbstractCalculator
+{
+public:
+
+	virtual int getResult()
+	{
+		return 0;
+	}
+
+	int m_Num1;
+	int m_Num2;
+};
+
+//加法计算器类
+class AddCalculator : public AbstractCalculator
+{
+public:
+
+	int getResult()
+	{
+		return m_Num1 + m_Num2;
+	}
+};
+
+//减法计算器类
+class SubCalculator : public AbstractCalculator
+{
+public:
+
+	int getResult()
+	{
+		return m_Num1 - m_Num2;
+	}
+};
+
+//乘法计算器类
+class MulCalculator : public AbstractCalculator
+{
+public:
+
+	int getResult()
+	{
+		return m_Num1 * m_Num2;
+	}
+};
+
+void test02()
+{
+	//多态使用条件
+	//父类指针或引用指向子类对象
+	
+	//加法运算
+	AbstractCalculator* abc = new AddCalculator;
+	abc-&gt;m_Num1 = 100;
+	abc-&gt;m_Num2 = 100;
+
+	cout &lt;&lt; abc-&gt;m_Num1 &lt;&lt; "+" &lt;&lt; abc-&gt;m_Num2 &lt;&lt; " = " &lt;&lt; abc-&gt;getResult() &lt;&lt; endl;
+	//用完后记得销毁
+	delete abc;
+
+	//减法计算
+	abc = new SubCalculator;
+	abc-&gt;m_Num1 = 100;
+	abc-&gt;m_Num2 = 100;
+
+	cout &lt;&lt; abc-&gt;m_Num1 &lt;&lt; "-" &lt;&lt; abc-&gt;m_Num2 &lt;&lt; " = " &lt;&lt; abc-&gt;getResult() &lt;&lt; endl;
+	delete abc;
+
+	//乘法计算
+	abc = new MulCalculator;
+	abc-&gt;m_Num1 = 100;
+	abc-&gt;m_Num2 = 100;
+
+	cout &lt;&lt; abc-&gt;m_Num1 &lt;&lt; "*" &lt;&lt; abc-&gt;m_Num2 &lt;&lt; " = " &lt;&lt; abc-&gt;getResult() &lt;&lt; endl;
+	delete abc;
+}
+
+int main()
+{
+	//test01();
+
+	test02();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">01 全局区.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//全局变量
+int g_a = 10;
+int g_b = 10;
+
+//const修饰的全局变量，全局常量
+const int c_g_a = 10;
+const int c_g_b = 10;
+
+int main()
+{
+	
+	//全局区
+	
+	//全局变量、静态变量、常量
+	
+	//创建普通局部变量
+	int a = 10;
+	int b = 10;
+	
+	cout &lt;&lt; "局部变量a的地址为:" &lt;&lt; (long long)&a &lt;&lt; endl;
+	cout &lt;&lt; "局部变量b的地址为:" &lt;&lt; (long long)&b &lt;&lt; endl;
+	
+	cout &lt;&lt; "全局变量g_a的地址为:" &lt;&lt; (long long)&g_a &lt;&lt; endl;
+	cout &lt;&lt; "全局变量g_b的地址为:" &lt;&lt; (long long)&g_b &lt;&lt; endl;
+	
+	//静态变量 在普通变量的前面加static，属于静态变量
+	static int s_a = 10; 
+	static int s_b = 10;
+	cout &lt;&lt; "静态变量s_a的地址为:" &lt;&lt; (long long)&s_a &lt;&lt; endl;
+	cout &lt;&lt; "静态变量s_b的地址为:" &lt;&lt; (long long)&s_b &lt;&lt; endl;
+	
+	//常量
+	//字符串常量
+	cout &lt;&lt; "字符串常量的地址为:" &lt;&lt; (long long)&"hello world" &lt;&lt; endl;
+	//const修饰的变量
+	//const修饰的全局变量，const修饰的局部变量
+	cout &lt;&lt; "全局常量 c_g_a 的地址为:" &lt;&lt; (long long)&c_g_a &lt;&lt; endl;
+	cout &lt;&lt; "全局常量 c_g_b 的地址为:" &lt;&lt; (long long)&c_g_b &lt;&lt; endl;
+	
+	int c_l_a = 10;  // c-const   g-global   l-local
+	int c_l_b = 10;
+	
+	cout &lt;&lt; "局部常量 c_l_a 的地址为:" &lt;&lt; (long long)&c_l_a &lt;&lt; endl;
+	cout &lt;&lt; "局部常量 c_l_b 的地址为:" &lt;&lt; (long long)&c_l_b &lt;&lt; endl;
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

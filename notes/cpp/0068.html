@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">04 new操作符.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//1.new的基本语法
+int * func()
+{
+	//在堆区创建整型数据
+	//new返回的是 该数据类型的指针
+	int * p = new int(10);
+	return p;
+}
+
+void test01()
+{
+	int * p = func();
+	cout &lt;&lt; * p &lt;&lt; endl;
+	cout &lt;&lt; * p &lt;&lt; endl;
+	cout &lt;&lt; * p &lt;&lt; endl;
+	//堆区的数据 由程序员管理开辟，程序员管理释放
+	//如果想释放堆区的数据，利用关键字delete
+	delete p;
+	
+	//cout &lt;&lt; * p &lt;&lt; endl;  //内存已经被释放，再次访问就是非法操作，会报错
+}
+
+//2.在堆区利用new开辟数组
+void test02()
+{
+	//创建10整型数据的数组，在堆区
+	int * arr = new int[10];  //10代表数组有10个元素
+	
+	for(int i = 0;i &lt; 10;i++)
+	{
+		arr[i] = i + 100;  //给10个元素赋值  100~109
+	}
+	
+	for(int i = 0;i &lt; 10;i++)
+	{
+		cout &lt;&lt; arr[i] &lt;&lt; endl;
+	}
+	//释放堆区数组
+	//释放数组的时候 要加[]才可以
+	delete[] arr;
+}
+
+
+int main()
+{
+	//test01();
+	test02();
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">16 封装实例.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//访问权限
+//三种
+//公共权限 public		成员 类内可以访问  类外可以访问
+//保护权限 protected	成员 类内可以访问  类外不可以访问  儿子也可以访问父亲中的保护内容
+//私有权限 private		成员 类内可以访问  类外不可以访问
+
+class Person
+{
+public:
+	//公共权限
+	string m_Name;  //姓名
+	
+protected:
+	//保护权限
+	string m_Car;  //汽车
+	
+private:
+	//私有权限
+	int m_Password;  //银行卡密码
+	
+public:
+	void func()
+	{
+		m_Name = "张三";
+		m_Car = "拖拉机";
+		m_Password = 123456;
+	}
+};
+
+int main()
+{
+	
+	//实例化具体对象
+	Person p1;
+	
+	p1.m_Name = "李四";
+	p1.mCar = "奔驰";  //保护权限内容，在类外访问不到
+	p1.m_Password = 123;  //私有权限内容，类外访问不到
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

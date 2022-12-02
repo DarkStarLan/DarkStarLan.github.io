@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">27 初始化列表.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+class Person
+{
+public:
+	Person(int age)
+	{
+		//  我的其他方法  (* this).age = age;
+		//this指针指向的是 被调用的成员函数 所属的对象
+		this-&gt;age = age;
+		
+	}
+	
+	
+	Person& PersonAddAge(Person &p)
+	{
+		this-&gt;age += p.age;
+		
+		//this指向p2的指针，而* this指向的就是p2这个对象本体
+		return * this;
+	}
+	
+	int age;
+};
+
+//1.解决名称冲突
+void test01()
+{
+	Person p1(18);
+	cout &lt;&lt; "p1的年龄为:" &lt;&lt; p1.age &lt;&lt; endl;
+}
+//2.返回对象本身用* this
+void test02()
+{
+	Person p1(10);
+	
+	Person p2(10);
+	
+	//链式编程思想
+	p2.PersonAddAge(p1).PersonAddAge(p1).PersonAddAge(p1);
+	
+	cout &lt;&lt; "p2的年龄为:" &lt;&lt; p2.age &lt;&lt; endl;
+}
+
+int main()
+{
+	//test01();
+	test02();
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

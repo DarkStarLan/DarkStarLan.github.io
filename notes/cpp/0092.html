@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">26 深拷贝和浅拷贝.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//成员变量 和 成员函数 分开存储的
+
+class Person
+{
+	
+	int m_A;  //非静态成员变量  属于类的对象上
+	
+	static int m_B;  //静态成员变量  不属于类的对象上
+	
+	void func() {}  //非静态成员函数  不属于类的对象上
+	
+	static void func2() {}  //静态成员函数  不属于类的对象上
+	
+};
+int Person::m_B = 0;
+
+void test01()
+{
+	Person p;
+	//空对象占用内存空间为:1
+	//C++编译器会给每个空对象也分配一个字节空间，是为了区分空对象占内存的位置
+	//每个空对象也应该有一个独一无二的内存地址
+	cout &lt;&lt; "size of p = " &lt;&lt; sizeof(p) &lt;&lt; endl;
+}
+
+void test02()
+{
+	Person p;
+	cout &lt;&lt; "size of p = " &lt;&lt; sizeof(p) &lt;&lt; endl;
+}
+
+int main()
+{
+	//test01();
+	test02();
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

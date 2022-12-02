@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">19 成员属性设置为私有.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//对象的初始化和清理
+//1.构造函数 进行初始化操作
+class Person
+{
+public:
+	//1.构造函数
+	//没有返回值 不用写void
+	//函数名 与类名相同
+	//构造函数可以有参数，可以发生重载
+	//创建对象的时候，构造函数会自动调用，而且只调用一次
+	Person()
+	{
+		cout &lt;&lt; "Person 构造函数的调用" &lt;&lt; endl;
+	}
+	
+	//2.析构函数 进行清理的操作
+	//没有返回值 不用写void
+	//函数名和类名相同 在名称前加 ~
+	//析构函数不可以有参数，不可以发生重载
+	//对象在销毁前  会自动调用析构函数，而且只会调用一次
+	~Person()
+	{
+		cout &lt;&lt; "Person 析构函数的调用" &lt;&lt; endl;
+	} 
+};
+
+
+
+//构造和析构都是必须有的实现，如果我们自己不提供，编译器会提供一个空实现的构造和析构
+void test01()
+{
+	Person p;  //在栈上的数据，test01执行完毕后，释放这个对象
+	
+	
+}
+int main()
+{
+	//test01();
+	
+	Person p; 
+	
+	system("pause");
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

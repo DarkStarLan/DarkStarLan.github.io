@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">21 - 3 point.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//深拷贝与浅拷贝
+
+class Person
+{
+public:
+	Person()
+	{
+		cout &lt;&lt; "Person的默认构造函数调用" &lt;&lt; endl;
+	}
+	
+	Person(int age, int height)
+	{
+		m_Age = age;
+		m_Height = new int(height);
+		cout &lt;&lt; "Person的有参构造函数调用" &lt;&lt; endl;
+	}
+	
+	
+	//自己实现拷贝构造函数 解决浅拷贝带来的问题
+	Person(const Person &p)
+	{
+		cout &lt;&lt; "Person的拷贝构造函数调用" &lt;&lt; endl;
+		m_Age = p.m_Age;
+		//m_Height = p.m_Height; 编译器默认实现就是这行代码
+		//深拷贝操作
+		
+		m_Height = new int (* p.m_Height);
+		
+	}
+	
+	
+	~Person()
+	{
+		//析构代码，将堆区开辟的数据做释放操作
+		if(m_Height != NULL)
+		{
+			delete m_Height;
+			m_Height = NULL;
+		}
+		cout &lt;&lt; "Person的析构函数调用" &lt;&lt; endl;
+	}
+	
+	int m_Age;  //年龄
+	int * m_Height;  //身高
+};
+
+void test01()
+{
+	Person p1(18, 160);
+	
+	cout &lt;&lt; "p1的年龄为:" &lt;&lt; p1.m_Age &lt;&lt; "身高为:" &lt;&lt; * p1.m_Height &lt;&lt; endl;
+	
+	Person p2(p1);
+	
+	cout &lt;&lt; "p2的年龄为:" &lt;&lt; p2.m_Age &lt;&lt; "身高为:" &lt;&lt; * p2.m_Height &lt;&lt; endl;
+}
+
+int main()
+{
+	test01();
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

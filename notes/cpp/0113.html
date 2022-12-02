@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">47 继承中的构造和析构顺序.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+
+//多态
+
+//动物类
+class Animal
+{
+public:
+	//虚函数
+	virtual void speak()
+	{
+		cout &lt;&lt; "动物在说话" &lt;&lt; endl;
+	}
+};
+
+//猫类
+class Cat : public Animal
+{
+public:
+	//重写 函数返回值类型 函数名 参数列表 完全相同
+	//下面的 virtual 可以写也可以不写
+	virtual void speak()
+	{
+		cout &lt;&lt; "小猫在说话" &lt;&lt; endl;
+	}
+};
+
+//狗类
+class Dog : public Animal
+{
+public:
+	void speak()
+	{
+		cout &lt;&lt; "小狗在说话" &lt;&lt; endl;
+	}
+};
+
+//执行说话的函数
+//地址早绑定 在编译阶段确定函数地址
+//如果想执行让猫说话，那么这个函数的地址就不能提前绑定，需要在运行阶段进行绑定，地址晚绑定
+
+//动态多态满足条件
+//1.有继承关系
+//2.子类要重写父类的虚函数
+
+//动态多态使用
+//父类的指针或者引用 指向子类对象
+
+void doSpeak(Animal &animal)  //Animal & animal = cat;
+{
+	animal.speak();
+}
+
+void test01()
+{
+	Cat cat;
+	doSpeak(cat);
+
+	Dog dog;
+	doSpeak(dog);
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">57 虚析构和纯虚析构.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostream&gt;
+using namespace std;
+#include "头文件/circle.h"
+#include "头文件/point.h"
+
+
+//点和圆关系案例
+
+////点类 
+//class Point
+//{
+//public:
+//	//设置x 
+//	void setX(int x)
+//	{
+//		m_X = x;
+//	}
+//	//获取x 
+//	int getX()
+//	{
+//		return m_X;
+//	}
+//	//设置y 
+//	void setY(int y)
+//	{
+//		m_Y = y;
+//	}
+//	//获取y
+//	int getY()
+//	{
+//		return m_Y;
+//	}
+//private:
+//	int m_X;
+//	int m_Y;
+//};
+
+////圆类
+//class Circle
+//{
+//public:
+//	
+//	//设置半径
+//	void setR(int r)
+//	{
+//		m_R = r;
+//	}
+//	//获取半径
+//	int getR()
+//	{
+//		return m_R;
+//	}
+//	//设置圆心
+//	void setCenter(Point center)
+//	{
+//		m_Center = center;
+//	}
+//	//获取圆心
+//	Point getCenter()
+//	{
+//		return m_Center;
+//	}
+//private:
+//	int m_R;  //半径
+//	
+//	//在类中可以让另一个类 作为本来中的成员
+//	Point m_Center;  //圆心
+//};
+
+//判断点和圆关系
+void isInCircle(Circle &c, Point &p)
+{
+	//计算两点之间距离 平方
+	int distance =
+		(c.getCenter().getX() - p.getX()) * (c.getCenter().getX() - p.getX()) +
+		(c.getCenter().getY() - p.getY()) * (c.getCenter().getY() - p.getY());
+	//计算半径的平方
+	int rDistance = c.getR() * c.getR();
+	//判断关系
+	if(distance == rDistance)
+	{
+		cout &lt;&lt; "点在圆上" &lt;&lt; endl;
+	}
+	else if (distance &gt; rDistance)
+	{
+		cout &lt;&lt; "点在圆外" &lt;&lt; endl;
+	}
+	else
+	{
+		cout &lt;&lt; "点在圆内" &lt;&lt; endl;
+	}
+}
+
+int main()
+{
+	
+	//创建圆
+	Circle c;
+	c.setR(10);
+	Point center;
+	center.setX(10);
+	center.setY(0);
+	c.setCenter(center);
+	
+	//创建点
+	Point p;
+	p.setX(10);
+	p.setY(10);
+	
+	//判断关系
+	isInCircle(c, p);
+	
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>
