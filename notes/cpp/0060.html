@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++±Ê¼Ç</title>
+    <style type="text/css">
+        @font-face {
+	        font-family: Consolas;
+	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+        }
+        #lan{
+			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			width: 480px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* °´Å¥ÊôĞÔ */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* °´Å¥¼ä¸ô */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        .code{
+            font-family: Consolas;
+            color: rgb(255, 248, 205);
+            position: relative;
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            display: block;
+            padding: 10px;
+            white-space: pre-wrap;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">µ¼º½Ò³</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">·µ»ØÄ¿Â¼</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- ÕıÎÄ -->
+        <h1 class="code">59 ½á¹¹ÌåÇ¶Ì×½á¹¹Ìå.cpp</h1>
+        <pre>
+            <code class="code">
+#include&lt;iostr&gt;am&gt;
+using namespace std;
+
+int main()
+{
+	int arr[5] = {1, 3, 2, 5, 4};
+	cout &lt;&lt; "Êı×éÄæÖÃÇ°:" &lt;&lt; endl;
+	for(int i = 0;i &lt; 5;i++)
+	{
+		cout &lt;&lt; arr[i] &lt;&lt;endl;
+	}
+	
+	//1.¼ÇÂ¼ÆğÊ¼ÏÂ±êÎ»ÖÃ 
+	//2.¼ÇÂ¼½áÊøÏÂ±êÎ»ÖÃ 
+	//3.ÆğÊ¼ÏÂ±êÓë½áÊøÏÂ±êµÄÔªËØ»¥»» 
+	//4.ÆğÊ¼Î»ÖÃ++  ½áÊøÎ»ÖÃ--
+	//5.Ñ­»·Ö´ĞĞ1µÄ²Ù×÷ £¬Ö±µ½ÆğÊ¼Î&gt&gt&gt&gt&gt&gt&gt&gt;ÖÃ&gt;=½áÊøÎ»ÖÃ 
+	int start = 0;
+	int end = sizeof(arr) / sizeof(arr[0]) - 1;
+	
+	while(start &lt; end)
+	{
+		//ÊµÏÖÔªËØ»¥»» 
+		int temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		
+		//ÏÂ±ê¸üĞÂ
+		start++;
+		end--;
+	}
+	
+	cout &lt;&lt; "Êı×éÔªËØÄæÖÃºó" &lt;&lt; endl;
+	for(int i = 0;i &lt; 5;i++)
+	{
+		cout &lt;&lt; arr[i] &lt;&lt;endl;
+	}
+	
+	return 0;
+}
+            </code>
+        </pre>
+    </body>
+</html>
