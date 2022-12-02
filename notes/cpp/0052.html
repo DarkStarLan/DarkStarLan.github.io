@@ -81,7 +81,7 @@
         <h1 class="code">51 野指针.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostr&gt;am&gt;
+#include&lt;iostream&gt;
 using namespace std;
 #include&lt;string&gt;
 
@@ -106,8 +106,8 @@ void printStudent1(struct student s)
 //1.地址传递
 void printStudent2(struct student * p)
 {
-&gt&gt&gt&gt&gt&gt&gt&gt&gt&gt&gt&gt&gt;p-&gt;age = 200;
-	cout &lt;&lt; "子函数2  姓名:"  &lt;&lt;&gt&gt&gt;p-&gt;name &lt;&lt; "  年龄:" &lt;&lt;&gt&gt&gt;p-&gt;age &lt;&lt; "  分数:" &lt;&lt;&gt&gt&gt;p-&gt;score &lt;&lt; endl;
+	p-&gt;age = 200;
+	cout &lt;&lt; "子函数2  姓名:"  &lt;&lt; p-&gt;name &lt;&lt; "  年龄:" &lt;&lt; p-&gt;age &lt;&lt; "  分数:" &lt;&lt; p-&gt;score &lt;&lt; endl;
 }
 int main()
 {

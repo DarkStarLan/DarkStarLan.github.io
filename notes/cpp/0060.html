@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +33,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,63 +57,63 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">59 ½á¹¹ÌåÇ¶Ì×½á¹¹Ìå.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">59 结构体嵌套结构体.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostr&gt;am&gt;
+#include&lt;iostream&gt;
 using namespace std;
 
 int main()
 {
 	int arr[5] = {1, 3, 2, 5, 4};
-	cout &lt;&lt; "Êı×éÄæÖÃÇ°:" &lt;&lt; endl;
+	cout &lt;&lt; "数组逆置前:" &lt;&lt; endl;
 	for(int i = 0;i &lt; 5;i++)
 	{
 		cout &lt;&lt; arr[i] &lt;&lt;endl;
 	}
 	
-	//1.¼ÇÂ¼ÆğÊ¼ÏÂ±êÎ»ÖÃ 
-	//2.¼ÇÂ¼½áÊøÏÂ±êÎ»ÖÃ 
-	//3.ÆğÊ¼ÏÂ±êÓë½áÊøÏÂ±êµÄÔªËØ»¥»» 
-	//4.ÆğÊ¼Î»ÖÃ++  ½áÊøÎ»ÖÃ--
-	//5.Ñ­»·Ö´ĞĞ1µÄ²Ù×÷ £¬Ö±µ½ÆğÊ¼Î&gt&gt&gt&gt&gt&gt&gt&gt;ÖÃ&gt;=½áÊøÎ»ÖÃ 
+	//1.记录起始下标位置 
+	//2.记录结束下标位置 
+	//3.起始下标与结束下标的元素互换 
+	//4.起始位置++  结束位置--
+	//5.循环执行1的操作 ，直到起始位置&gt;=结束位置 
 	int start = 0;
 	int end = sizeof(arr) / sizeof(arr[0]) - 1;
 	
 	while(start &lt; end)
 	{
-		//ÊµÏÖÔªËØ»¥»» 
+		//实现元素互换 
 		int temp = arr[start];
 		arr[start] = arr[end];
 		arr[end] = temp;
 		
-		//ÏÂ±ê¸üĞÂ
+		//下标更新
 		start++;
 		end--;
 	}
 	
-	cout &lt;&lt; "Êı×éÔªËØÄæÖÃºó" &lt;&lt; endl;
+	cout &lt;&lt; "数组元素逆置后" &lt;&lt; endl;
 	for(int i = 0;i &lt; 5;i++)
 	{
 		cout &lt;&lt; arr[i] &lt;&lt;endl;

@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +33,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,41 +57,41 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">61 ½á¹¹ÌåÖĞconstÊ¹ÓÃ³¡¾°.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">61 ç»“æ„ä½“ä¸­constä½¿ç”¨åœºæ™¯.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostr&gt;am&gt;
+#include&lt;iostream&gt;
 using namespace std;
 
-//Ã°ÅİÅÅĞòº¯Êı 
+//å†’æ³¡æ’åºå‡½æ•° 
 void bubbleSort(int *arr, int len)
 {
 	for(int i = 0;i &lt; len - 1;i++)
 	{
 		for(int j = 0;j &lt; len - i - 1;j++)
 		{
-			//Èç&gt;ûj&gt;j+1µÄÖµ  ½»»»Êı×Ö 
+			//å¦‚æœj&gt;j+1çš„å€¼  äº¤æ¢æ•°å­— 
 			if(arr[j] &gt; arr[j + 1])
 			{
 				int temp = arr[j];
@@ -102,7 +102,7 @@ void bubbleSort(int *arr, int len)
 	}
 }
 
-//´òÓ¡Êı×é
+//æ‰“å°æ•°ç»„
 void printArray(int *arr, int len)
 {
 	for(int i = 0;i &lt; len;i++)
@@ -113,14 +113,14 @@ void printArray(int *arr, int len)
 
 int main()
 {
-	//1.ÏÈ´¬´´½¨Êı×é
+	//1.å…ˆèˆ¹åˆ›å»ºæ•°ç»„
 	int arr[10] = {4, 3, 6, 9, 1, 2, 10, 8, 7, 5};
 	
-	//Êı×é³¤¶È
+	//æ•°ç»„é•¿åº¦
 	int len = sizeof(arr) / sizeof(arr[0]);
-	//2.´´½¨Êı×é£¬ÊµÏÖÃ°ÅİÅÅĞò
+	//2.åˆ›å»ºæ•°ç»„ï¼Œå®ç°å†’æ³¡æ’åº
 	bubbleSort(arr, len);
-	//3.´òÓ¡ÅÅĞòºóµÄÊı×é
+	//3.æ‰“å°æ’åºåçš„æ•°ç»„
 	printArray(arr, len);
 	
 	

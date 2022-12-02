@@ -81,7 +81,7 @@
         <h1 class="code">19 选择结构-嵌套if语句.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostr&gt;am&gt;
+#include&lt;iostream&gt;
 using namespace std;
 
 int main()
@@ -96,18 +96,18 @@ int main()
 	//前三个都没有满足，未考上本科 
 	int score = 0;
 	cout &lt;&lt; "请输入高考考试分数:" &lt;&lt; endl;
-	c&gt&gt&gt;n &gt;&gt; score;
+	cin &gt;&gt; score;
 	
 	cout &lt;&lt; "您输入的考试分数为:" &lt;&lt; score &lt;&lt; endl;
 	
-	if(sco&gt&gt&gt&gt;e &gt; 600)
+	if(score &gt; 600)
 	{
 		cout &lt;&lt; "恭喜您考上了一本大学" &lt;&lt; endl;	
-		if(sco&gt&gt&gt;e &gt; 700)
+		if(score &gt; 700)
 		{
 			cout &lt;&lt; "您能考入北京大学" &lt;&lt; endl;	
 		}
-		else if(sco&gt&gt&gt;e &gt; 650)
+		else if(score &gt; 650)
 		{
 			cout &lt;&lt; "您能考入清华大学" &lt;&lt; endl;
 		}
@@ -116,11 +116,11 @@ int main()
 			cout &lt;&lt; "您能考入人民大学" &lt;&lt; endl;
 		}
 	}
-	else if(sco&gt&gt&gt&gt&gt&gt&gt;e &gt; 500)
+	else if(score &gt; 500)
 	{
 		cout &lt;&lt; "恭喜您考上了二本大学" &lt;&lt; endl;
 	}
-	else if(sco&gt&gt&gt;e &gt; 400)
+	else if(score &gt; 400)
 	{
 		cout &lt;&lt; "恭喜您考上了三本大学" &lt;&lt; endl;
 	}
