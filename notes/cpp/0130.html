@@ -82,12 +82,12 @@
         <h1 class="code">02 函数模板注意事项.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
 
 //函数模板注意事项
 
-template<class T>  //typename可以替换成class
+template&lt;class T&gt;  //typename可以替换成class
 void mySwap(T& a, T& b)
 {
 	T temp = a;
@@ -103,19 +103,19 @@ void test01()
 	char c = 'c';
 	//mySwap(a, b);  //正确!
 	//mySwap(a, c);  //错误! 推导不出一致的T类型
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
+	cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+	cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
 }
 //2.模板必须要确定出T的数据类型，才可以使用
-template<class T>
+template&lt;class T&gt;
 void func()
 {
-	cout << "func 调用" << endl;
+	cout &lt;&lt; "func 调用" &lt;&lt; endl;
 }
 
 void test02()
 {
-	func<int>();
+	func&lt;int&gt;();
 }
 
 int main()

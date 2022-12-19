@@ -79,69 +79,54 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">30 vector容器 - 插入和删除.cpp</h1>
+        <h1 class="code">29 vector容器 - 容量和大小.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
+#include&lt;vector&gt;
 
-//vector插入和删除
-//- push_back();										尾部插入元素ele
-//- pop_back();											删除最后一个元素
-//- insert(const_iterator pos, ele);					迭代器指向位置pos插入元素ele
-//- insert(const_iterator pos, int count, ele);			迭代器指向位置pos插入count个元素ele
-//- erase(const_iterator pos);							删除迭代器指向的元素
-//- erase(const_iterator start, const_iterator end);	删除迭代器从start到end之间的元素
-//- clear();											删除容器中所有元素
-
-void printVector(vector<int>& v)
+void printVector(vector&lt;int&gt;& v)
 {
-	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++)
 	{
-		cout << *it << " ";
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-	cout << endl;
+	cout &lt;&lt; endl;
 }
 
+//vector容器的容量和大小操作
 void test01()
 {
-	vector<int> v1;
-	//尾插
-	v1.push_back(10);
-	v1.push_back(20);
-	v1.push_back(30);
-	v1.push_back(40);
-	v1.push_back(50);
-
-	//遍历
+	vector&lt;int&gt; v1;
+	for (int i = 0; i &lt; 10; i++)
+	{
+		v1.push_back(i);
+	}
 	printVector(v1);
 
-	//尾删
-	v1.pop_back();
-	printVector(v1);
+	if (v1.empty())  //为真 代表容器为空
+	{
+		cout &lt;&lt; "v1为空" &lt;&lt; endl;
+	}
+	else
+	{
+		cout &lt;&lt; "v1不为空" &lt;&lt; endl;
+		cout &lt;&lt; "v1的容量为: " &lt;&lt; v1.capacity() &lt;&lt; endl;
+		cout &lt;&lt; "v1的大小为: " &lt;&lt; v1.size() &lt;&lt; endl;
+	}
 
-	//插入  第一个参数是迭代器
-	v1.insert(v1.begin(), 100);
-	printVector(v1);
-
-	v1.insert(v1.begin(), 2, 1000);
-	printVector(v1);
-
-	//删除  参数也是迭代器
-	v1.erase(v1.begin());
-	printVector(v1);
-
-	//清空
-	//v1.erase(v1.begin(), v1.end());
-	v1.clear();
-	printVector(v1);
+	//重新指定大小
+	v1.resize(15, 100);  //利用重载版本，可以指定默认填充值，参数2
+	printVector(v1);  //如果重新指定的比原来长了，默认用0填充新的位置
+	
+	v1.resize(5);
+	printVector(v1);  //如果重新指定的比原来短了，超出部分会删除掉
 }
 
 int main()
 {
 	test01();
-
 	return 0;
 }
             </code>

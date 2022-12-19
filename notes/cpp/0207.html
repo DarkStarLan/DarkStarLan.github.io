@@ -79,34 +79,39 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">82 常用拷贝和替换算法 - copy.cpp</h1>
+        <h1 class="code">78 常用排序算法 - sort.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
-#include<algorithm>
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;functional&gt;
 
-//常用拷贝和替换算法 copy
+//常用排序算法 sort
 void myPrint(int val)
 {
-	cout << val << " ";
+	cout &lt;&lt; val &lt;&lt; " ";
 }
-
 void test01()
 {
-	vector<int> v1;
-	for (int i = 0; i < 10; i++)
-	{
-		v1.push_back(i);
-	}
+	vector&lt;int&gt; v;
 
-	vector<int> v2;
-	v2.resize(v1.size());
-	copy(v1.begin(), v1.end(), v2.begin());
+	v.push_back(10);
+	v.push_back(30);
+	v.push_back(50);
+	v.push_back(20);
+	v.push_back(40);
 
-	for_each(v2.begin(), v2.end(), myPrint);
-	cout << endl;
+	//利用sort进行升序
+	sort(v.begin(), v.end());
+	for_each(v.begin(), v.end(), myPrint);
+	cout &lt;&lt; endl;
+
+	//改变为 降序
+	sort(v.begin(), v.end(), greater&lt;int&gt;());
+	for_each(v.begin(), v.end(), myPrint);
+	cout &lt;&lt; endl;
 }
 
 int main()

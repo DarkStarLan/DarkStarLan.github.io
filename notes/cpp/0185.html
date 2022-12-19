@@ -79,70 +79,59 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">59 map容器 - 大小和交换.cpp</h1>
+        <h1 class="code">56 set容器 - 排序.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<map>
+#include&lt;set&gt;
 
-//map容器 大小和交换
+//set容器排序
 
-//大小
+class MyCompare
+{
+public:
+	bool operator()(int v1, int v2) const  //不加const会报错
+	{
+		return v1 &gt; v2;
+	}
+};
+
 void test01()
 {
-	map<int, int> m;
-	m.insert(pair<int, int>(1, 10));
-	m.insert(pair<int, int>(2, 20));
-	m.insert(pair<int, int>(3, 30));
+	set&lt;int&gt; s1;
 
-	if (m.empty())
+	s1.insert(10);
+	s1.insert(40);
+	s1.insert(20);
+	s1.insert(50);
+	s1.insert(30);
+
+	for (set&lt;int&gt;::iterator it = s1.begin(); it != s1.end(); it++)
 	{
-		cout << "m为空" << endl;
+		cout &lt;&lt; *it &lt;&lt; ' ';
 	}
-	else
+	cout &lt;&lt; endl;
+
+	//指定排序规则为从大到小
+	set&lt;int, MyCompare&gt; s2;
+
+	s2.insert(10);
+	s2.insert(40);
+	s2.insert(20);
+	s2.insert(50);
+	s2.insert(30);
+
+	for (set&lt;int, MyCompare&gt;::iterator it = s2.begin(); it != s2.end(); it++)
 	{
-		cout << "m不为空" << endl;
-		cout << "m的大小为: " << m.size() << endl;
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-}
-
-void printMap(map<int, int>& m)
-{
-	for (map<int, int>::iterator it = m.begin(); it != m.end(); it++)
-	{
-		cout << "key = " << it->first << " value = " << it->second << endl;
-	}
-	cout << endl;
-}
-
-//交换
-void test02()
-{
-	map<int, int> m;
-	m.insert(pair<int, int>(1, 10));
-	m.insert(pair<int, int>(2, 20));
-	m.insert(pair<int, int>(3, 30));
-
-	map<int, int> m2;
-	m2.insert(pair<int, int>(4, 100));
-	m2.insert(pair<int, int>(5, 200));
-	m2.insert(pair<int, int>(6, 300));
-
-	cout << "交换前: " << endl;
-	printMap(m);
-	printMap(m2);
-
-	m.swap(m2);
-	cout << "交换后: " << endl;
-	printMap(m);
-	printMap(m2);
+	cout &lt;&lt; endl;
 }
 
 int main()
 {
-	//test01();
-	test02();
+	test01();
 
 	return 0;
 }

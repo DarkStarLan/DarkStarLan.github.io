@@ -79,42 +79,32 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">24 string容器 - 字符存取.cpp</h1>
+        <h1 class="code">23 string容器 - 字符串比较.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
+#include&lt;string&gt;
 
-//24 string 字符存取
+//字符串比较
+
 void test01()
 {
-	string str = "hello";
+	string str1 = "hello";
+	string str2 = "xello";
 
-	//cout << "str = " << str << endl;
-
-	//1.通过[]访问单个字符
-	for (int i = 0; i < str.size(); i++)
+	if (str1.compare(str2) == 0)
 	{
-		cout << str[i] << " ";
+		cout &lt;&lt; "str1 等于 str2" &lt;&lt; endl;
 	}
-	cout << endl;
-
-	//2.通过at方式访问单个字符
-	for (int i = 0; i < str.size(); i++)
+	else if (str1.compare(str2) &gt; 0)
 	{
-		cout << str.at(i) << " ";
+		cout &lt;&lt; "str1 大于 str2" &lt;&lt; endl;
 	}
-	cout << endl;
-
-	//修改单个字符
-	str[0] = 'x';
-	// xello
-	cout << "str = " << str << endl;
-
-	str.at(1) = 'x';
-	// xxllo
-	cout << "str = " << str << endl;
+	else
+	{
+		cout &lt;&lt; "str1 小于 str2" &lt;&lt; endl;
+	}
 }
 
 int main()

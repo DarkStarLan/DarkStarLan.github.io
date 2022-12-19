@@ -79,59 +79,52 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">53 set容器 - 查找和统计.cpp</h1>
+        <h1 class="code">50 set容器 - 构造和赋值.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<set>
+#include&lt;set&gt;
 
-//set容器 查找和统计
+//set容器构造和赋值
+void printSet(set&lt;int&gt;& s)
+{
+	for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
 
 void test01()
 {
-	//查找
-	set<int> s1;
+	set&lt;int&gt; s1;  //底层: 二叉树
 
-	//插入数据
+	//插入数据 只有insert方式
 	s1.insert(10);
+	s1.insert(40);
 	s1.insert(30);
 	s1.insert(20);
-	s1.insert(40);
-
-	set<int>::iterator pos = s1.find(30);
-
-	if (pos != s1.end())
-	{
-		cout << "找到元素: " << *pos << endl;
-	}
-	else
-	{
-		cout << "未找到元素" << endl;
-	}
-}
-
-void test02()
-{
-	//统计
-	set<int> s1;
-
-	//插入数据
-	s1.insert(10);
 	s1.insert(30);
-	s1.insert(20);
-	s1.insert(40);
 
-	//统计30的个数
-	int num = s1.count(30);
-	//对于set而言 统计的结果 要么是0 要么是1
-	cout << "num = " << num << endl;
+	//遍历容器
+	//set容器特点: 所有元素插入时候自动被排序
+	//set容器不允许插入重复值
+	printSet(s1);
+
+	//拷贝构造
+	set&lt;int&gt; s2(s1);
+	printSet(s2);
+
+	//赋值
+	set&lt;int&gt; s3;
+	s3 = s2;
+	printSet(s3);
 }
 
 int main()
 {
-	//test01();
-	test02();
+	test01();
 
 	return 0;
 }

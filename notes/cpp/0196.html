@@ -79,54 +79,42 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">71 常用遍历算法 - transform.cpp</h1>
+        <h1 class="code">67 内建函数对象 - 算数仿函数.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
-#include<algorithm>
+#include&lt;functional&gt;
 
-//常用遍历算法 transform
+// plus			加法仿函数
+// minus		减法仿函数
+// multiplies	乘法仿函数
+// divides		除法仿函数
+// modulus		取模仿函数
+// negate		取反仿函数
 
-class Transform
-{
-public:
-	int operator()(int v)
-	{
-		return v + 100;
-	}
-};
+//内建函数对象 算数仿函数
 
-class MyPrint
-{
-public:
-	void operator()(int val)
-	{
-		cout << val << " ";
-	}
-};
-
+//negate 一元仿函数 取反仿函数
 void test01()
 {
-	vector<int> v;
-	for (int i = 0; i < 10; i++)
-	{
-		v.push_back(i);
-	}
+	negate&lt;int&gt; n;
 
-	vector<int> vTarget;  //目标容器
-	vTarget.resize(v.size());  //目标容器需要提前开辟空间
+	cout &lt;&lt; n(50) &lt;&lt; endl;;
+}
 
-	transform(v.begin(), v.end(), vTarget.begin(), Transform());
+//plus 二元仿函数 加法仿函数
+void test02()
+{
+	plus&lt;int&gt; p;
 
-	for_each(vTarget.begin(), vTarget.end(), MyPrint());
-	cout << endl;
+	cout &lt;&lt; p(10, 20) &lt;&lt; endl;
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

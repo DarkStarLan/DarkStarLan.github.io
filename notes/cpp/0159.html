@@ -79,42 +79,63 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">31 vector容器 - 数据存取.cpp</h1>
+        <h1 class="code">30 vector容器 - 插入和删除.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
+#include&lt;vector&gt;
 
-//vector容器 数据存取
+//vector插入和删除
+//- push_back();										尾部插入元素ele
+//- pop_back();											删除最后一个元素
+//- insert(const_iterator pos, ele);					迭代器指向位置pos插入元素ele
+//- insert(const_iterator pos, int count, ele);			迭代器指向位置pos插入count个元素ele
+//- erase(const_iterator pos);							删除迭代器指向的元素
+//- erase(const_iterator start, const_iterator end);	删除迭代器从start到end之间的元素
+//- clear();											删除容器中所有元素
+
+void printVector(vector&lt;int&gt;& v)
+{
+	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
 
 void test01()
 {
-	vector<int> v1;
-	for (int i = 0; i < 10; i++)
-	{
-		v1.push_back(i);
-	}
+	vector&lt;int&gt; v1;
+	//尾插
+	v1.push_back(10);
+	v1.push_back(20);
+	v1.push_back(30);
+	v1.push_back(40);
+	v1.push_back(50);
 
-	//利用[]的方式访问数组中元素
-	for (int i = 0; i < v1.size(); i++)
-	{
-		cout << v1[i] << " ";
-	}
-	cout << endl;
+	//遍历
+	printVector(v1);
 
-	//利用at方式访问元素
-	for (int i = 0; i < v1.size(); i++)
-	{
-		cout << v1.at(i) << " ";
-	}
-	cout << endl;
+	//尾删
+	v1.pop_back();
+	printVector(v1);
 
-	//返回第一个元素
-	cout << "第一个元素为: " << v1.front() << endl;
+	//插入  第一个参数是迭代器
+	v1.insert(v1.begin(), 100);
+	printVector(v1);
 
-	//获取最后一个元素
-	cout << "最后一个元素为: " << v1.back() << endl;
+	v1.insert(v1.begin(), 2, 1000);
+	printVector(v1);
+
+	//删除  参数也是迭代器
+	v1.erase(v1.begin());
+	printVector(v1);
+
+	//清空
+	//v1.erase(v1.begin(), v1.end());
+	v1.clear();
+	printVector(v1);
 }
 
 int main()

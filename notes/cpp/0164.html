@@ -79,50 +79,45 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">36 deque容器 - 大小操作.cpp</h1>
+        <h1 class="code">35 deque容器 - 赋值操作.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<deque>
+#include&lt;deque&gt;
 
-//deque容器大小操作
-void printDeque(const deque<int>& d)
+void printDeque(const deque&lt;int&gt;& d)
 {
-	for (deque<int>::const_iterator it = d.begin(); it != d.end(); it++)
+	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
 	{
-		cout << *it << " ";
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-	cout << endl;
+	cout &lt;&lt; endl;
 }
 
+//deque容器赋值操作
 void test01()
 {
-	deque<int> d1;
-	for (int i = 0; i < 10; i++)
+	deque&lt;int&gt; d1;
+	for (int i = 0; i &lt; 10; i++)
 	{
 		d1.push_back(i);
 	}
 	printDeque(d1);
 
-	if (d1.empty())
-	{
-		cout << "d1为空" << endl;
-	}
-	else
-	{
-		cout << "d1不为空" << endl;
-		cout << "d1的大小为: " << d1.size() << endl;
-		//deque容器没有容量概念
-	}
+	//operator= 赋值
+	deque&lt;int&gt; d2;
+	d2 = d1;
+	printDeque(d2);
 
-	//重新指定大小
-	//d1.resize(15);
-	d1.resize(15, 1);
-	printDeque(d1);
+	//assign 赋值
+	deque&lt;int&gt; d3;
+	d3.assign(d1.begin(), d1.end());
+	printDeque(d3);
 
-	d1.resize(5);
-	printDeque(d1);
+	deque&lt;int&gt; d4;
+	d4.assign(10, 100);
+	printDeque(d4);
 }
 
 int main()

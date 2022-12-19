@@ -79,26 +79,42 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">25 string容器 - 插入和删除.cpp</h1>
+        <h1 class="code">24 string容器 - 字符存取.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
+#include&lt;string&gt;
 
-//字符串 插入和删除
+//24 string 字符存取
 void test01()
 {
 	string str = "hello";
 
-	//插入
-	str.insert(1, "111");
-	//h111ello
-	cout << "str = " << str << endl;
+	//cout &lt;&lt; "str = " &lt;&lt; str &lt;&lt; endl;
 
-	//删除
-	str.erase(1, 3);
-	cout << "str = " << str << endl;
+	//1.通过[]访问单个字符
+	for (int i = 0; i &lt; str.size(); i++)
+	{
+		cout &lt;&lt; str[i] &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+
+	//2.通过at方式访问单个字符
+	for (int i = 0; i &lt; str.size(); i++)
+	{
+		cout &lt;&lt; str.at(i) &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+
+	//修改单个字符
+	str[0] = 'x';
+	// xello
+	cout &lt;&lt; "str = " &lt;&lt; str &lt;&lt; endl;
+
+	str.at(1) = 'x';
+	// xxllo
+	cout &lt;&lt; "str = " &lt;&lt; str &lt;&lt; endl;
 }
 
 int main()

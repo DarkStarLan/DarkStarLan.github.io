@@ -79,45 +79,41 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">65 谓词 - 一元谓词.cpp</h1>
+        <h1 class="code">61 map容器 - 查找和统计.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
-#include<algorithm>
+#include&lt;map&gt;
 
-//仿函数 返回值类型是bool数据类型，称为谓词
-//一元谓词
-
-class GreaterFive
-{
-public:
-	bool operator()(int val) const
-	{
-		return val > 5;
-	}
-};
+//map容器 查找和统计
 
 void test01()
 {
-	vector<int> v;
-	for (int i = 0; i < 10; i++)
-	{
-		v.push_back(i);
-	}
+	//查找
+	map&lt;int, int&gt; m;
+	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair&lt;int, int&gt;(2, 20));
+	m.insert(pair&lt;int, int&gt;(3, 30));
+	m.insert(pair&lt;int, int&gt;(3, 40));
 
-	//查找容器中 有没有大于5的数字
-	//GreaterFive() 匿名函数对象
-	vector<int>::iterator it = find_if(v.begin(), v.end(), GreaterFive());
-	if (it == v.end())
+	map&lt;int, int&gt;::iterator pos = m.find(3);
+
+	if (pos != m.end())
 	{
-		cout << "未找到" << endl;
+		cout &lt;&lt; "查到了元素 key = " &lt;&lt; (*pos).first &lt;&lt; " value = " &lt;&lt; pos-&gt;second &lt;&lt; endl;
 	}
 	else
 	{
-		cout << "找到了大于5的数字为: " << *it << endl;
+		cout &lt;&lt; "未找到元素" &lt;&lt; endl;
 	}
+
+	//统计
+	//map不允许插入重复key 元素，对于count统计而言 结果要么是0 要么是1
+	//multimap的count统计可能大于1
+	int num = m.count(3);
+	cout &lt;&lt; "num = " &lt;&lt; num &lt;&lt; endl;
+
 }
 
 int main()

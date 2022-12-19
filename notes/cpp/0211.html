@@ -79,27 +79,34 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">86 常用算术生成算法 - accumulate.cpp</h1>
+        <h1 class="code">82 常用拷贝和替换算法 - copy.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
-#include<numeric>
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
 
-//常用算术生成算法
+//常用拷贝和替换算法 copy
+void myPrint(int val)
+{
+	cout &lt;&lt; val &lt;&lt; " ";
+}
+
 void test01()
 {
-	vector<int> v;
-
-	for (int i = 0; i <= 100; i++)
+	vector&lt;int&gt; v1;
+	for (int i = 0; i &lt; 10; i++)
 	{
-		v.push_back(i);
+		v1.push_back(i);
 	}
-	//参数3  起始累加值
-	int total = accumulate(v.begin(), v.end(), 0);
 
-	cout << "total = " << total << endl;
+	vector&lt;int&gt; v2;
+	v2.resize(v1.size());
+	copy(v1.begin(), v1.end(), v2.begin());
+
+	for_each(v2.begin(), v2.end(), myPrint);
+	cout &lt;&lt; endl;
 }
 
 int main()

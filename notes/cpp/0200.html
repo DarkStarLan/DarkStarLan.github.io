@@ -79,34 +79,49 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">75 常用查找算法 - binary_search.cpp</h1>
+        <h1 class="code">71 常用遍历算法 - transform.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
-#include<algorithm>
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
 
-//常用查找算法 binary_search
+//常用遍历算法 transform
+
+class Transform
+{
+public:
+	int operator()(int v)
+	{
+		return v + 100;
+	}
+};
+
+class MyPrint
+{
+public:
+	void operator()(int val)
+	{
+		cout &lt;&lt; val &lt;&lt; " ";
+	}
+};
+
 void test01()
 {
-	vector<int> v;
-	for (int i = 0; i < 10; i++)
+	vector&lt;int&gt; v;
+	for (int i = 0; i &lt; 10; i++)
 	{
 		v.push_back(i);
 	}
-	//v.push_back(2);  //如果是无序序列，结果未知
-	//查找容器中是否有元素 9
-	//主义：容器必须是有序的序列
-	bool ret = binary_search(v.begin(), v.end(), 9);
-	if (ret)
-	{
-		cout << "找到了元素" << endl;
-	}
-	else
-	{
-		cout << "未找到" << endl;
-	}
+
+	vector&lt;int&gt; vTarget;  //目标容器
+	vTarget.resize(v.size());  //目标容器需要提前开辟空间
+
+	transform(v.begin(), v.end(), vTarget.begin(), Transform());
+
+	for_each(vTarget.begin(), vTarget.end(), MyPrint());
+	cout &lt;&lt; endl;
 }
 
 int main()

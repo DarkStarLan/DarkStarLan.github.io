@@ -79,59 +79,59 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">56 set容器 - 排序.cpp</h1>
+        <h1 class="code">53 set容器 - 查找和统计.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<set>
+#include&lt;set&gt;
 
-//set容器排序
-
-class MyCompare
-{
-public:
-	bool operator()(int v1, int v2) const  //不加const会报错
-	{
-		return v1 > v2;
-	}
-};
+//set容器 查找和统计
 
 void test01()
 {
-	set<int> s1;
+	//查找
+	set&lt;int&gt; s1;
 
+	//插入数据
 	s1.insert(10);
-	s1.insert(40);
-	s1.insert(20);
-	s1.insert(50);
 	s1.insert(30);
+	s1.insert(20);
+	s1.insert(40);
 
-	for (set<int>::iterator it = s1.begin(); it != s1.end(); it++)
+	set&lt;int&gt;::iterator pos = s1.find(30);
+
+	if (pos != s1.end())
 	{
-		cout << *it << ' ';
+		cout &lt;&lt; "找到元素: " &lt;&lt; *pos &lt;&lt; endl;
 	}
-	cout << endl;
-
-	//指定排序规则为从大到小
-	set<int, MyCompare> s2;
-
-	s2.insert(10);
-	s2.insert(40);
-	s2.insert(20);
-	s2.insert(50);
-	s2.insert(30);
-
-	for (set<int, MyCompare>::iterator it = s2.begin(); it != s2.end(); it++)
+	else
 	{
-		cout << *it << " ";
+		cout &lt;&lt; "未找到元素" &lt;&lt; endl;
 	}
-	cout << endl;
+}
+
+void test02()
+{
+	//统计
+	set&lt;int&gt; s1;
+
+	//插入数据
+	s1.insert(10);
+	s1.insert(30);
+	s1.insert(20);
+	s1.insert(40);
+
+	//统计30的个数
+	int num = s1.count(30);
+	//对于set而言 统计的结果 要么是0 要么是1
+	cout &lt;&lt; "num = " &lt;&lt; num &lt;&lt; endl;
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

@@ -79,45 +79,44 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">28 vector容器 - 赋值操作.cpp</h1>
+        <h1 class="code">27 vector容器 - 构造函数.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
+#include&lt;vector&gt;  //单端数组
 
-void printVector(vector<int>& v)
+void printVector(vector&lt;int&gt;& v)
 {
-	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++)
 	{
-		cout << *it << " ";
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-	cout << endl;
+	cout &lt;&lt; endl;
 }
 
-//28 vector赋值
+//vector容器构造
 void test01()
 {
-	vector<int> v1;
-	for (int i = 0; i < 10; i++)
+	vector&lt;int&gt; v1;  //默认构造 无参构造
+
+	for (int i = 0; i &lt; 10; i++)
 	{
 		v1.push_back(i);
 	}
+
 	printVector(v1);
 
-	//赋值  operator=
-	vector<int> v2;
-	v2 = v1;
+	//通过区间的方式进行构造
+	vector&lt;int&gt; v2(v1.begin(), v1.end());
 	printVector(v2);
 
-	//assign  前闭后开[)
-	vector<int> v3;
-	v3.assign(v1.begin(), v1.end());
+	//n个elem方式构造
+	vector&lt;int&gt; v3(10, 100);
 	printVector(v3);
 
-	//n个elem方式赋值
-	vector<int> v4;
-	v4.assign(10, 100);
+	//拷贝构造
+	vector&lt;int&gt; v4(v3);
 	printVector(v4);
 }
 

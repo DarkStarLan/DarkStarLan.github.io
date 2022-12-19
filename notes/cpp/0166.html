@@ -79,46 +79,108 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">38 deque容器 - 数据存取.cpp</h1>
+        <h1 class="code">37 deque容器 - 插入和删除.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<deque>
+#include&lt;deque&gt;
+//deque容器插入和删除
 
-//deque容器数据存取
+void printDeque(const deque&lt;int&gt;& d)
+{
+	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+//两端操作
 void test01()
 {
-	deque<int> d;
-	d.push_back(10);
-	d.push_back(20);
-	d.push_back(30);
-	d.push_front(100);
-	d.push_front(200);
-	d.push_front(300);
+	deque&lt;int&gt; d1;
 
-	//通过[]方式访问元素
-	// 300 200 100 10 20 30
-	for (int i = 0; i < d.size(); i++)
-	{
-		cout << d[i] << " ";
-	}
-	cout << endl;
+	//尾插
+	d1.push_back(10);
+	d1.push_back(20);
 
-	//通过at方式来访问元素
-	for (int i = 0; i < d.size(); i++)
-	{
-		cout << d.at(i) << " ";
-	}
-	cout << endl;
+	//头插
+	d1.push_front(100);
+	d1.push_front(200);
 
-	cout << "第一个元素为: " << d.front() << endl;
-	cout << "最后一个元素: " << d.back() << endl;
+	//200 100 10 20
+	printDeque(d1);
+
+	//尾删
+	d1.pop_back();
+	//200 100 10
+	printDeque(d1);
+
+	//头删
+	d1.pop_front();
+	//100 10
+	printDeque(d1);
+}
+
+void test02()
+{
+	deque&lt;int&gt; d1;
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	// 200 100 10 20
+	printDeque(d1);
+
+	//insert插入
+	d1.insert(d1.begin(), 1000);
+	// 1000 200 100 10 20
+	printDeque(d1);
+
+	d1.insert(d1.begin(), 2, 10000);
+	// 10000 10000 1000 200 100 10 20
+	printDeque(d1);
+
+	//按照区间进行插入
+	deque&lt;int&gt; d2;
+	d2.push_back(1);
+	d2.push_back(2);
+	d2.push_back(3);
+	
+	d1.insert(d1.begin(), d2.begin(), d2.end());
+	// 10000 10000 1000 200 100 10 20
+	printDeque(d1);
+}
+
+void test03()
+{
+	deque&lt;int&gt; d1;
+	d1.push_back(10);
+	d1.push_back(20);
+	d1.push_front(100);
+	d1.push_front(200);
+
+	//删除
+	deque&lt;int&gt;::iterator it = d1.begin();
+	it++;
+	d1.erase(it);
+	// 200 10 20
+	printDeque(d1);
+
+	//按区间方式删除
+	//d1.erase(d1.begin(), d1.end());
+	//清空
+	d1.clear();
+	printDeque(d1);
 }
 
 int main()
 {
-	test01();
+	//test01();
+	//test02();
+	test03();
 
 	return 0;
 }

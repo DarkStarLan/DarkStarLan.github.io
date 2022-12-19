@@ -79,84 +79,93 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">48 list容器 - 反转和排序.cpp</h1>
+        <h1 class="code">46 list容器 - 插入和删除.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<list>
-#include<algorithm>  //最终代码未使用
+#include&lt;list&gt;
 
-//list容器反转和排序
+//list容器插入和删除
 
-void printList(const list<int>& L)
+//- push_back(elem);		在容器尾部加入一个元素
+//- pop_back();				删除容器中最后一个元素
+//- push_front(elem);		在容器开头插入一个元素
+//- pop_front();			从容器开头移除第一个元素
+//- insert(pos, elem);		在pos位置插入elem元素的拷贝
+//- insert(pos, n, elem);	在pos位置插入n个elem数据
+//- insert(pos, beg, end);	在pos位置插入[beg,end)区间的数据，无返回值
+//- clear();				移除容器的所有数据
+//- erase(beg, end);		删除[beg,end)区间的数据
+//- erase(pos);				删除pos位置的数据，返回下一个数据的位置
+//- remove(elem);			删除容器中所有与elem值匹配的元素
+
+void printList(const list&lt;int&gt;& L)
 {
-	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++)
+	for (list&lt;int&gt;::const_iterator it = L.begin(); it != L.end(); it++)
 	{
-		cout << *it << " ";
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-	cout << endl;
+	cout &lt;&lt; endl;
 }
 
 void test01()
 {
-	//反转
-	list<int> L1;
+	list&lt;int&gt; L;
 
-	L1.push_back(20);
-	L1.push_back(10);
-	L1.push_back(50);
-	L1.push_back(40);
-	L1.push_back(30);
+	//尾插
+	L.push_back(10);
+	L.push_back(20);
+	L.push_back(30);
 
-	cout << "反转前: " << endl;
-	printList(L1);
+	//头插
+	L.push_front(100);
+	L.push_front(200);
+	L.push_front(300);
 
-	//反转
-	L1.reverse();
-	cout << "反转后: " << endl;
-	printList(L1);
+	// 300 200 100 10 20 30
+	printList(L);
 
-}
+	//尾删
+	L.pop_back();
+	// 300 200 100 10 20
+	printList(L);
 
-bool myCompare(int v1, int v2)
-{
-	//降序  让第一个数大于第一个数
-	return v1 > v2;
-}
+	//头删
+	L.pop_front();
+	// 200 100 10 20
+	printList(L);
 
-//排序
-void test02()
-{
-	list<int> L1;
+	//insert插入
+	list&lt;int&gt;::iterator it = L.begin();
+	L.insert(++it, 1000);
+	// 200 1000 100 10 20
+	printList(L);
 
-	L1.push_back(20);
-	L1.push_back(10);
-	L1.push_back(50);
-	L1.push_back(40);
-	L1.push_back(30);
+	//删除
+	it = L.begin();
+	L.erase(++it);
+	// 200 100 10 20
+	printList(L);
 
-	//排序
-	cout << "排序前: " << endl;
-	printList(L1);
+	//移除
+	L.push_back(10000);
+	L.push_back(10000);
+	L.push_back(10000);
+	L.push_back(10000);
+	printList(L);
 
-	//所有不支持随机访问迭代器的容器，不可以用标准算法
-	//不支持随机访问迭代器的容器，内部会提供对应的一些算法
-	
-	L1.sort();  //默认排序规则 从小到大 升序
-	cout << "排序后: " << endl;
-	printList(L1);
+	L.remove(10000);
+	printList(L);
 
-	//L1.sort([](int v1, int v2) {return v1 > v2; });  //可以通过匿名函数实现(我写的)
-	L1.sort(myCompare);
-	printList(L1);
-
+	//清空
+	L.clear();
+	printList(L);
 }
 
 int main()
 {
-	//test01();
-	test02();
+	test01();
 
 	return 0;
 }

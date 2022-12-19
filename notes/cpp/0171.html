@@ -79,77 +79,65 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">44 list容器 - 赋值和交换.cpp</h1>
+        <h1 class="code">42 queue容器.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<list>
+#include&lt;queue&gt;
+#include&lt;string&gt;
 
-//list容器赋值和交换
-
-void printList(const list<int>& L)
+//队列 Queue
+class Person
 {
-	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++)
+public:
+	Person(string name, int age)
 	{
-		cout << *it << " ";
+		this-&gt;m_Name = name;
+		this-&gt;m_Age = age;
 	}
-	cout << endl;
-}
+	string m_Name;
+	int m_Age;
+};
 
-//赋值
 void test01()
 {
-	list<int> L1;
+	//创建队列
+	queue&lt;Person&gt; q;
 
-	L1.push_back(10);
-	L1.push_back(20);
-	L1.push_back(30);
-	L1.push_back(40);
+	//准备数据
+	Person p1("唐僧", 30);
+	Person p2("孙悟空", 1000);
+	Person p3("猪八戒", 900);
+	Person p4("沙僧", 800);
 
-	printList(L1);
+	//入队
+	q.push(p1);
+	q.push(p2);
+	q.push(p3);
+	q.push(p4);
 
-	list<int> L2;
-	L2 = L1;  //operator=赋值
-	printList(L2);
+	cout &lt;&lt; "队列大小为: " &lt;&lt; q.size() &lt;&lt; endl;
 
-	list<int> L3;
-	L3.assign(L2.begin(), L2.end());
-	printList(L3);
+	//判断只要队列不为空，查看队头，查看队尾，出队
+	while (!q.empty())
+	{
+		//查看队头
+		cout &lt;&lt; "队头元素 --- 姓名: " &lt;&lt; q.front().m_Name &lt;&lt; " 年龄: " &lt;&lt; q.front().m_Age &lt;&lt; endl;
 
-	list<int> L4;
-	L4.assign(10, 100);
-	printList(L4);
+		//查看队尾
+		cout &lt;&lt; "队头元素 --- 姓名: " &lt;&lt; q.back().m_Name &lt;&lt; " 年龄: " &lt;&lt; q.back().m_Age &lt;&lt; endl;
 
-}
+		//出队
+		q.pop();
+	}
 
-//交换
-void test02()
-{
-	list<int> L1;
-
-	L1.push_back(10);
-	L1.push_back(20);
-	L1.push_back(30);
-	L1.push_back(40);
-
-	list<int> L2;
-	L2.assign(10, 100);
-
-	cout << "交换前: " << endl;
-	printList(L1);
-	printList(L2);
-
-	L1.swap(L2);
-	cout << "交换后: " << endl;
-	printList(L1);
-	printList(L2);
+	cout &lt;&lt; "队列大小为: " &lt;&lt; q.size() &lt;&lt; endl;
 }
 
 int main()
 {
-	//test01();
-	test02();
+	test01();
 
 	return 0;
 }

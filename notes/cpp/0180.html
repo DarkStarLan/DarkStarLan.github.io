@@ -79,57 +79,84 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">54 set容器 - set和multiset区别.cpp</h1>
+        <h1 class="code">51 set容器 - 大小和交换.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<set>
+#include&lt;set&gt;
 
-//set容器和multiset容器的区别
+//set容器 大小和交换
+
+void printSet(set&lt;int&gt;& s)
+{
+	for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+//大小
 void test01()
 {
-	set<int> s;
+	//不支持resize()
+	set&lt;int&gt; s1;
 
-	pair<set<int>::iterator, bool> ret = s.insert(10);
+	//插入数据
+	s1.insert(10);
+	s1.insert(30);
+	s1.insert(20);
+	s1.insert(40);
 
-	if (ret.second)
+	//打印容器
+	printSet(s1);
+
+	//判断是否为空
+	if (s1.empty())
 	{
-		cout << "第一次插入成功" << endl;
+		cout &lt;&lt; "s1为空" &lt;&lt; endl;
 	}
 	else
 	{
-		cout << "第一次插入失败" << endl;
+		cout &lt;&lt; "s1不为空" &lt;&lt; endl;
+		cout &lt;&lt; "s1的大小为: " &lt;&lt; s1.size() &lt;&lt; endl;;
 	}
+}
 
-	ret = s.insert(10);
+//交换
+void test02()
+{
+	set&lt;int&gt; s1;
 
-	if (ret.second)
-	{
-		cout << "第二次插入成功" << endl;
-	}
-	else
-	{
-		cout << "第二次插入失败" << endl;
-	}
+	//插入数据
+	s1.insert(10);
+	s1.insert(30);
+	s1.insert(20);
+	s1.insert(40);
 
-	multiset<int> ms;
-	//允许插入重复值
-	ms.insert(10);
-	ms.insert(10);
-	ms.insert(10);
-	ms.insert(10);
+	set&lt;int&gt; s2;
 
-	for (multiset<int>::iterator it = ms.begin(); it != ms.end(); it++)
-	{
-		cout << *it << " ";
-	}
-	cout << endl;
+	//插入数据
+	s2.insert(100);
+	s2.insert(300);
+	s2.insert(200);
+	s2.insert(400);
+
+	cout &lt;&lt; "交换前: " &lt;&lt; endl;
+	printSet(s1);
+	printSet(s2);
+
+	cout &lt;&lt; "交换后: " &lt;&lt; endl;
+	s1.swap(s2);
+	printSet(s1);
+	printSet(s2);
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

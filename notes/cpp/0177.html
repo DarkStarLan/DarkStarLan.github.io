@@ -79,78 +79,78 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">51 set容器 - 大小和交换.cpp</h1>
+        <h1 class="code">48 list容器 - 反转和排序.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<set>
+#include&lt;list&gt;
+#include&lt;algorithm&gt;  //最终代码未使用
 
-//set容器 大小和交换
+//list容器反转和排序
 
-void printSet(set<int>& s)
+void printList(const list&lt;int&gt;& L)
 {
-	for (set<int>::iterator it = s.begin(); it != s.end(); it++)
+	for (list&lt;int&gt;::const_iterator it = L.begin(); it != L.end(); it++)
 	{
-		cout << *it << " ";
+		cout &lt;&lt; *it &lt;&lt; " ";
 	}
-	cout << endl;
+	cout &lt;&lt; endl;
 }
 
-//大小
 void test01()
 {
-	//不支持resize()
-	set<int> s1;
+	//反转
+	list&lt;int&gt; L1;
 
-	//插入数据
-	s1.insert(10);
-	s1.insert(30);
-	s1.insert(20);
-	s1.insert(40);
+	L1.push_back(20);
+	L1.push_back(10);
+	L1.push_back(50);
+	L1.push_back(40);
+	L1.push_back(30);
 
-	//打印容器
-	printSet(s1);
+	cout &lt;&lt; "反转前: " &lt;&lt; endl;
+	printList(L1);
 
-	//判断是否为空
-	if (s1.empty())
-	{
-		cout << "s1为空" << endl;
-	}
-	else
-	{
-		cout << "s1不为空" << endl;
-		cout << "s1的大小为: " << s1.size() << endl;;
-	}
+	//反转
+	L1.reverse();
+	cout &lt;&lt; "反转后: " &lt;&lt; endl;
+	printList(L1);
+
 }
 
-//交换
+bool myCompare(int v1, int v2)
+{
+	//降序  让第一个数大于第一个数
+	return v1 &gt; v2;
+}
+
+//排序
 void test02()
 {
-	set<int> s1;
+	list&lt;int&gt; L1;
 
-	//插入数据
-	s1.insert(10);
-	s1.insert(30);
-	s1.insert(20);
-	s1.insert(40);
+	L1.push_back(20);
+	L1.push_back(10);
+	L1.push_back(50);
+	L1.push_back(40);
+	L1.push_back(30);
 
-	set<int> s2;
+	//排序
+	cout &lt;&lt; "排序前: " &lt;&lt; endl;
+	printList(L1);
 
-	//插入数据
-	s2.insert(100);
-	s2.insert(300);
-	s2.insert(200);
-	s2.insert(400);
+	//所有不支持随机访问迭代器的容器，不可以用标准算法
+	//不支持随机访问迭代器的容器，内部会提供对应的一些算法
+	
+	L1.sort();  //默认排序规则 从小到大 升序
+	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	printList(L1);
 
-	cout << "交换前: " << endl;
-	printSet(s1);
-	printSet(s2);
+	//L1.sort([](int v1, int v2) {return v1 &gt; v2; });  //可以通过匿名函数实现(我写的)
+	L1.sort(myCompare);
+	printList(L1);
 
-	cout << "交换后: " << endl;
-	s1.swap(s2);
-	printSet(s1);
-	printSet(s2);
 }
 
 int main()

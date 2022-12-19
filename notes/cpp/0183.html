@@ -79,59 +79,52 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">57 set容器 - 排序(自定义类型).cpp</h1>
+        <h1 class="code">54 set容器 - set和multiset区别.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
-#include<set>
+#include&lt;set&gt;
 
-//set容器排序，存放自定义数据类型
-
-class Person
-{
-public:
-	Person(string name, int age)
-	{
-		this->m_Name = name;
-		this->m_Age = age;
-	}
-	string m_Name;
-	int m_Age;
-};
-
-class comparePerson
-{
-public:
-	bool operator()(const Person& p1, const Person p2) const
-	{
-		//按照年龄 降序
-		return p1.m_Age > p2.m_Age;
-	}
-};
-
+//set容器和multiset容器的区别
 void test01()
 {
-	//自定义数据类型 都会指定排序规则
-	set<Person, comparePerson> s;
+	set&lt;int&gt; s;
 
-	//创建Person对象
-	Person p1("刘备", 24);
-	Person p2("关羽", 28);
-	Person p3("张飞", 25);
-	Person p4("赵云", 21);
+	pair&lt;set&lt;int&gt;::iterator, bool&gt; ret = s.insert(10);
 
-	s.insert(p1);
-	s.insert(p2);
-	s.insert(p3);
-	s.insert(p4);
-
-	for (set<Person, comparePerson>::iterator it = s.begin(); it != s.end(); it++)
+	if (ret.second)
 	{
-		cout << "姓名: " << it->m_Name << " 年龄: " << it->m_Age << endl;
+		cout &lt;&lt; "第一次插入成功" &lt;&lt; endl;
 	}
-	cout << endl;
+	else
+	{
+		cout &lt;&lt; "第一次插入失败" &lt;&lt; endl;
+	}
+
+	ret = s.insert(10);
+
+	if (ret.second)
+	{
+		cout &lt;&lt; "第二次插入成功" &lt;&lt; endl;
+	}
+	else
+	{
+		cout &lt;&lt; "第二次插入失败" &lt;&lt; endl;
+	}
+
+	multiset&lt;int&gt; ms;
+	//允许插入重复值
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
+
+	for (multiset&lt;int&gt;::iterator it = ms.begin(); it != ms.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
 }
 
 int main()

@@ -79,50 +79,42 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">27 vector容器 - 构造函数.cpp</h1>
+        <h1 class="code">26 string容器 - 子串.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>  //单端数组
+#include&lt;string&gt;
 
-void printVector(vector<int>& v)
-{
-	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-	{
-		cout << *it << " ";
-	}
-	cout << endl;
-}
+//string求子串
 
-//vector容器构造
 void test01()
 {
-	vector<int> v1;  //默认构造 无参构造
+	string str = "abcdef";
 
-	for (int i = 0; i < 10; i++)
-	{
-		v1.push_back(i);
-	}
+	string subStr = str.substr(1, 3);
 
-	printVector(v1);
+	cout &lt;&lt; "subStr = " &lt;&lt; subStr &lt;&lt; endl;
+}
 
-	//通过区间的方式进行构造
-	vector<int> v2(v1.begin(), v1.end());
-	printVector(v2);
+void test02()
+{
+	string email = "zhangsan@sina.com";
 
-	//n个elem方式构造
-	vector<int> v3(10, 100);
-	printVector(v3);
+	//从邮件地址中 获取 用户名信息
 
-	//拷贝构造
-	vector<int> v4(v3);
-	printVector(v4);
+	int pos = email.find('@');
+	cout &lt;&lt; pos &lt;&lt; endl;
+
+	string userName = email.substr(0, pos);
+
+	cout &lt;&lt; userName &lt;&lt; endl;
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

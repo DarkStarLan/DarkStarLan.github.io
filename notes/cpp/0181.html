@@ -79,24 +79,49 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">55 pair对组 - 对组的创建.cpp</h1>
+        <h1 class="code">52 set容器 - 插入和删除.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
+#include&lt;set&gt;
 
-//pair对组对组的创建
+//set容器 插入和删除
+
+void printSet(set&lt;int&gt;& s)
+{
+	for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
 void test01()
 {
-	pair<string, int> p("Tom", 20);
+	set&lt;int&gt; s1;
 
-	cout << "姓名: " << p.first << " 年龄: " << p.second << endl;
+	//插入
+	s1.insert(30);
+	s1.insert(10);
+	s1.insert(20);
+	s1.insert(40);
 
-	//第二种方式
-	pair<string, int> p2 = make_pair("Jerry", 30);
+	//遍历
+	printSet(s1);
 
-	cout << "姓名: " << p2.first << " 年龄: " << p2.second << endl;
+	//删除
+	s1.erase(s1.begin());
+	printSet(s1);
+
+	//删除重载版本
+	s1.erase(30);
+	printSet(s1);
+
+	//清空
+	//s1.erase(s1.begin(), s1.end());
+	s1.clear();
+	printSet(s1);
 }
 
 int main()

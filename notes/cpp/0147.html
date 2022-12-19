@@ -79,34 +79,49 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">19 string容器 - 构造函数.cpp</h1>
+        <h1 class="code">18 STL初识 - 容器嵌套容器.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
+#include&lt;vector&gt;
 
-//string的构造函数
-
-//- string();
-//  string(const char* s);
-//- string(const string& str);
-//- string(int n, char c);
-
+//容器嵌套容器
 void test01()
 {
-	string s1;  //默认构造
+	vector&lt;vector&lt;int&gt;&gt; v;
 
-	const char* str = "hello world";
-	string s2(str);
+	//创建小容器
+	vector&lt;int&gt; v1;
+	vector&lt;int&gt; v2;
+	vector&lt;int&gt; v3;
+	vector&lt;int&gt; v4;
+	
+	//向小容器中添加元素
+	for (int i = 0; i &lt; 4; i++)
+	{
+		v1.push_back(i + 1);
+		v2.push_back(i + 2);
+		v3.push_back(i + 3);
+		v4.push_back(i + 4);
+	}
 
-	cout << "s2 = " << s2 << endl;
-
-	string s3(s2);
-	cout << "s3 = " << s3 << endl;
-
-	string s4(10, 'a');
-	cout << "s4 = " << s4 << endl;
+	//将小容器插入到大容器中
+	v.push_back(v1);
+	v.push_back(v2);
+	v.push_back(v3);
+	v.push_back(v4);
+	
+	//通过大容器，把所有数据遍历一遍
+	for (vector&lt;vector&lt;int&gt;&gt;::iterator it = v.begin(); it != v.end(); it++)
+	{
+		//(*it) ---- 容器 vector&lt;int&gt;
+		for (vector&lt;int&gt;::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
+		{
+			cout &lt;&lt; *vit &lt;&lt; " ";
+		}
+		cout &lt;&lt; endl;
+	}
 }
 
 int main()

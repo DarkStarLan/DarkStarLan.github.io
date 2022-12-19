@@ -79,50 +79,34 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">20 string容器 - 赋值操作.cpp</h1>
+        <h1 class="code">19 string容器 - 构造函数.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
+#include&lt;string&gt;
 
-//string赋值操作
-//- string& operator=(const char* s);		char*类型字符串 赋值给当前的字符串
-//- string& operator=(const string& s);		把字符串s赋值给当前的字符串
-//- string& operator=(char c);				字符赋值给当前的字符串
-//- string& assign(const char* s);			把字符串s赋值给当前的字符串
-//- string& assign(const char* s, int n);	把字符串s的前n个字符赋值给当前字符串
-//- string& assign(const string& s);		把字符串s赋值给当前字符串
-//- string& assign(int n, char c);			用n个字符c赋值给当前字符串
+//string的构造函数
+
+//- string();
+//  string(const char* s);
+//- string(const string& str);
+//- string(int n, char c);
 
 void test01()
 {
-	string str1;
-	str1 = "hello world";
-	cout << "str1 = " << str1 << endl;
+	string s1;  //默认构造
 
-	string str2;
-	str2 = str1;
-	cout << "str2 = " << str2 << endl;
+	const char* str = "hello world";
+	string s2(str);
 
-	string str3;
-	str3 = 'a';
-	cout << "str3 = " << str3 << endl;
+	cout &lt;&lt; "s2 = " &lt;&lt; s2 &lt;&lt; endl;
 
-	string str4;
-	str4.assign("hello C++");
-	cout << "str4 = " << str4 << endl;
+	string s3(s2);
+	cout &lt;&lt; "s3 = " &lt;&lt; s3 &lt;&lt; endl;
 
-	string str5;
-	str5.assign("hello C++", 5);
-	cout << "str5 = " << str5 << endl;
-
-	string str6;
-	str6.assign(str5);
-	cout << "str6 = " << str6 << endl;
-
-	string str7;
-	str7.assign(10, 'w');
-	cout << "str7 = " << str7 << endl;
+	string s4(10, 'a');
+	cout &lt;&lt; "s4 = " &lt;&lt; s4 &lt;&lt; endl;
 }
 
 int main()

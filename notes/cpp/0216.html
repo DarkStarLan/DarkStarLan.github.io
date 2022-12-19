@@ -79,25 +79,38 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">person.h</h1>
+        <h1 class="code">87 常用算术生成算法 - fill.cpp</h1>
         <pre>
             <code class="code">
-#pragma once
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
+#include&lt;vector&gt;
+#include&lt;numeric&gt;
+#include&lt;algorithm&gt;
 
-#include<string>
-template<class T1, class T2>
-class Person
+//常用算术生成算法 fill
+void myPrint(int val)
 {
-public:
-	Person(T1 name, T2 age);
+	cout &lt;&lt; val &lt;&lt; " ";
+}
+void test01()
+{
+	vector&lt;int&gt; v;
+	v.resize(10);
 
-	void showPerson();
+	//后期重新填充
+	fill(v.begin(), v.end(), 100);
 
-	T1 m_Name;
-	T2 m_Age;
-};
+	for_each(v.begin(), v.end(), myPrint);
+	cout &lt;&lt; endl;
+}
+
+int main()
+{
+	test01();
+
+	return 0;
+}
             </code>
         </pre>
     </body>

@@ -79,49 +79,83 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">52 set容器 - 插入和删除.cpp</h1>
+        <h1 class="code">49 list容器 - 排序案例.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<set>
+#include&lt;string&gt;
+#include&lt;list&gt;
 
-//set容器 插入和删除
+//list容器 排序案例 对于自定义数据类型 做排序
 
-void printSet(set<int>& s)
+//按照年龄进行升序，如果年龄相同按照身高进行降序
+
+class Person
 {
-	for (set<int>::iterator it = s.begin(); it != s.end(); it++)
+public:
+	Person(string name, int age, int height)
 	{
-		cout << *it << " ";
+		this-&gt;m_Name = name;
+		this-&gt;m_Age = age;
+		this-&gt;m_Height = height;
 	}
-	cout << endl;
+
+	string m_Name;  //姓名
+	int m_Age;  //年龄
+	int m_Height;  //身高
+};
+
+//指定排序规则
+bool comparePerson(Person& p1, Person& p2)
+{
+	//按照年龄 升序
+	if (p1.m_Age == p2.m_Age)
+	{
+		//年龄相同 按照身高降序
+		return p1.m_Height &gt; p2.m_Height;
+	}
+	else
+	{
+		return p1.m_Age &lt; p2.m_Age;
+	}
 }
 
 void test01()
 {
-	set<int> s1;
+	list&lt;Person&gt; L;  //创建容器
 
-	//插入
-	s1.insert(30);
-	s1.insert(10);
-	s1.insert(20);
-	s1.insert(40);
+	//准备数据
+	Person p1("刘备", 35, 175);
+	Person p2("曹操", 45, 180);
+	Person p3("孙权", 40, 170);
+	Person p4("赵云", 25, 190);
+	Person p5("张飞", 35, 160);
+	Person p6("关羽", 35, 200);
 
-	//遍历
-	printSet(s1);
+	//插入数据
+	L.push_back(p1);
+	L.push_back(p2);
+	L.push_back(p3);
+	L.push_back(p4);
+	L.push_back(p5);
+	L.push_back(p6);
 
-	//删除
-	s1.erase(s1.begin());
-	printSet(s1);
+	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
+	}
 
-	//删除重载版本
-	s1.erase(30);
-	printSet(s1);
+	//排序
+	cout &lt;&lt; "---------------------------------" &lt;&lt; endl;
+	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	
+	L.sort(comparePerson);
 
-	//清空
-	//s1.erase(s1.begin(), s1.end());
-	s1.clear();
-	printSet(s1);
+	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
+	{
+		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
+	}
 }
 
 int main()

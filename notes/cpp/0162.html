@@ -79,41 +79,35 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">34 deque容器 - 构造函数.cpp</h1>
+        <h1 class="code">33 vector容器 - 预留空间.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<deque>
-//deque 构造函数
+#include&lt;vector&gt;
 
-void printDeque(const deque<int>& d)
-{
-	for (deque<int>::const_iterator it = d.begin(); it != d.end(); it++)
-	{
-		//*it = 100;  容器中的数据不可修改了
-		cout << *it << " ";
-	}
-	cout << endl;
-}
-
+//vector容器 预留空间
 void test01()
 {
-	deque<int> d1;
-	for (int i = 0; i < 10; i++)
+	vector&lt;int&gt; v;
+
+	//利用reserve预留空间
+	v.reserve(100000);
+
+	int num = 0;  //统计开辟次数
+	int* p = NULL;
+	for (int i = 0; i &lt; 100000; i++)
 	{
-		d1.push_back(i);
+		v.push_back(i);
+
+		if (p != &v[0])
+		{
+			p = &v[0];
+			num++;
+		}
 	}
-	printDeque(d1);
-
-	deque<int> d2(d1.begin(), d1.end());
-	printDeque(d2);
-
-	deque<int> d3(10, 100);
-	printDeque(d3);
-
-	deque<int> d4(d3);
-	printDeque(d4);
+	
+	cout &lt;&lt; "num = " &lt;&lt; num &lt;&lt; endl;
 }
 
 int main()

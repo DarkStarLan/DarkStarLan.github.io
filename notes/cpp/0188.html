@@ -79,42 +79,70 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">62 map容器 - 排序.cpp</h1>
+        <h1 class="code">59 map容器 - 大小和交换.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<map>
+#include&lt;map&gt;
 
-class MyCompare
-{
-public:
-	bool operator()(int v1, int v2) const
-	{
-		//降序
-		return v1 > v2;
-	}
-};
+//map容器 大小和交换
 
-//map容器 排序
+//大小
 void test01()
 {
-	map<int, int, MyCompare> m;
-	m.insert(make_pair(1, 10));
-	m.insert(make_pair(2, 20));
-	m.insert(make_pair(3, 30));
-	m.insert(make_pair(4, 40));
-	m.insert(make_pair(5, 50));
+	map&lt;int, int&gt; m;
+	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair&lt;int, int&gt;(2, 20));
+	m.insert(pair&lt;int, int&gt;(3, 30));
 
-	for (map<int, int>::iterator it = m.begin(); it != m.end(); it++)
+	if (m.empty())
 	{
-		cout << "key = " << it->first << " value = " << it->second << endl;
+		cout &lt;&lt; "m为空" &lt;&lt; endl;
 	}
+	else
+	{
+		cout &lt;&lt; "m不为空" &lt;&lt; endl;
+		cout &lt;&lt; "m的大小为: " &lt;&lt; m.size() &lt;&lt; endl;
+	}
+}
+
+void printMap(map&lt;int, int&gt;& m)
+{
+	for (map&lt;int, int&gt;::iterator it = m.begin(); it != m.end(); it++)
+	{
+		cout &lt;&lt; "key = " &lt;&lt; it-&gt;first &lt;&lt; " value = " &lt;&lt; it-&gt;second &lt;&lt; endl;
+	}
+	cout &lt;&lt; endl;
+}
+
+//交换
+void test02()
+{
+	map&lt;int, int&gt; m;
+	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair&lt;int, int&gt;(2, 20));
+	m.insert(pair&lt;int, int&gt;(3, 30));
+
+	map&lt;int, int&gt; m2;
+	m2.insert(pair&lt;int, int&gt;(4, 100));
+	m2.insert(pair&lt;int, int&gt;(5, 200));
+	m2.insert(pair&lt;int, int&gt;(6, 300));
+
+	cout &lt;&lt; "交换前: " &lt;&lt; endl;
+	printMap(m);
+	printMap(m2);
+
+	m.swap(m2);
+	cout &lt;&lt; "交换后: " &lt;&lt; endl;
+	printMap(m);
+	printMap(m2);
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

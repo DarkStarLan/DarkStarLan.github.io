@@ -79,40 +79,77 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">33 vector容器 - 预留空间.cpp</h1>
+        <h1 class="code">32 vector容器 - 互换容器.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
+#include&lt;vector&gt;
 
-//vector容器 预留空间
+//vector容器互换
+
+void printVector(vector&lt;int&gt;& v)
+{
+	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++)
+	{
+		cout &lt;&lt; *it &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+}
+
+//1.基本使用
 void test01()
 {
-	vector<int> v;
+	vector&lt;int&gt; v1;
+	for (int i = 0; i &lt; 10; i++)
+	{
+		v1.push_back(i);
+	}
 
-	//利用reserve预留空间
-	v.reserve(100000);
+	cout &lt;&lt; "交换前: " &lt;&lt; endl;
+	printVector(v1);
 
-	int num = 0;  //统计开辟次数
-	int* p = NULL;
-	for (int i = 0; i < 100000; i++)
+	vector&lt;int&gt; v2;
+	for (int i = 10; i &gt; 0; i--)
+	{
+		v2.push_back(i);
+	}
+	printVector(v2);
+
+	cout &lt;&lt; "交换后: " &lt;&lt; endl;
+	v1.swap(v2);
+	printVector(v1);
+	printVector(v2);
+}
+
+//2.实际用途
+//巧用swap可以收缩内存空间
+void test02()
+{
+	vector&lt;int&gt; v;
+	for (int i = 0; i &lt; 100000; i++)
 	{
 		v.push_back(i);
-
-		if (p != &v[0])
-		{
-			p = &v[0];
-			num++;
-		}
 	}
-	
-	cout << "num = " << num << endl;
+
+	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
+	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
+
+	v.resize(3);  //重新定义大小
+	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
+	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
+
+	//巧用swap收缩内存
+	vector&lt;int&gt;(v).swap(v);  //创建一个匿名对象并使其与v互换，运行完这一行匿名对象直接被回收，不会占用空间
+
+	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
+	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

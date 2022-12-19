@@ -79,80 +79,61 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">64 函数对象基本使用.cpp</h1>
+        <h1 class="code">60 map容器 - 插入和删除.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<string>
+#include&lt;map&gt;
 
-//函数对象(仿函数)
-//-函数对象在使用时，可以像普通函数那样调用，可以有参数，可以有返回值
-//-函数对象超出普通函数的概念，函数对象可以有自己的状态
-//-函数对象可以作为参数传递
+//map容器 插入和删除
 
-class MyAdd
+void printMap(map&lt;int, int&gt;& m)
 {
-public:
-	int operator()(int v1, int v2)
+	for (map&lt;int, int&gt;::iterator it = m.begin(); it != m.end(); it++)
 	{
-		return v1 + v2;
+		cout &lt;&lt; "key = " &lt;&lt; it-&gt;first &lt;&lt; " value = " &lt;&lt; it-&gt;second &lt;&lt; endl;
 	}
-};
+	cout &lt;&lt; endl;
+}
 
-//1.函数对象在使用时，可以像普通函数那样调用，可以有参数，可以有返回值
 void test01()
 {
-	MyAdd myAdd;
-	cout << myAdd(10, 10) << endl;
-}
+	map&lt;int, int&gt; m;
 
-//2.函数对象超出普通函数的概念，函数对象可以有自己的状态
-class MyPrint
-{
-public:
-	MyPrint()
-	{
-		this->count = 0;
-	}
-	void operator()(string test)
-	{
-		cout << test << endl;
-		this->count++;
-	}
+	//插入
+	//第一种
+	m.insert(pair&lt;int, int&gt;(1, 10));
 
-	int count;  // 内部自己状态
-};
+	//第二种
+	m.insert(make_pair(2, 20));
 
-void test02()
-{
-	MyPrint myPrint;
-	myPrint("hello world");
-	myPrint("hello world");
-	myPrint("hello world");
-	myPrint("hello world");
+	//第三种
+	m.insert(map&lt;int, int&gt;::value_type(3, 30));
 
-	cout << "myPrint调用次数为: " << myPrint.count << endl;
-}
+	//第四种
+	m[4] = 40;
 
-//3.函数对象可以作为参数传递
+	//[]不建议插入，用途 可以利用key访问到value
+	//cout &lt;&lt; m[4] &lt;&lt; endl;
+	printMap(m);
 
-void doPrint(MyPrint& mp, string test)
-{
-	mp(test);
-}
+	//删除
+	m.erase(m.begin());
+	printMap(m);
 
-void test03()
-{
-	MyPrint myPrint;
-	doPrint(myPrint, "Hello C++");
+	m.erase(3);  //按照key删除
+	printMap(m);
+
+	//清空
+	//m.erase(m.begin(), m.end());
+	m.clear();
+	printMap(m);
 }
 
 int main()
 {
-	//test01();
-	//test02();
-	test03();
+	test01();
 
 	return 0;
 }

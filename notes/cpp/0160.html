@@ -79,77 +79,47 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">32 vector容器 - 互换容器.cpp</h1>
+        <h1 class="code">31 vector容器 - 数据存取.cpp</h1>
         <pre>
             <code class="code">
-#include<iostream>
+#include&lt;iostream&gt;
 using namespace std;
-#include<vector>
+#include&lt;vector&gt;
 
-//vector容器互换
+//vector容器 数据存取
 
-void printVector(vector<int>& v)
-{
-	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
-	{
-		cout << *it << " ";
-	}
-	cout << endl;
-}
-
-//1.基本使用
 void test01()
 {
-	vector<int> v1;
-	for (int i = 0; i < 10; i++)
+	vector&lt;int&gt; v1;
+	for (int i = 0; i &lt; 10; i++)
 	{
 		v1.push_back(i);
 	}
 
-	cout << "交换前: " << endl;
-	printVector(v1);
-
-	vector<int> v2;
-	for (int i = 10; i > 0; i--)
+	//利用[]的方式访问数组中元素
+	for (int i = 0; i &lt; v1.size(); i++)
 	{
-		v2.push_back(i);
+		cout &lt;&lt; v1[i] &lt;&lt; " ";
 	}
-	printVector(v2);
+	cout &lt;&lt; endl;
 
-	cout << "交换后: " << endl;
-	v1.swap(v2);
-	printVector(v1);
-	printVector(v2);
-}
-
-//2.实际用途
-//巧用swap可以收缩内存空间
-void test02()
-{
-	vector<int> v;
-	for (int i = 0; i < 100000; i++)
+	//利用at方式访问元素
+	for (int i = 0; i &lt; v1.size(); i++)
 	{
-		v.push_back(i);
+		cout &lt;&lt; v1.at(i) &lt;&lt; " ";
 	}
+	cout &lt;&lt; endl;
 
-	cout << "v的容量为: " << v.capacity() << endl;
-	cout << "v的大小为: " << v.size() << endl;
+	//返回第一个元素
+	cout &lt;&lt; "第一个元素为: " &lt;&lt; v1.front() &lt;&lt; endl;
 
-	v.resize(3);  //重新定义大小
-	cout << "v的容量为: " << v.capacity() << endl;
-	cout << "v的大小为: " << v.size() << endl;
-
-	//巧用swap收缩内存
-	vector<int>(v).swap(v);  //创建一个匿名对象并使其与v互换，运行完这一行匿名对象直接被回收，不会占用空间
-
-	cout << "v的容量为: " << v.capacity() << endl;
-	cout << "v的大小为: " << v.size() << endl;
+	//获取最后一个元素
+	cout &lt;&lt; "最后一个元素为: " &lt;&lt; v1.back() &lt;&lt; endl;
 }
 
 int main()
 {
-	//test01();
-	test02();
+	test01();
 
 	return 0;
 }
