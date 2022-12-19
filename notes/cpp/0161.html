@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ÐÞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôÐÔ */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,45 +58,45 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕýÎÄ -->
-        <h1 class="code">32 vectorÈÝÆ÷ - »¥»»ÈÝÆ÷.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">33 vector容器 - 预留空间.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;vector&gt;
+#include<vector>
 
-//vectorå®¹å™¨ é¢„ç•™ç©ºé—´
+//vector容器 预留空间
 void test01()
 {
-	vector&lt;int&gt; v;
+	vector<int> v;
 
-	//åˆ©ç”¨reserveé¢„ç•™ç©ºé—´
+	//利用reserve预留空间
 	v.reserve(100000);
 
-	int num = 0;  //ç»Ÿè®¡å¼€è¾Ÿæ¬¡æ•°
+	int num = 0;  //统计开辟次数
 	int* p = NULL;
-	for (int i = 0; i &lt; 100000; i++)
+	for (int i = 0; i < 100000; i++)
 	{
 		v.push_back(i);
 
@@ -106,7 +107,7 @@ void test01()
 		}
 	}
 	
-	cout &lt;&lt; "num = " &lt;&lt; num &lt;&lt; endl;
+	cout << "num = " << num << endl;
 }
 
 int main()

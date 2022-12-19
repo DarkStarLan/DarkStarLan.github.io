@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -81,24 +82,24 @@
         <h1 class="code">07 类模板语法.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;string&gt;
+#include<string>
 
-//类模板
-template&lt;class NameType, class AgeType&gt;
+//ÀàÄ£°å
+template<class NameType, class AgeType>
 class Person
 {
 public:
 	Person(NameType name, AgeType age)
 	{
-		this-&gt;m_Name = name;
-		this-&gt;m_Age = age;
+		this->m_Name = name;
+		this->m_Age = age;
 	}
 
 	void showPerson()
 	{
-		cout &lt;&lt; "name: " &lt;&lt; this-&gt;m_Name &lt;&lt; " age: " &lt;&lt; this-&gt;m_Age &lt;&lt; endl;
+		cout << "name: " << this->m_Name << " age: " << this->m_Age << endl;
 	}
 
 	NameType m_Name;
@@ -107,7 +108,7 @@ public:
 
 void test01()
 {
-	Person&lt;string, int&gt; p1("孙悟空", 999);
+	Person<string, int> p1("ËïÎò¿Õ", 999);
 	p1.showPerson();
 }
 

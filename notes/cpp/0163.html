@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,64 +58,64 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">34 dequeÈİÆ÷ - ¹¹Ôìº¯Êı.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">35 dequeå®¹å™¨ - èµ‹å€¼æ“ä½œ.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;deque&gt;
+#include<deque>
 
-void printDeque(const deque&lt;int&gt;& d)
+void printDeque(const deque<int>& d)
 {
-	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
+	for (deque<int>::const_iterator it = d.begin(); it != d.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 //dequeå®¹å™¨èµ‹å€¼æ“ä½œ
 void test01()
 {
-	deque&lt;int&gt; d1;
-	for (int i = 0; i &lt; 10; i++)
+	deque<int> d1;
+	for (int i = 0; i < 10; i++)
 	{
 		d1.push_back(i);
 	}
 	printDeque(d1);
 
 	//operator= èµ‹å€¼
-	deque&lt;int&gt; d2;
+	deque<int> d2;
 	d2 = d1;
 	printDeque(d2);
 
 	//assign èµ‹å€¼
-	deque&lt;int&gt; d3;
+	deque<int> d3;
 	d3.assign(d1.begin(), d1.end());
 	printDeque(d3);
 
-	deque&lt;int&gt; d4;
+	deque<int> d4;
 	d4.assign(10, 100);
 	printDeque(d4);
 }

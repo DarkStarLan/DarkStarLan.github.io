@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,48 +58,48 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">38 deque���� - ���ݴ�ȡ.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">39 deque容器 - 排序.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;deque&gt;
-#include&lt;algorithm&gt;  //标准算法头文件
+#include<deque>
+#include<algorithm>  //标准算法头文件
 
-void printDeque(const deque&lt;int&gt;& d)
+void printDeque(const deque<int>& d)
 {
-	for (deque&lt;int&gt;::const_iterator it = d.begin(); it != d.end(); it++)
+	for (deque<int>::const_iterator it = d.begin(); it != d.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 //deque容器排序
 void test01()
 {
-	deque&lt;int&gt; d;
+	deque<int> d;
 	d.push_back(10);
 	d.push_back(20);
 	d.push_back(30);
@@ -113,7 +114,7 @@ void test01()
 	//对于支持随机访问的迭代器，都可以利用sort算法直接对其进行排序
 	//vector容器也可以利用sort进行排序
 	sort(d.begin(), d.end());
-	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	cout << "排序后: " << endl;
 	printDeque(d);
 }
 

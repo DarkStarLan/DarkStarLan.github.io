@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -81,7 +82,7 @@
         <h1 class="code">01 函数模板语法.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
 
 //函数模板
@@ -103,7 +104,7 @@ void swapDouble(double& a, double& b)
 }
 
 //函数模板
-template&lt;typename T&gt;  //声明一个模板，告诉编译器后面代码中紧跟着的T不要报错，T是一个通用数据类型
+template<typename T>  //声明一个模板，告诉编译器后面代码中紧跟着的T不要报错，T是一个通用数据类型
 void mySwap(T& a, T& b)
 {
 	T temp = a;
@@ -124,16 +125,16 @@ void test01()
 	//mySwap(a, b);
 	
 	//2.显示指定类型
-	mySwap&lt;int&gt;(a, b);
-	cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
-	cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
+	mySwap<int>(a, b);
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
 
 	//double c = 1.1;
 	//double d = 2.2;
 	//
 	//swapDouble(c, d);
-	//cout &lt;&lt; "c = " &lt;&lt; c &lt;&lt; endl;
-	//cout &lt;&lt; "d = " &lt;&lt; d &lt;&lt; endl;
+	//cout << "c = " << c << endl;
+	//cout << "d = " << d << endl;
 }
 
 int main()

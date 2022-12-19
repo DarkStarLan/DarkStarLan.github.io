@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,34 +58,34 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">40 STL���� - ��ί���.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">42 queue容器.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;queue&gt;
-#include&lt;string&gt;
+#include<queue>
+#include<string>
 
 //队列 Queue
 class Person
@@ -92,8 +93,8 @@ class Person
 public:
 	Person(string name, int age)
 	{
-		this-&gt;m_Name = name;
-		this-&gt;m_Age = age;
+		this->m_Name = name;
+		this->m_Age = age;
 	}
 	string m_Name;
 	int m_Age;
@@ -102,7 +103,7 @@ public:
 void test01()
 {
 	//创建队列
-	queue&lt;Person&gt; q;
+	queue<Person> q;
 
 	//准备数据
 	Person p1("唐僧", 30);
@@ -116,22 +117,22 @@ void test01()
 	q.push(p3);
 	q.push(p4);
 
-	cout &lt;&lt; "队列大小为: " &lt;&lt; q.size() &lt;&lt; endl;
+	cout << "队列大小为: " << q.size() << endl;
 
 	//判断只要队列不为空，查看队头，查看队尾，出队
 	while (!q.empty())
 	{
 		//查看队头
-		cout &lt;&lt; "队头元素 --- 姓名: " &lt;&lt; q.front().m_Name &lt;&lt; " 年龄: " &lt;&lt; q.front().m_Age &lt;&lt; endl;
+		cout << "队头元素 --- 姓名: " << q.front().m_Name << " 年龄: " << q.front().m_Age << endl;
 
 		//查看队尾
-		cout &lt;&lt; "队头元素 --- 姓名: " &lt;&lt; q.back().m_Name &lt;&lt; " 年龄: " &lt;&lt; q.back().m_Age &lt;&lt; endl;
+		cout << "队头元素 --- 姓名: " << q.back().m_Name << " 年龄: " << q.back().m_Age << endl;
 
 		//出队
 		q.pop();
 	}
 
-	cout &lt;&lt; "队列大小为: " &lt;&lt; q.size() &lt;&lt; endl;
+	cout << "队列大小为: " << q.size() << endl;
 }
 
 int main()

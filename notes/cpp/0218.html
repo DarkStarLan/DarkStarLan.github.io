@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,109 +58,128 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">89 ���ü����㷨 - set_union.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">15 类模板案例 - 数组类封装.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;string&gt;
-#include&lt;list&gt;
+#include "头文件/MyArray.hpp"
+#include<string>
 
-//list容器 排序案例 对于自定义数据类型 做排序
-
-//按照年龄进行升序，如果年龄相同按照身高进行降序
-
-class Person
+void printIntArray(MyArray<int>& arr)
 {
-public:
-	Person(string name, int age, int height)
+	for (int i = 0; i < arr.getSize(); i++)
 	{
-		this-&gt;m_Name = name;
-		this-&gt;m_Age = age;
-		this-&gt;m_Height = height;
-	}
-
-	string m_Name;  //姓名
-	int m_Age;  //年龄
-	int m_Height;  //身高
-};
-
-//指定排序规则
-bool comparePerson(Person& p1, Person& p2)
-{
-	//按照年龄 升序
-	if (p1.m_Age == p2.m_Age)
-	{
-		//年龄相同 按照身高降序
-		return p1.m_Height &gt; p2.m_Height;
-	}
-	else
-	{
-		return p1.m_Age &lt; p2.m_Age;
+		cout << arr[i] << endl;
 	}
 }
 
 void test01()
 {
-	list&lt;Person&gt; L;  //创建容器
-
-	//准备数据
-	Person p1("刘备", 35, 175);
-	Person p2("曹操", 45, 180);
-	Person p3("孙权", 40, 170);
-	Person p4("赵云", 25, 190);
-	Person p5("张飞", 35, 160);
-	Person p6("关羽", 35, 200);
-
-	//插入数据
-	L.push_back(p1);
-	L.push_back(p2);
-	L.push_back(p3);
-	L.push_back(p4);
-	L.push_back(p5);
-	L.push_back(p6);
-
-	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
-	{
-		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
-	}
-
-	//排序
-	cout &lt;&lt; "---------------------------------" &lt;&lt; endl;
-	cout &lt;&lt; "排序后: " &lt;&lt; endl;
+	MyArray<int> arr1(5);
 	
-	L.sort(comparePerson);
-
-	for (list&lt;Person&gt;::iterator it = L.begin(); it != L.end(); it++)
+	for (int i = 0; i < 5; i++)
 	{
-		cout &lt;&lt; "姓名: " &lt;&lt; (*it).m_Name &lt;&lt; " 年龄: " &lt;&lt; it-&gt;m_Age &lt;&lt; " 身高: " &lt;&lt; it-&gt;m_Height &lt;&lt; endl;
+		//利用尾插法向数组中插入数据
+		arr1.Push_Back(i);
 	}
+	cout << "arr1的打印输出为: " << endl;
+	printIntArray(arr1);
+
+	cout << "arr1的容量为: " << arr1.getCapacity() << endl;
+	cout << "arr1的大小为: " << arr1.getSize() << endl;
+
+	MyArray<int>arr2(arr1);
+
+	cout << "arr2的打印输出为: " << endl;
+
+	printIntArray(arr2);
+
+	//尾删
+	arr2.Pop_Back();
+	cout << "arr2尾删后: " << endl;
+	cout << "arr2的容量为: " << arr2.getCapacity() << endl;
+	cout << "arr2的大小为: " << arr2.getSize() << endl;
+
+	//MyArray<int>arr3(100);
+	//arr3 = arr1;
+}
+
+//测试自定义数据类型
+class Person
+{
+public:
+
+	Person() {};
+	Person(string name, int age)
+	{
+		this->m_Name = name;
+		this->m_Age = age;
+	}
+
+	string m_Name;
+	int m_Age;
+};
+
+void printPersonArray(MyArray<Person>& arr)
+{
+	for (int i = 0; i < arr.getSize(); i++)
+	{
+		cout << "姓名: " << arr[i].m_Name << " 年龄: " << arr[i].m_Age << endl;
+	}
+}
+
+void test02()
+{
+	MyArray<Person> arr(10);
+
+	Person p1("孙悟空", 999);
+	Person p2("韩信", 30);
+	Person p3("妲己", 20);
+	Person p4("赵云", 25);
+	Person p5("安琪拉", 27);
+
+	//将数据插入到数组中
+	arr.Push_Back(p1);
+	arr.Push_Back(p2);
+	arr.Push_Back(p3);
+	arr.Push_Back(p4);
+	arr.Push_Back(p5);
+
+	//打印数组
+	printPersonArray(arr);
+	
+	//输出容量
+	cout << "arr容量为: " << arr.getCapacity() << endl;
+	//输出大小
+	cout << "arr大小为: " << arr.getSize() << endl;
 }
 
 int main()
 {
-	test01();
+	//test01();
+	test02();
 
 	return 0;
 }

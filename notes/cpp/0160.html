@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,65 +58,65 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">31 vector���� - ���ݴ�ȡ.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">32 vector容器 - 互换容器.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;vector&gt;
+#include<vector>
 
 //vector容器互换
 
-void printVector(vector&lt;int&gt;& v)
+void printVector(vector<int>& v)
 {
-	for (vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); it++)
+	for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 //1.基本使用
 void test01()
 {
-	vector&lt;int&gt; v1;
-	for (int i = 0; i &lt; 10; i++)
+	vector<int> v1;
+	for (int i = 0; i < 10; i++)
 	{
 		v1.push_back(i);
 	}
 
-	cout &lt;&lt; "交换前: " &lt;&lt; endl;
+	cout << "交换前: " << endl;
 	printVector(v1);
 
-	vector&lt;int&gt; v2;
-	for (int i = 10; i &gt; 0; i--)
+	vector<int> v2;
+	for (int i = 10; i > 0; i--)
 	{
 		v2.push_back(i);
 	}
 	printVector(v2);
 
-	cout &lt;&lt; "交换后: " &lt;&lt; endl;
+	cout << "交换后: " << endl;
 	v1.swap(v2);
 	printVector(v1);
 	printVector(v2);
@@ -125,24 +126,24 @@ void test01()
 //巧用swap可以收缩内存空间
 void test02()
 {
-	vector&lt;int&gt; v;
-	for (int i = 0; i &lt; 100000; i++)
+	vector<int> v;
+	for (int i = 0; i < 100000; i++)
 	{
 		v.push_back(i);
 	}
 
-	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
-	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
+	cout << "v的容量为: " << v.capacity() << endl;
+	cout << "v的大小为: " << v.size() << endl;
 
 	v.resize(3);  //重新定义大小
-	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
-	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
+	cout << "v的容量为: " << v.capacity() << endl;
+	cout << "v的大小为: " << v.size() << endl;
 
 	//巧用swap收缩内存
-	vector&lt;int&gt;(v).swap(v);  //创建一个匿名对象并使其与v互换，运行完这一行匿名对象直接被回收，不会占用空间
+	vector<int>(v).swap(v);  //创建一个匿名对象并使其与v互换，运行完这一行匿名对象直接被回收，不会占用空间
 
-	cout &lt;&lt; "v的容量为: " &lt;&lt; v.capacity() &lt;&lt; endl;
-	cout &lt;&lt; "v的大小为: " &lt;&lt; v.size() &lt;&lt; endl;
+	cout << "v的容量为: " << v.capacity() << endl;
+	cout << "v的大小为: " << v.size() << endl;
 }
 
 int main()

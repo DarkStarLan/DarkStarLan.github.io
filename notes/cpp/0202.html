@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,35 +58,35 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">73 ���ò����㷨 - find_if.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">77 常用查找算法 - count_if.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;string&gt;
+#include<vector>
+#include<algorithm>
+#include<string>
 
 //常用查找算法 count_if
 
@@ -95,13 +96,13 @@ class Greater20
 public:
 	bool operator()(int val)
 	{
-		return val &gt; 20;
+		return val > 20;
 	}
 };
 
 void test01()
 {
-	vector&lt;int&gt; v;
+	vector<int> v;
 	v.push_back(10);
 	v.push_back(40);
 	v.push_back(30);
@@ -111,7 +112,7 @@ void test01()
 
 	int num = count_if(v.begin(), v.end(), Greater20());
 	
-	cout &lt;&lt; "大于20的元素的个数为: " &lt;&lt; num &lt;&lt; endl;
+	cout << "大于20的元素的个数为: " << num << endl;
 }
 
 class Person
@@ -119,8 +120,8 @@ class Person
 public:
 	Person(string name, int age)
 	{
-		this-&gt;m_Name = name;
-		this-&gt;m_Age = age;
+		this->m_Name = name;
+		this->m_Age = age;
 	}
 	string m_Name;
 	int m_Age;
@@ -131,14 +132,14 @@ class AgeGreater20
 public:
 	bool operator()(const Person& p)
 	{
-		return p.m_Age &gt; 20;
+		return p.m_Age > 20;
 	}
 };
 
 //统计自定义数据类型
 void test02()
 {
-	vector&lt;Person&gt; v;
+	vector<Person> v;
 
 	Person p1("刘备", 35);
 	Person p2("关羽", 35);
@@ -154,7 +155,7 @@ void test02()
 
 	//统计  大于20岁人员个数
 	int num = count_if(v.begin(), v.end(), AgeGreater20());
-	cout &lt;&lt; "大于20岁的人员的个数为: " &lt;&lt; num &lt;&lt; endl;
+	cout << "大于20岁的人员的个数为: " << num << endl;
 }
 
 int main()

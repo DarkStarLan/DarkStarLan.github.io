@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,33 +58,33 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">53 setÈİÆ÷ - ²éÕÒºÍÍ³¼Æ.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">56 setå®¹å™¨ - æ’åº.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;set&gt;
+#include<set>
 
 //setå®¹å™¨æ’åº
 
@@ -92,13 +93,13 @@ class MyCompare
 public:
 	bool operator()(int v1, int v2) const  //ä¸åŠ constä¼šæŠ¥é”™
 	{
-		return v1 &gt; v2;
+		return v1 > v2;
 	}
 };
 
 void test01()
 {
-	set&lt;int&gt; s1;
+	set<int> s1;
 
 	s1.insert(10);
 	s1.insert(40);
@@ -106,14 +107,14 @@ void test01()
 	s1.insert(50);
 	s1.insert(30);
 
-	for (set&lt;int&gt;::iterator it = s1.begin(); it != s1.end(); it++)
+	for (set<int>::iterator it = s1.begin(); it != s1.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; ' ';
+		cout << *it << ' ';
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 
 	//æŒ‡å®šæ’åºè§„åˆ™ä¸ºä»å¤§åˆ°å°
-	set&lt;int, MyCompare&gt; s2;
+	set<int, MyCompare> s2;
 
 	s2.insert(10);
 	s2.insert(40);
@@ -121,11 +122,11 @@ void test01()
 	s2.insert(50);
 	s2.insert(30);
 
-	for (set&lt;int, MyCompare&gt;::iterator it = s2.begin(); it != s2.end(); it++)
+	for (set<int, MyCompare>::iterator it = s2.begin(); it != s2.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 int main()

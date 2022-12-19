@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -81,7 +82,7 @@
         <h1 class="code">09 类模板中成员函数创建时机.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
 
 //类模板中成员函数创建时机
@@ -92,7 +93,7 @@ class Person1
 public:
 	void showPerson1()
 	{
-		cout &lt;&lt; "Person1 show" &lt;&lt; endl;
+		cout << "Person1 show" << endl;
 	}
 };
 
@@ -101,11 +102,11 @@ class Person2
 public:
 	void showPerson2()
 	{
-		cout &lt;&lt; "Person2 show" &lt;&lt; endl;
+		cout << "Person2 show" << endl;
 	}
 };
 
-template&lt;class T&gt;
+template<class T>
 class MyClass
 {
 public:
@@ -127,7 +128,7 @@ public:
 
 void test01()
 {
-	MyClass&lt;Person2&gt; m;
+	MyClass<Person2> m;
 	//m.func1();
 	m.func2();
 }

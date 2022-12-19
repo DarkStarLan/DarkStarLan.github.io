@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,64 +58,64 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">57 setÈİÆ÷ - ÅÅĞò(×Ô¶¨ÒåÀàĞÍ).cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">60 mapå®¹å™¨ - æ’å…¥å’Œåˆ é™¤.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;map&gt;
+#include<map>
 
 //mapå®¹å™¨ æ’å…¥å’Œåˆ é™¤
 
-void printMap(map&lt;int, int&gt;& m)
+void printMap(map<int, int>& m)
 {
-	for (map&lt;int, int&gt;::iterator it = m.begin(); it != m.end(); it++)
+	for (map<int, int>::iterator it = m.begin(); it != m.end(); it++)
 	{
-		cout &lt;&lt; "key = " &lt;&lt; it-&gt;first &lt;&lt; " value = " &lt;&lt; it-&gt;second &lt;&lt; endl;
+		cout << "key = " << it->first << " value = " << it->second << endl;
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 void test01()
 {
-	map&lt;int, int&gt; m;
+	map<int, int> m;
 
 	//æ’å…¥
 	//ç¬¬ä¸€ç§
-	m.insert(pair&lt;int, int&gt;(1, 10));
+	m.insert(pair<int, int>(1, 10));
 
 	//ç¬¬äºŒç§
 	m.insert(make_pair(2, 20));
 
 	//ç¬¬ä¸‰ç§
-	m.insert(map&lt;int, int&gt;::value_type(3, 30));
+	m.insert(map<int, int>::value_type(3, 30));
 
 	//ç¬¬å››ç§
 	m[4] = 40;
 
 	//[]ä¸å»ºè®®æ’å…¥ï¼Œç”¨é€” å¯ä»¥åˆ©ç”¨keyè®¿é—®åˆ°value
-	//cout &lt;&lt; m[4] &lt;&lt; endl;
+	//cout << m[4] << endl;
 	printMap(m);
 
 	//åˆ é™¤

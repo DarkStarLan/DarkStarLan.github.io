@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -81,9 +82,9 @@
         <h1 class="code">06 模板的局限性.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;string&gt;
+#include<string>
 
 //模板局限性
 //模板并不是万能的，有些特定数据类型，需要用具体化方式做特殊实现
@@ -94,8 +95,8 @@ public:
 
 	Person(string name, int age)
 	{
-		this-&gt;m_Name = name;
-		this-&gt;m_Age = age;
+		this->m_Name = name;
+		this->m_Age = age;
 	}
 
 	//姓名
@@ -105,7 +106,7 @@ public:
 };
 
 //对比两个数是否相等函数
-template&lt;typename T&gt;
+template<typename T>
 bool myCompare(T& a, T& b)
 {
 	if (a == b)
@@ -119,7 +120,7 @@ bool myCompare(T& a, T& b)
 }
 
 //利用具体化Person的版本实现代码，具体化优先调用
-template&lt;&gt; bool myCompare(Person& p1, Person& p2)
+template<> bool myCompare(Person& p1, Person& p2)
 {
 	if (p1.m_Name == p2.m_Name && p1.m_Age == p2.m_Age)
 	{
@@ -140,11 +141,11 @@ void test01()
 
 	if (ret)
 	{
-		cout &lt;&lt; "a == b" &lt;&lt; endl;
+		cout << "a == b" << endl;
 	}
 	else
 	{
-		cout &lt;&lt; "a != b" &lt;&lt; endl;
+		cout << "a != b" << endl;
 	}
 }
 
@@ -157,11 +158,11 @@ void test02()
 
 	if (ret)
 	{
-		cout &lt;&lt; "p1 == p2" &lt;&lt; endl;
+		cout << "p1 == p2" << endl;
 	}
 	else
 	{
-		cout &lt;&lt; "p1 != p2" &lt;&lt; endl;
+		cout << "p1 != p2" << endl;
 	}
 }
 

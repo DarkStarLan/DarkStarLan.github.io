@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -78,26 +79,26 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">17 STL初识 - vector存放自定义数据类型.cpp</h1>
+        <h1 class="code">18 STL初识 - 容器嵌套容器.cpp</h1>
         <pre>
             <code class="code">
-#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;vector&gt;
+#include<vector>
 
 //容器嵌套容器
 void test01()
 {
-	vector&lt;vector&lt;int&gt;&gt; v;
+	vector<vector<int>> v;
 
 	//创建小容器
-	vector&lt;int&gt; v1;
-	vector&lt;int&gt; v2;
-	vector&lt;int&gt; v3;
-	vector&lt;int&gt; v4;
+	vector<int> v1;
+	vector<int> v2;
+	vector<int> v3;
+	vector<int> v4;
 	
 	//向小容器中添加元素
-	for (int i = 0; i &lt; 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		v1.push_back(i + 1);
 		v2.push_back(i + 2);
@@ -112,14 +113,14 @@ void test01()
 	v.push_back(v4);
 	
 	//通过大容器，把所有数据遍历一遍
-	for (vector&lt;vector&lt;int&gt;&gt;::iterator it = v.begin(); it != v.end(); it++)
+	for (vector<vector<int>>::iterator it = v.begin(); it != v.end(); it++)
 	{
-		//(*it) ---- 容器 vector&lt;int&gt;
-		for (vector&lt;int&gt;::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
+		//(*it) ---- 容器 vector<int>
+		for (vector<int>::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
 		{
-			cout &lt;&lt; *vit &lt;&lt; " ";
+			cout << *vit << " ";
 		}
-		cout &lt;&lt; endl;
+		cout << endl;
 	}
 }
 

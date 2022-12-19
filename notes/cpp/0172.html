@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,48 +58,48 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">43 listÈİÆ÷ - ¹¹Ôìº¯Êı.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">45 listå®¹å™¨ - å¤§å°æ“ä½œ.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;list&gt;
+#include<list>
 
 //listå®¹å™¨å¤§å°æ“ä½œ
 
-void printList(const list&lt;int&gt;& L)
+void printList(const list<int>& L)
 {
-	for (list&lt;int&gt;::const_iterator it = L.begin(); it != L.end(); it++)
+	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 void test01()
 {
-	list&lt;int&gt; L1;
+	list<int> L1;
 	L1.push_back(10);
 	L1.push_back(20);
 	L1.push_back(30);
@@ -109,12 +110,12 @@ void test01()
 	//åˆ¤æ–­å®¹å™¨æ˜¯å¦ä¸ºç©º
 	if (L1.empty())
 	{
-		cout &lt;&lt; "L1ä¸ºç©º" &lt;&lt; endl;
+		cout << "L1ä¸ºç©º" << endl;
 	}
 	else
 	{
-		cout &lt;&lt; "L1ä¸ä¸ºç©º" &lt;&lt; endl;
-		cout &lt;&lt; "L1çš„å…ƒç´ ä¸ªæ•°ä¸º: " &lt;&lt; L1.size() &lt;&lt; endl;
+		cout << "L1ä¸ä¸ºç©º" << endl;
+		cout << "L1çš„å…ƒç´ ä¸ªæ•°ä¸º: " << L1.size() << endl;
 	}
 
 	//é‡æ–°æŒ‡å®šå¤§å°

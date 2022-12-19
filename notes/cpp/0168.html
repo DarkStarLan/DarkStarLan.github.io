@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++�ʼ�</title>
+    <title>C++笔记</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* �޸�ͷ��ѡ��������(ÿ��120px) */
+			/* 修改头部选项栏长度(每个120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* ��ť���� */
+			/* 按钮属性 */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* ��ť��� */
+			/* 按钮间隔 */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,40 +58,40 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ĭ����ҳ</button>
+                    <button class="right">默认主页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">����ҳ</button>
+                    <button class="right">导航页</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">����Ŀ¼</button>
+                    <button class="right">返回目录</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">�������</button>
+                    <button class="right">相关下载</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ���� -->
-        <h1 class="code">39 deque���� - ����.cpp</h1>
+        <!-- 正文 -->
+        <h1 class="code">41 stack容器.cpp</h1>
         <pre>
             <code class="code">
-﻿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;stack&gt;
+#include<stack>
 
 //栈stack容器
 
 void test01()
 {
 	//特点：符合先进后出数据结构
-	stack&lt;int&gt; s;
+	stack<int> s;
 
 	//入栈
 	s.push(10);
@@ -98,19 +99,19 @@ void test01()
 	s.push(30);
 	s.push(40);
 
-	cout &lt;&lt; "栈的大小: " &lt;&lt; s.size() &lt;&lt; endl;
+	cout << "栈的大小: " << s.size() << endl;
 
 	//只要栈不为空，查看栈顶，并且执行出栈操作
 	while (!s.empty())
 	{
 		//查看栈顶元素
-		cout &lt;&lt; "栈顶元素为: " &lt;&lt; s.top() &lt;&lt; endl;
+		cout << "栈顶元素为: " << s.top() << endl;
 
 		//出栈
 		s.pop();
 	}
 
-	cout &lt;&lt; "栈的大小: " &lt;&lt; s.size() &lt;&lt; endl;
+	cout << "栈的大小: " << s.size() << endl;
 }
 
 int main()

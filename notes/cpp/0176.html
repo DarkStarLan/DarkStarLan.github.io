@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,47 +58,47 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">47 listÈİÆ÷ - Êı¾İ´æÈ¡.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">50 setå®¹å™¨ - æ„é€ å’Œèµ‹å€¼.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;set&gt;
+#include<set>
 
 //setå®¹å™¨æ„é€ å’Œèµ‹å€¼
-void printSet(set&lt;int&gt;& s)
+void printSet(set<int>& s)
 {
-	for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+	for (set<int>::iterator it = s.begin(); it != s.end(); it++)
 	{
-		cout &lt;&lt; *it &lt;&lt; " ";
+		cout << *it << " ";
 	}
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 void test01()
 {
-	set&lt;int&gt; s1;  //åº•å±‚: äºŒå‰æ ‘
+	set<int> s1;  //åº•å±‚: äºŒå‰æ ‘
 
 	//æ’å…¥æ•°æ® åªæœ‰insertæ–¹å¼
 	s1.insert(10);
@@ -112,11 +113,11 @@ void test01()
 	printSet(s1);
 
 	//æ‹·è´æ„é€ 
-	set&lt;int&gt; s2(s1);
+	set<int> s2(s1);
 	printSet(s2);
 
 	//èµ‹å€¼
-	set&lt;int&gt; s3;
+	set<int> s3;
 	s3 = s2;
 	printSet(s3);
 }

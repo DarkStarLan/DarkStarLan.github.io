@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,45 +58,45 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">52 setÈİÆ÷ - ²åÈëºÍÉ¾³ı.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">55 pairå¯¹ç»„ - å¯¹ç»„çš„åˆ›å»º.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;string&gt;
+#include<string>
 
 //pairå¯¹ç»„å¯¹ç»„çš„åˆ›å»º
 void test01()
 {
-	pair&lt;string, int&gt; p("Tom", 20);
+	pair<string, int> p("Tom", 20);
 
-	cout &lt;&lt; "å§“å: " &lt;&lt; p.first &lt;&lt; " å¹´é¾„: " &lt;&lt; p.second &lt;&lt; endl;
+	cout << "å§“å: " << p.first << " å¹´é¾„: " << p.second << endl;
 
 	//ç¬¬äºŒç§æ–¹å¼
-	pair&lt;string, int&gt; p2 = make_pair("Jerry", 30);
+	pair<string, int> p2 = make_pair("Jerry", 30);
 
-	cout &lt;&lt; "å§“å: " &lt;&lt; p2.first &lt;&lt; " å¹´é¾„: " &lt;&lt; p2.second &lt;&lt; endl;
+	cout << "å§“å: " << p2.first << " å¹´é¾„: " << p2.second << endl;
 }
 
 int main()

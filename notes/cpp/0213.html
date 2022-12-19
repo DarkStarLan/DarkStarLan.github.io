@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++±Ê¼Ç</title>
+    <title>C++ç¬”è®°</title>
     <style type="text/css">
         @font-face {
 	        font-family: Consolas;
 	        src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
         }
         #lan{
-			/* ĞŞ¸ÄÍ·²¿Ñ¡ÏîÀ¸³¤¶È(Ã¿¸ö120px) */
+			/* ä¿®æ”¹å¤´éƒ¨é€‰é¡¹æ é•¿åº¦(æ¯ä¸ª120px) */
 			width: 480px;
 			height: 34px;
 			position: relative;
 			margin: auto;
 		}
 		.right{
-			/* °´Å¥ÊôĞÔ */
+			/* æŒ‰é’®å±æ€§ */
 			font-size: 20px;
 			width: 100px;
 			border-radius: 6px;
@@ -33,7 +34,7 @@
 			box-shadow: 0 5px 10px #999;
 		}
 		.class1{
-			/* °´Å¥¼ä¸ô */
+			/* æŒ‰é’®é—´éš” */
 			width: 120px;
 			height: 34px;
 			float: left;
@@ -57,60 +58,60 @@
         <div id="lan">
             <div class="class1">
                 <a href="https://darkstarlan.github.io/">
-                    <button class="right">Ä¬ÈÏÖ÷Ò³</button>
+                    <button class="right">é»˜è®¤ä¸»é¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/search.html">
-                    <button class="right">µ¼º½Ò³</button>
+                    <button class="right">å¯¼èˆªé¡µ</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/notes/cpp.html">
-                    <button class="right">·µ»ØÄ¿Â¼</button>
+                    <button class="right">è¿”å›ç›®å½•</button>
                 </a>
             </div>
             <div class="class1">
                 <a href="https://darkstarlan.github.io/download/cpp.html">
-                    <button class="right">Ïà¹ØÏÂÔØ</button>
+                    <button class="right">ç›¸å…³ä¸‹è½½</button>
                 </a>
             </div>
         </div>
         <hr>
-        <!-- ÕıÎÄ -->
-        <h1 class="code">84 ³£ÓÃ¿½±´ºÍÌæ»»Ëã·¨ - replace_if.cpp</h1>
+        <!-- æ­£æ–‡ -->
+        <h1 class="code">88 å¸¸ç”¨é›†åˆç®—æ³• - set_intersection.cpp</h1>
         <pre>
             <code class="code">
-ï»¿#include&lt;iostream&gt;
+#include<iostream>
 using namespace std;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
+#include<vector>
+#include<algorithm>
 
 //å¸¸ç”¨é›†åˆç®—æ³• - set_intersection
 void myPrint(int val)
 {
-	cout &lt;&lt; val &lt;&lt; " ";
+	cout << val << " ";
 }
 
 void test01()
 {
-	vector&lt;int&gt; v1;
-	vector&lt;int&gt; v2;
-	for (int i = 0; i &lt; 10; i++)
+	vector<int> v1;
+	vector<int> v2;
+	for (int i = 0; i < 10; i++)
 	{
 		v1.push_back(i);  // 0 ~ 9
 		v2.push_back(i + 5);  // 5 ~ 14
 	}
 
-	vector&lt;int&gt; vTarget;
+	vector<int> vTarget;
 	//ç›®æ ‡å®¹å™¨éœ€è¦æå‰å¼€è¾Ÿç©ºé—´
 	//æœ€ç‰¹æ®Šçš„æƒ…å†µ å¤§å®¹å™¨åŒ…å«å°å®¹å™¨  å¼€è¾Ÿç©ºé—´ å–å°å®¹å™¨çš„sizeå³å¯
 	vTarget.resize(min(v1.size(), v2.size()));
 
 	//è·å–äº¤é›†
-	vector&lt;int&gt;::iterator itEnd = set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), vTarget.begin());
+	vector<int>::iterator itEnd = set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), vTarget.begin());
 	for_each(vTarget.begin(), itEnd, myPrint);
-	cout &lt;&lt; endl;
+	cout << endl;
 }
 
 int main()
