@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Consolas;
+    src: url("https://github.com/DarkStarLan/DarkStarLan.github.io/blob/main/notes/Consolas.ttf");
+}
+#lan{
+	/* 修改头部选项栏长度(每个120px) */
+	width: 480px;
+	height: 34px;
+	position: relative;
+	margin: auto;
+}
+.right{
+	/* 按钮属性 */
+	font-size: 20px;
+	width: 100px;
+	border-radius: 6px;
+	height: 34px;
+	box-shadow: 0 0 0px #999;
+	transition: all 0.2s;
+	position: relative;
+	left: 10px;
+}
+.right:hover{
+	color: orangered;
+	background: skyblue;
+	box-shadow: 0 5px 10px #999;
+}
+.class1{
+	/* 按钮间隔 */
+	width: 120px;
+	height: 34px;
+	float: left;
+	position: relative;
+}
+.code{
+    font-family: Consolas;
+    color: rgb(255, 248, 205);
+    position: relative;
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    display: block;
+    padding: 10px;
+    white-space: pre-wrap;
+    background-color: rgb(36, 36, 36);
+}
