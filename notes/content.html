@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习笔记目录</title>
+    <style>
+        #lan{
+			/* 修改头部选项栏长度(每个120px) */
+			width: 360px;
+			height: 34px;
+			position: relative;
+			margin: auto;
+		}
+		.right{
+			/* 按钮属性 */
+			font-size: 20px;
+			width: 100px;
+			border-radius: 6px;
+			height: 34px;
+			box-shadow: 0 0 0px #999;
+			transition: all 0.2s;
+			position: relative;
+			left: 10px;
+		}
+		.right:hover{
+			color: orangered;
+			background: skyblue;
+			box-shadow: 0 5px 10px #999;
+		}
+		.class1{
+			/* 按钮间隔 */
+			width: 120px;
+			height: 34px;
+			float: left;
+			position: relative;
+		}
+        text{
+            color: antiquewhite;
+            position: relative;
+           left: 20px;
+           font-size: 20px;
+        }
+
+        .line{
+            background-color: aquamarine;
+            width: 80%;
+            height: 70px;
+            line-height: 50px;
+            margin: auto;
+            display: block;
+            border-radius: 10px;
+            transition-timing-function: ease;
+            transition-duration: 2s,10s;
+            transition-delay: 1s;
+        }
+        .line:hover{
+            background-color: chocolate;
+        }
+        .btn{
+            font-size: 50px;
+            letter-spacing: 10px;
+            transition-duration: 1s,6s;
+            transition-timing-function: ease;
+            transition-delay: 0.4s;
+            position: relative;
+            width: auto;
+            min-width: 120px;
+            padding: 10px;
+            text-align: center;
+            color: rgb(168, 13, 132);
+            background: #00d463;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+        }
+        .btn:after,.btn:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: #00d463;
+            z-index:-2;
+            border-radius: 10px;
+        }
+        .btn:hover{
+            z-index:1;
+            background:transparent;
+            color: white;
+        }            
+        .btn:before {
+            transition: 0.3s;
+            background: #016d33;
+            z-index:-1;
+        }          
+        .btn:hover:after,.btn:hover:before {
+            width: 100%;
+        }
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="line">
+            <h1 class="btn" onclick='window.open("cpp.html")'><a>C++笔记</a></h1>
+        </div>
+        <div class="line">
+            <h1 class="btn" onclick='window.open("python.html")'>Python笔记</h1>
+        </div>
+    </body>
+</html>
