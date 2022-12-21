@@ -34,16 +34,29 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">76 自定义模块.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示自定义模块
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 导入自定义模块使用
+# from myModle1 import test
+# test(1, 2)
+
+# 导入不同模块的同名功能
+# from myModle1 import test
+# from myModle2 import test
+# test(1, 2)
+
+# __main__变量
+# from myModle1 import test
+
+# __all__变量
+from myModle1 import *
+test_a(1, 2)
+# test_b(2, 1)
 
             </code>
         </pre>

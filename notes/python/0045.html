@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">63 数据容器通用功能.py</h1>
+        <pre>
+            <code class="code">
+"""
+演示数据容器的通用功能
+"""
+my_list = [1, 2, 3, 4, 5]
+my_tuple = (1, 2, 3, 4, 5)
+my_str = "abcdefg"
+my_set = {1, 2, 3, 4, 5}
+my_dict = {"key1": 1, "key2": 2, "key3": 3, "key4": 4, "key5": 5}
+
+# len元素个数
+print(f"列表\t\t元素个数有：{len(my_list)}")
+print(f"元组\t\t元素个数有：{len(my_tuple)}")
+print(f"字符串\t元素个数有：{len(my_str)}")
+print(f"集合\t\t元素个数有：{len(my_set)}")
+print(f"字典\t\t元素个数有：{len(my_dict)}")
+
+# max最大元素
+print(f"列表\t\t最大的元素是：{max(my_list)}")
+print(f"元组\t\t最大的元素是：{max(my_tuple)}")
+print(f"字符串\t最大的元素是：{max(my_str)}")
+print(f"集合\t\t最大的元素是：{max(my_set)}")
+print(f"字典\t\t最大的元素是：{max(my_dict)}")
+
+# min最小元素
+print(f"列表\t\t最小的元素是：{min(my_list)}")
+print(f"元组\t\t最小的元素是：{min(my_tuple)}")
+print(f"字符串\t最小的元素是：{min(my_str)}")
+print(f"集合\t\t最小的元素是：{min(my_set)}")
+print(f"字典\t\t最小的元素是：{min(my_dict)}")
+
+# 类型转换：容器转列表
+print(f"列表\t\t转列表的结果是：{list(my_list)}")
+print(f"元组\t\t转列表的结果是：{list(my_tuple)}")
+print(f"字符串\t转列表的结果是：{list(my_set)}")
+print(f"集合\t\t转列表的结果是：{list(my_str)}")
+print(f"字典\t\t转列表的结果是：{list(my_dict)}")
+
+# 类型转换：容器转元组
+print(f"列表\t\t转元组的结果是：{tuple(my_list)}")
+print(f"元组\t\t转元组的结果是：{tuple(my_tuple)}")
+print(f"字符串\t转元组的结果是：{tuple(my_set)}")
+print(f"集合\t\t转元组的结果是：{tuple(my_str)}")
+print(f"字典\t\t转元组的结果是：{tuple(my_dict)}")
+
+# 类型转换：容器转字符串  转换后带上引号
+print(f"列表\t\t转字符串的结果是：{str(my_list)}")
+print(f"元组\t\t转字符串的结果是：{str(my_tuple)}")
+print(f"字符串\t转字符串的结果是：{str(my_set)}")
+print(f"集合\t\t转字符串的结果是：{str(my_str)}")
+print(f"字典\t\t转字符串的结果是：{str(my_dict)}")
+
+# 容器转集合
+print(f"列表\t\t转集合的结果是：{set(my_list)}")
+print(f"元组\t\t转集合的结果是：{set(my_tuple)}")
+print(f"字符串\t转集合的结果是：{set(my_set)}")
+print(f"集合\t\t转集合的结果是：{set(my_str)}")
+print(f"字典\t\t转集合的结果是：{set(my_dict)}")
+
+# 字典转成别的容器类型会失去value值，别的容器类型转字典类型因为不存在键值对，所以无法转换
+
+# sorted排序  排序完都成列表了
+my_list = [3, 1, 2, 5, 4]
+my_tuple = (3, 1, 2, 5, 4)
+my_str = "bdcefga"
+my_set = {3, 1, 2, 5, 4}
+my_dict = {"key3": 1, "key1": 2, "key2": 3, "key5": 4, "key4": 5}
+
+print(f"列表\t\t对象的排序结果：{sorted(my_list)}")
+print(f"元组\t\t对象的排序结果：{sorted(my_tuple)}")
+print(f"字符串\t对象的排序结果：{sorted(my_str)}")
+print(f"集合\t\t对象的排序结果：{sorted(my_set)}")
+print(f"字典\t\t对象的排序结果：{sorted(my_dict)}")
+
+print(f"列表\t\t对象反向的排序结果：{sorted(my_list, reverse=True)}")
+print(f"元组\t\t对象反向的排序结果：{sorted(my_tuple, reverse=True)}")
+print(f"字符串\t对象反向的排序结果：{sorted(my_str, reverse=True)}")
+print(f"集合\t\t对象反向的排序结果：{sorted(my_set, reverse=True)}")
+print(f"字典\t\t对象反向的排序结果：{sorted(my_dict, reverse=True)}")
+
+            </code>
+        </pre>
+    </body>
+</html>

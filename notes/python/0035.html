@@ -34,16 +34,37 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">47 变量的作用域.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示在函数使用的时候，定义的变量作用域
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 演示局部变量
+# def test_a():
+#     num = 100
+#     print(num)
+# test_a()
+# 出了函数体，局部变量就无法使用了
+# print(num)
+
+# 演示全局变量
+num = 200
+
+def test_a():
+    print(f"test_a: {num}")
+
+# 在函数内修改全局变量
+def test_b():
+    # global关键字，在函数内声明变量为全局变量
+    global num  # 设置内部定义的变量为全局变量
+    num = 500  # 本来局部变量，global使它声明为全局变量
+    print(f"test_b: {num}")
+
+test_a()
+test_b()
+print(num)
 
             </code>
         </pre>

@@ -34,16 +34,42 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">23 判断语句的嵌套.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示判断语句的嵌套使用
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# if int(input("你的身高是多少: ")) &gt; 120:
+#     print("身高超出限制，不可以免费")
+#     print("但是，如果vip级别大于3，可以免费")
+#
+#     if int(input("你的vip级别是多少: ")) &gt; 3:
+#         print("恭喜你，vip级别达标，可以免费")
+#     else:
+#         print("Sorry 你需要买票10元")
+# else:
+#     print("欢迎小朋友，免费游玩")
+
+
+age = 20
+year = 3
+level = 1
+if age &gt;= 18:
+    print("你是成年人")
+    if age &lt; 30:
+        print("你的年龄达标了")
+        if year &gt; 2:
+            print("恭喜你，年龄和入职时间都达标，可以领取礼物")
+        elif level &gt; 3:
+            print("恭喜你，年龄和级别达标，可以领取礼物")
+        else:
+            print("不好意思，尽管年龄达标，但是入职时间和级别都不达标")
+    else:
+        print("不好意思，年龄太大了")
+else:
+    print("不好意思，小朋友不可以领取")
 
             </code>
         </pre>

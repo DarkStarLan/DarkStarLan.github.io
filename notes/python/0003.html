@@ -34,16 +34,27 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">03 变量.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示Python中变量的相关操作
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 定义一个变量，用来记录钱包余额
+money = 50
+# 通过print语句，输出变量记录的内容
+print("钱包还有： ", money)
+
+# 买了一个冰淇淋，花费10元
+money = money - 10
+print("买了冰淇淋花费10元，还剩余：", money, "元")
+
+# 假设，每隔一小时，输出一下钱包的余额
+print("现在是下午1点，还剩余：", 40)
+print("现在是下午2点，还剩余：", 40)
+print("现在是下午3点，还剩余：", money, "元")
+print("现在是下午4点，还剩余：", money, "元")
 
             </code>
         </pre>

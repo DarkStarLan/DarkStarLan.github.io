@@ -34,16 +34,37 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">77 Python包.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示Python的包
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 创建一个包
+# 导入自定义的包中的模块，并使用
+import myPackage.myModle1
+import myPackage.myModle2
+
+myPackage.myModle1.info_print1()
+myPackage.myModle2.info_print2()
+
+from myPackage import myModle1
+from myPackage import myModle2
+
+myModle1.info_print1()
+myModle2.info_print2()
+
+from myPackage.myModle1 import info_print1
+from myPackage.myModle2 import info_print2
+
+info_print1()
+info_print2()
+
+# 通过__all__变量，控制import *
+from myPackage import *
+myModle1.info_print1()
+# myModle2.info_print2()
 
             </code>
         </pre>

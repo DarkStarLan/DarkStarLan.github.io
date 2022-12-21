@@ -34,16 +34,22 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">68 lambda匿名函数.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示lambda匿名函数
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 可惜，lambda函数只能写一行代码，不能写多行
+
+# 定义一个函数，接收其它函数输入
+def test_func(compute):
+    result = compute(1, 2)
+    print(f"结果是:{result}")
+# 通过lambda匿名函数的形式，将匿名函数作为参数传入
+test_func(lambda x, y: x + y)
+test_func(lambda x, y: x + y)
 
             </code>
         </pre>

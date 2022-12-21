@@ -34,16 +34,32 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">70 文件的写入.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示文件的写入
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 打开文件，不存在的文件
+f = open("text.txt", "w", encoding="UTF-8")
+# write写入
+f.write("Hello World")
+
+# flush刷新
+f.flush()
+
+# close关闭
+f.close()  # close()内置了flush()
+
+# 打开一个存在的文件
+f = open("text.txt", "w", encoding="UTF-8")
+
+# write写入，flush刷新
+f.write("黑马程序员")
+
+# close关闭
+f.close()
 
             </code>
         </pre>

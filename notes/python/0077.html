@@ -34,16 +34,22 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">12 Union联合类型注解.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示Union联合类型注解
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# Union类型：要么是...要么是...
+
+# 使用Union类型，必须先导包
+from typing import Union
+
+my_list: list[Union[int, str]] = [1, 2, "itheima", "itcast"]
+
+def func(data: Union[int, str]) -&gt; Union[int, str]:
+    pass
 
             </code>
         </pre>

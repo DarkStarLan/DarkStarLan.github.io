@@ -34,16 +34,43 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">75 模块的导入.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示Python的模块导入
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# [from 模块名] import [模块 | 类 | 变量 | 函数 | *] [as 别名]
+
+# 使用import导入模块使用sleep功能(函数)
+import time  # 导入Python内置的time模块(time.py这个文件)
+print("你好")
+time.sleep(5)  # 通过.使用
+print("我好")
+
+# 使用from导入time的sleep功能(函数)
+from time import sleep
+print("你好")
+sleep(5)
+print("我好")
+
+# 使用 * 导入time模块的全部功能
+from time import *
+print("你好")
+sleep(5)
+print("我好")
+
+# 使用as给特定功能加上别名
+import time as t
+print("你好")
+t.sleep(5)
+print("我好")
+
+from time import  sleep as sl
+print("你好")
+sl(5)
+print("我好")
 
             </code>
         </pre>

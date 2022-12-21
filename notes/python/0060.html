@@ -34,16 +34,34 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">80 pyecharts基础入门.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示pyecharts的基础入门
+"""
+# 导包
+from pyecharts.charts import Line
+from pyecharts.options import TitleOpts, LegendOpts, ToolboxOpts, VisualMapOpts
+# 创建一个折线图对象
+line = Line()
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 给折线图对象添加x轴的数据
+line.add_xaxis(["中国", "美国", "英国"])
+
+# 给折线图对象添加y轴的数据
+line.add_yaxis("GDP", [30, 20, 10])
+
+# 设置全局配置项set_global_opts
+line.set_global_opts(
+    title_opts=TitleOpts(title="GDP展示", pos_left="center", pos_bottom="1%"),
+    legend_opts=LegendOpts(is_show=True),
+    toolbox_opts=ToolboxOpts(is_show=True),
+    visualmap_opts=VisualMapOpts(is_show=True)
+)
+
+# 通过render方法，将代码生成为图像
+line.render()
 
             </code>
         </pre>

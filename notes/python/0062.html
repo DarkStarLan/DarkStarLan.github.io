@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">82 全国疫情可视化地图开发.py</h1>
+        <pre>
+            <code class="code">
+# --------------------网络代码[爬取疫情数据]--------------------
+import requests
+import re
+import json
+
+url = 'https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_aladin_banner'
+# 发送请求
+response = requests.get(url=url)
+html_data = response.text
+component = re.findall('"component":\[(.*)\],', html_data)[0]
+
+# 转类型
+json_data = json.loads(component)
+caseList = json_data['caseList']
+# 列表的数据类型
+# for case in caseList:
+#     area = case['area']                              # 城市
+#     confirmedRelative = case['confirmedRelative']    # 新增确诊人数
+#     curConfirm = case['curConfirm']                  # 现有确诊人数
+#     confirmed = case['confirmed']                    # 累计确诊
+#     crued = case['crued']                            # 治愈人数
+#     died = case['died']                              # 死亡人数
+#     print(area, confirmedRelative, curConfirm, confirmed, crued, died)
+# 城市 新增确诊 现有确诊 累计确诊 治愈 死亡
+# --------------------网络代码[爬取疫情数据]--------------------
+# area curConfirm
+data = list()
+for case in caseList:
+    area = case["area"]
+    curConfirm = case["curConfirm"]
+    temp = list()
+    temp.append(area)
+    temp.append(curConfirm)
+    data.append(tuple(temp))
+    # data.append(tuple(area + curConfirm))
+
+print(data)
+
+# import json
+from pyecharts.charts import Map
+from pyecharts.options import TitleOpts, VisualMapOpts
+# 创建地图对象
+map = Map()
+# 添加数据
+map.add("各省份现有确诊人数", data, "china")
+# 设置全局配置，定制分段的视觉映射
+map.set_global_opts(
+    title_opts=TitleOpts(title="全国疫情地图"),
+    visualmap_opts=VisualMapOpts(
+        is_show=True,  # 是否显示
+        is_piecewise=True,  # 是否分段
+        pieces=[
+            {"min": 1, "max": 99, "label": "1-99人", "color": "#CCFFFF"},
+            {"min": 100, "max": 999, "label": "100-999人", "color": "#FFFF99"},
+            {"min": 1000, "max": 4999, "label": "1000-4999人", "color": "#FF9966"},
+            {"min": 5000, "max": 9999, "label": "5000-9999人", "color": "#FF6666"},
+            {"min": 10000, "max": 99999, "label": "10000-99999人", "color": "#CC3333"},
+            {"min": 100000, "label": "100000人及以上", "color": "#990033"}
+        ]
+    )
+)
+# 绘图
+map.render("全国疫情地图.html")
+
+            </code>
+        </pre>
+    </body>
+</html>

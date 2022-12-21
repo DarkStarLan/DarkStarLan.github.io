@@ -34,16 +34,30 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">02 成员方法.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示面向对象类中的成员方法定义和使用
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 定义一个带有成员方法的类
+class Student:
+    name = None         # 学生的姓名
+
+    def say_hi(self):
+        print(f"大家好，我是{self.name}，完毕")
+
+    def say_hi2(self, msg):
+        print(f"大家好，我是{self.name}，{msg}")
+
+stu1 = Student()
+stu1.name = "张三"
+stu1.say_hi2("666")
+
+stu2 = Student()
+stu2.name = "李四"
+stu2.say_hi2("不戳")
 
             </code>
         </pre>

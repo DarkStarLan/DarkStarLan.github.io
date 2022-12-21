@@ -34,16 +34,26 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">34 for循环的嵌套使用.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示嵌套应用for循环
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 坚持表白100天，每天都送10朵花
+# range
+i = 0
+for i in range(1, 101):
+    print(f"今天是向小美表白的第{i}天，加油坚持")
+
+    # 内层的循环
+    for j in range(1, 11):
+        print(f"给小美送的第{j}朵玫瑰花")
+
+    print("表白...")
+
+print(f"第{i}天，表白成功")
 
             </code>
         </pre>

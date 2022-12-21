@@ -34,16 +34,36 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">04 构造方法.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示类的构造方法
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+# 演示使用构造方法对成员变量进行赋值
+# 构造方法的名称：__init__
+
+# 写了__init__就不能在用默认构造函数了
+# 所以前面的成员变量声明就可以不写了
+
+class Student:
+    # name = None
+    # age = None
+    # tel = None
+
+    def __init__(self, name, age, tel):
+        self.name = name
+        self.age = age
+        self.tel = tel
+        print("Student类创建了一个类对象")
+
+stu = Student("张三", 31, "18500006666")
+print(stu.name)
+print(stu.age)
+print(stu.tel)
+
+# stu = Student()  # 错误
 
             </code>
         </pre>

@@ -34,16 +34,41 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">05 其他内置方法.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示Python内置的各类魔术方法
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+
+class Student:
+    def __init__(self, name, age):
+        self.name = name  # 学生姓名
+        self.age = age  # 学生年龄
+
+    # __str__魔术方法
+    def __str__(self):
+        return f"Student类对象，name:{self.name}，age:{self.age}"
+
+    # __lt__魔术方法  即重载了 "&lt;" 也重载了 "&gt;"
+    def __lt__(self, other):
+        return self.age &lt; other.age
+
+    # __le__魔术方法  即重载了 "&lt;=" 也重载了 "&gt;="
+    def __le__(self, other):
+        return self.age &lt;= other.age
+
+    # __eq__魔术方法
+    def __eq__(self, other):
+        return self.age == other.age
+
+
+# 不重写__ep__ "=="号会进行内存比较
+stu1 = Student("张三", 36)
+stu2 = Student("李四", 36)
+print(stu1 &lt;= stu2)
+print(stu1 == stu2)
 
             </code>
         </pre>

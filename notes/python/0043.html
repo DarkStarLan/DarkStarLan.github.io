@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/cpp.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/cpp.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">60 字典.py</h1>
+        <pre>
+            <code class="code">
+"""
+演示数据容器字典的定义
+"""
+
+# 字典的Key不能为字典(禁止Key套娃)
+# 定义字典
+my_dict1 = {"张三": 99, "李四": 88, "王五": 77}
+# 定义空字典
+my_dict2 = {}  # 空集合要用set()，因为{}被字典占用了
+my_dict3 = dict()
+print(f"字典1的内容是：{my_dict1}，类型：{type(my_dict1)}")
+print(f"字典1的内容是：{my_dict2}，类型：{type(my_dict2)}")
+print(f"字典1的内容是：{my_dict3}，类型：{type(my_dict3)}")
+
+# 定义重复Key的字典
+my_dict1 = {"张三": 99, "张三": 88, "李四": 77}
+print(f"重复key的字典的内容是：{my_dict1}")  # "张三": 99 被覆盖掉了
+
+# 从字典中基于Key获取Value
+my_dict1 = {"张三": 99, "李四": 88, "王五": 77}
+score = my_dict1["张三"]
+print(f"张三的考试分数是：{score}")
+score = my_dict1["李四"]
+print(f"李四的考试分数是：{score}")
+
+# 定义嵌套字典
+stu_score_dict = {
+    "张三": {
+        "语文": 77,
+        "数学": 66,
+        "英语": 33
+    }, "李四": {
+        "语文": 88,
+        "数学": 86,
+        "英语": 55
+    }, "王五": {
+        "语文": 99,
+        "数学": 96,
+        "英语": 66
+    }
+}
+print(f"学生的考试信息是：{stu_score_dict}")
+
+# 从嵌套字典中获取数据
+# 看一下李四的语文信息
+score = stu_score_dict["李四"]["语文"]
+print(f"李四的语文分数是：{score}")
+score = stu_score_dict["王五"]["英语"]
+print(f"王五的英语分数是：{score}")
+
+            </code>
+        </pre>
+    </body>
+</html>

@@ -34,16 +34,22 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 字面量.py</h1>
+        <h1 class="code">65 函数的多返回值.py</h1>
         <pre>
             <code class="code">
-666
-13.14
-"黑马程序员"
+"""
+演示函数的多返回值实例
+"""
 
-print(666)
-print(13.14)
-print("黑马程序员")
+
+# 演示使用多个变量，接收多个返回值
+def test_return():
+    return 1, "hello", True
+
+x, y, z = test_return()
+print(x)
+print(y)
+print(z)
 
             </code>
         </pre>
