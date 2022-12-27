@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Car.java</h1>
+        <pre>
+            <code class="code">
+package com.darkstarlan.demo06;
+
+public class Car {
+    private static int sId = 0;
+    private int id = 0;
+    String carName;
+    int carAge;
+    String carColor;
+
+    public void show(Car this) {
+        System.out.println(this.carName);
+        Engine e = new Engine();
+        System.out.println(e.engineName);
+    }
+
+    public class Engine {  //成员内部类
+        private int id = 5;
+        String engineName;
+        int engineAge;
+        public void show() {
+            int id = 10;
+            System.out.println(id);
+            System.out.println(this.id);
+            System.out.println(Car.this.id);
+        }
+    }
+
+    public static class Inner {  //静态内部类
+        static int sId = 5;
+        public static void sShow() {
+            int id = 10;
+            System.out.println(id);
+            System.out.println(Car.sId);
+            System.out.println(Car.Inner.sId);
+        }
+    }
+
+    public void func() {
+        int a = 10;
+
+        //局部内部类
+        class Inner {
+            String name;
+            int age;
+
+            public void method1() {
+                System.out.println(a);
+                System.out.println(id);
+                System.out.println("局部内部类中method1");
+            }
+
+            public void method2() {
+                System.out.println("局部内部类中method2");
+            }
+        }
+        //创建局部内部类的对象
+        Inner i = new Inner();
+        System.out.println(i.name);
+        System.out.println(i.age);
+        i.method1();
+        i.method2();
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>
