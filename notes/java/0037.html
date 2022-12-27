@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_01.java</h1>
+        <pre>
+            <code class="code">
+//static静态变量
+package com.darkstarlan.demo03;
+
+public class Java_01 {
+    public static void main(String[] args) {
+        Student.teacherName = "A老师";
+        //创建第一个学生对象
+        Student s1 = new Student();
+        s1.setName("张三");
+        s1.setAge(23);
+        s1.setGender("男");
+        //s1.teacherName = "A老师";
+
+        s1.study();
+        s1.show();
+
+        //创建第二个学生对象
+        Student s2 = new Student();
+        s2.setName("李四");
+        s2.setAge(24);
+        s2.setGender("女");
+
+        s2.study();
+        s2.show();
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>
