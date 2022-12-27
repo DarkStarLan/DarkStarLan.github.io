@@ -34,29 +34,35 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">Java_01.java</h1>
+        <h1 class="code">Java_06.java</h1>
         <pre>
             <code class="code">
-//算术运算符
+//自增自减运算符
 package com.darkstarlan.demo01;
 
-public class Java_01 {
+public class Java_06 {
     public static void main(String[] args) {
-        //+
-        System.out.println(3 + 2);
-        //-
-        System.out.println(5 - 1);
-        /        System.out.println(7 * 9);
+        //== 和 --
+        int a = 10;
+        a++;  //表示把变量a里面的值+1
+        System.out.println(a);
+        ++a;  //表示把变量a里面的值+1
+        System.out.println(a);
+        a--;  //表示把变量a里面的值-1
+        System.out.println(a);
+        --a;  //表示把变量a里面的值-1
+        System.out.println(a);
 
-        //如果在计算的时候有小数参与
-        //结果有可能不精确
-        System.out.println(1.1 + 1.1);
-        System.out.println(1.1 + 1.01);
-        System.out.println(1.1 - 1.01);
-        System.out.println(1.1 * 1.01);
+        System.out.println("----------");
+
+        int x = 10;
+        int y = x++;  //先用后加
+        int z = ++x;  //先加后用
+        System.out.println("x:" + x);
+        System.out.println("y:" + y);
+        System.out.println("z:" + z);
     }
 }
-
             </code>
         </pre>
     </body>

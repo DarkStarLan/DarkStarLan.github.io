@@ -34,26 +34,25 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">Java_01.java</h1>
+        <h1 class="code">Java_17.java</h1>
         <pre>
             <code class="code">
-//算术运算符
+//数组
 package com.darkstarlan.demo01;
 
-public class Java_01 {
+public class Java_17 {
     public static void main(String[] args) {
-        //+
-        System.out.println(3 + 2);
-        //-
-        System.out.println(5 - 1);
-        /        System.out.println(7 * 9);
+        int[] arr1 = new int[]{11, 12, 13, 14};
+        int[] arr2 = {11, 12, 13, 14};
 
-        //如果在计算的时候有小数参与
-        //结果有可能不精确
-        System.out.println(1.1 + 1.1);
-        System.out.println(1.1 + 1.01);
-        System.out.println(1.1 - 1.01);
-        System.out.println(1.1 * 1.01);
+        String[] arr3 = new String[]{"张三", "李四", "王五"};
+        String[] arr4 = {"张三", "李四", "王五"};
+
+        double[] arr5 = new double[]{1.93, 1.45, 3.14};
+        double[] arr6 = {1.93, 1.45, 3.14};
+
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(arr[0]);
     }
 }
 

@@ -34,26 +34,45 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">Java_01.java</h1>
+        <h1 class="code">Java_14.java</h1>
         <pre>
             <code class="code">
-//算术运算符
+//switch语句
 package com.darkstarlan.demo01;
 
-public class Java_01 {
-    public static void main(String[] args) {
-        //+
-        System.out.println(3 + 2);
-        //-
-        System.out.println(5 - 1);
-        /        System.out.println(7 * 9);
+import java.util.Scanner;
 
-        //如果在计算的时候有小数参与
-        //结果有可能不精确
-        System.out.println(1.1 + 1.1);
-        System.out.println(1.1 + 1.01);
-        System.out.println(1.1 - 1.01);
-        System.out.println(1.1 * 1.01);
+public class Java_14 {
+    public static void main(String[] args) {
+        System.out.println("你吃什么");
+        Scanner sc = new Scanner(System.in);
+        String noodles = sc.nextLine();
+        switch(noodles){
+            case "兰州拉面":
+                System.out.println("吃兰州拉面");
+                break;
+            case "武汉热干面":
+                System.out.println("吃武汉热干面");
+                break;
+            case "北京炸酱面":
+                System.out.println("吃北京炸酱面");
+                break;
+            case "陕西油泼面":
+                System.out.println("吃陕西油泼面");
+                break;
+            default:
+                System.out.println("吃毛线");
+                break;
+        }
+
+        //另一种写法
+        switch(noodles){
+            case "兰州拉面" -&gt; System.out.println("吃兰州拉面");
+            case "武汉热干面" -&gt; System.out.println("吃武汉热干面");
+            case "北京炸酱面" -&gt; System.out.println("吃北京炸酱面");
+            case "陕西油泼面" -&gt; System.out.println("吃陕西油泼面");
+            default -&gt; System.out.println("吃毛线");
+        }
     }
 }
 

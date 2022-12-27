@@ -34,26 +34,31 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">Java_01.java</h1>
+        <h1 class="code">Java_08.java</h1>
         <pre>
             <code class="code">
-//算术运算符
+//比较运算符
 package com.darkstarlan.demo01;
 
-public class Java_01 {
-    public static void main(String[] args) {
-        //+
-        System.out.println(3 + 2);
-        //-
-        System.out.println(5 - 1);
-        /        System.out.println(7 * 9);
+import java.util.Scanner;
 
-        //如果在计算的时候有小数参与
-        //结果有可能不精确
-        System.out.println(1.1 + 1.1);
-        System.out.println(1.1 + 1.01);
-        System.out.println(1.1 - 1.01);
-        System.out.println(1.1 * 1.01);
+public class Java_08 {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 10;
+        int c = 20;
+        System.out.println(a == b);
+        System.out.println(a == c);
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入第一个数");
+        int inputFirst = sc.nextInt();
+        System.out.println("请输入第二个数");
+        int inputLast = sc.nextInt();
+
+        boolean result = inputFirst &gt; inputLast;
+
+        System.out.println(result);
     }
 }
 

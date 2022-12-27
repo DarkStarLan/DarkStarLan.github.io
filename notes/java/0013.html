@@ -34,26 +34,28 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">Java_01.java</h1>
+        <h1 class="code">Java_13.java</h1>
         <pre>
             <code class="code">
-//算术运算符
+//if语句
 package com.darkstarlan.demo01;
 
-public class Java_01 {
-    public static void main(String[] args) {
-        //+
-        System.out.println(3 + 2);
-        //-
-        System.out.println(5 - 1);
-        /        System.out.println(7 * 9);
+import java.util.Scanner;
 
-        //如果在计算的时候有小数参与
-        //结果有可能不精确
-        System.out.println(1.1 + 1.1);
-        System.out.println(1.1 + 1.01);
-        System.out.println(1.1 - 1.01);
-        System.out.println(1.1 * 1.01);
+public class Java_13 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入");
+        int wine = sc.nextInt();
+        if(wine &gt; 10){
+            System.out.println("不戳");
+        }
+        else if(wine &gt; 5){
+            System.out.println("还行");
+        }
+        else{
+            System.out.println("戳");
+        }
     }
 }
 
