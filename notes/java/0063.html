@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_01.java</h1>
+        <pre>
+            <code class="code">
+package com.darkstarlan.demo05;
+
+public class Java_01 {
+    public static void main(String[] args) {
+        //创建青蛙对象
+        Frog f = new Frog("小青", 1);
+        System.out.println(f.getName() + ", " + f.getAge());
+
+        f.eat();
+        f.swim();
+
+        //创建兔子对象
+        Rabbit r = new Rabbit("小白", 2);
+        System.out.println(r.getName() + ", " + r.getAge());
+
+        r.eat();
+        //r.swim();  //错误，没有这个方法
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>
