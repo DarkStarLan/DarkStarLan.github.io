@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Phone.java</h1>
+        <pre>
+            <code class="code">
+package com.darkstarlan.demo02;
+
+public class Phone {
+    //属性
+    private String brand;
+    public double price;
+
+    //行为
+    public Phone()
+    {
+        System.out.println("Phone构造函数");
+    }
+
+    public Phone(String brand, double price)
+    {
+        this.brand = brand;
+        this.price = price;
+        System.out.println("Phone有参构造函数");
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getBrand() {
+        return this.brand;
+    }
+
+    public void call()
+    {
+        System.out.println("手机在打电话");
+    }
+
+    public void playGame()
+    {
+        System.out.println("手机在玩游戏");
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>

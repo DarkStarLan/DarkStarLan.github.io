@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_06.java</h1>
+        <pre>
+            <code class="code">
+//字符串
+package com.darkstarlan.demo02;
+
+public class Java_06 {
+    public static void main(String[] args) {
+        //当使用双引号直接赋值时，系统会检查该字符串在串池中是否存在
+        //不存在：创建新的
+        //存在：复用
+        String s1 = "abc";
+        System.out.println(s1);
+
+        String s2 = new String();
+        System.out.println("@" + s2 + "!");
+
+        String s3 = new String("abc");
+        System.out.println(s3);
+
+        char[] chs = {'a', 'b', 'c', 'd'};
+        String s4 = new String(chs);
+        System.out.println(s4);
+
+        byte[] bytes = {97, 98, 99, 100};
+        String s5 = new String(bytes);
+        System.out.println(s5);
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>

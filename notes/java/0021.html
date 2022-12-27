@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_04.java</h1>
+        <pre>
+            <code class="code">
+//类和封装
+//相关文件：Phone.java
+package com.darkstarlan.demo02;
+
+public class Java_04 {
+    public static void main(String[] args) {
+        //创建手机对象
+        Phone p = new Phone();
+
+        //给手机赋值
+        p.setBrand("小米");
+        p.price = 1999.98;
+
+        //获取手机对象中的值
+        System.out.println(p.getBrand());
+        System.out.println(p.price);
+
+        //调用手机中的方法
+        p.call();
+        p.playGame();
+
+        Phone p2 = new Phone();
+        p2.setBrand("苹果");
+        p2.price = 8999;
+
+        p2.call();
+        p2.playGame();
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>

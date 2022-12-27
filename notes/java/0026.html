@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_09.java</h1>
+        <pre>
+            <code class="code">
+//StringJoiner
+package com.darkstarlan.demo02;
+
+import java.util.StringJoiner;
+
+public class Java_09 {
+    public static void main(String[] args) {
+        StringJoiner sj1 = new StringJoiner("---");
+
+        sj1.add("aaa").add("bbb").add("ccc");
+
+        System.out.println(sj1);
+
+        StringJoiner sj2 = new StringJoiner(", ", "[", "]");
+
+        sj2.add("aaa").add("bbb").add("ccc");
+
+        int len = sj2.length();
+        System.out.println(len);
+
+        System.out.println(sj2);
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>

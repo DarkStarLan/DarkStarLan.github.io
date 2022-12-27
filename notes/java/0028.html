@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_11.java</h1>
+        <pre>
+            <code class="code">
+//集合
+package com.darkstarlan.demo02;
+
+import java.util.ArrayList;
+
+public class Java_11 {
+    public static void main(String[] args) {
+        //创建集合对象
+        //不能是内置数据类型
+        //ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        //JDK7
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        System.out.println(list);
+
+        //添加元素
+        boolean result1 = list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        System.out.println(result1);
+
+        System.out.println(list);
+
+        //删除元素
+        boolean result2 = list.remove("aaa");
+        System.out.println(result2);
+
+        System.out.println(list);
+
+        boolean result3 = list.remove("ddd");
+        System.out.println(result3);
+
+        String str = list.remove(1);
+        System.out.println(str);
+        System.out.println(list);
+
+        //修改元素
+        String result = list.set(0, "ddd");
+        System.out.println(result);
+
+        //查询元素
+        String s = list.get(0);
+        System.out.println(s);
+
+        System.out.println(list);
+
+        //遍历
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        for (int i = 0; i &lt; list.size(); i++) {
+            String temp = list.get(i);;
+            System.out.println(temp);
+        }
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>
