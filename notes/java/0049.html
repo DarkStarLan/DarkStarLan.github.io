@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">Java_01.java</h1>
+        <pre>
+            <code class="code">
+//多态
+package com.darkstarlan.demo04;
+
+public class Java_01 {
+    public static void main(String[] args) {
+        //当用基类=new派生类创建对象时
+        //访问的成员变量是基类的
+        //调用的函数是派生类的
+
+        //创建对象
+        Student s = new Student();
+        s.setName("张三");
+        s.setAge(18);
+
+        Teacher t = new Teacher();
+        t.setName("老王");
+        t.setAge(30);
+
+        Administrator admin = new Administrator();
+        admin.setName("管理员");
+        admin.setAge(35);
+
+        register(s);
+        register(t);
+        register(admin);
+    }
+
+    public static void register(Person p) {
+        p.show();
+    }
+}
+
+            </code>
+        </pre>
+    </body>
+</html>
