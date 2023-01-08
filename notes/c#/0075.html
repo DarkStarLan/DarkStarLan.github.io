@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">38 显式实现接口.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Bird : IFlyable
+{
+    public void Fly()
+    {
+        Console.WriteLine("鸟会飞");
+    }
+
+    /// &lt;summary&gt;
+    /// 显式实现接口
+    /// &lt;/summary&gt;
+    void IFlyable.Fly()
+    {
+        Console.WriteLine("接口的飞");
+    }
+}
+
+public interface IFlyable
+{
+    void Fly();
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //显式实现接口就是为了解决方法重名问题
+        IFlyable fly = new Bird();
+        fly.Fly();  //接口的
+        Bird bird = new Bird();
+        bird.Fly();  //Bird类的
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

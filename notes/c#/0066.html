@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">29 访问权限修饰符.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Person { }
+
+internal class Student : Person { }
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //C#中有5个访问权限修饰符
+        //public        公开权限
+        //protected     保护权限
+        //private       私有权限
+        //internal      只能在当前程序集中访问(默认权限)
+        //protected internal
+        // -只能在当前程序集中或派生类中访问
+
+        //只有public和internal能修饰class
+
+        //派生类的访问权限高于基类的访问权限会导致
+        //基类的成员被暴露，毕竟没有C++的继承方式
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">14 里氏转换.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Person
+{
+    public void PersonSayHello()
+    {
+        Console.WriteLine("我是人类");
+    }
+}
+
+public class Student : Person
+{
+    public void StudentSayHello()
+    {
+        Console.WriteLine("我是学生");
+    }
+}
+
+public class Teacher : Person
+{
+    public void TeacherSayHello()
+    {
+        Console.WriteLine("我是老师");
+    }
+}
+
+class Prigram
+{
+    static void Main(string[] args)
+    {
+        //object 是一切类型的基类
+        //里氏转换
+        //派生类可以赋值给基类
+        //如果基类中存储的是派生类对象
+        //那么可以将这个派生类强制转换为派生类类型
+        //Student s = new Student();
+        //Person p = s;
+
+        string str = string.Join("|", new string[] { "1", "2", "3", "4" });
+        Console.WriteLine(str);
+        Console.ReadKey();
+
+        Person p = new Student();
+
+        //p中装的是Student类对象
+        Student ss = (Student)p;  //正确
+        //Teacher t = (Teacher)p;  //错误
+        ss.StudentSayHello();
+        Console.ReadKey();
+        
+        //is的用法
+        if(p is Teacher)
+        {
+            Teacher tt = (Teacher)p;
+            tt.TeacherSayHello();
+        }
+        else
+        {
+            Console.WriteLine("转换失败");
+        }
+        Console.ReadKey();
+
+        //as的用法
+        //如果转换失败tea会变成null
+        Teacher tea = p as Teacher;
+        //如果转换失败stu会变成null
+        Student stu = p as Student;
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

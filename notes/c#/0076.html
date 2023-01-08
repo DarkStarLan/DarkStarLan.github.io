@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">39 MD5加密.cs</h1>
+        <pre>
+            <code class="code">
+﻿using System.Security.Cryptography;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //MD5加密
+        //202cb962ac59075b964b07152d234b70
+        //202cb962ac5975b964b7152d234b70
+        //202cb962ac59075b964b07152d234b70
+        //3244185981728979115075721453575112
+        string s = GetMD5("123");
+        Console.WriteLine(s);
+        Console.ReadKey();
+    }
+
+    public static string GetMD5(string str)
+    {
+        //创建MD5对象
+        MD5 md5 = MD5.Create();
+        //开始加密
+        byte[] buffer = Encoding.Default.GetBytes(str);
+        //返回加密好的字节数组
+        byte[] MD5Buffer = md5.ComputeHash(buffer);
+
+        //将字节数组转换成字符串
+        //字节数组--&gt;字符串
+        //1.将字节数组中每个元素按照指定的编码格式解析成字符串
+        //2.直接将数组ToString()
+        //3.将字节数组中的每个元素ToString()
+
+        string strNew = "";
+        for(int i = 0; i &lt; MD5Buffer.Length; i++)
+        {
+            strNew += MD5Buffer[i].ToString("x2");
+        }
+        return strNew;
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>
