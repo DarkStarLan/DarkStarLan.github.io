@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,23 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">11 关系和逻辑运算符.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        bool b = 1500 &gt; 1;
+        Console.WriteLine(b);
+        Console.ReadKey();
 
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        Console.WriteLine("请输入你的语文成绩");
+        int chinese = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("请输入你的数学成绩");
+        int math = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(chinese &gt; 90 && math &gt; 90);
+        Console.ReadKey();
     }
 }
             </code>

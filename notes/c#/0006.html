@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,39 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">06 转义符和@.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //换行转义符 \n
+        Console.WriteLine("今天天气好晴朗\n处处好风光");
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        //输出双引号
+        Console.WriteLine("输出一个\"\"双引号");
+        Console.ReadKey();
 
-        int n = 100;
+        //制表符 \t对齐
+        string name1 = "张三";
+        string name2 = "李不斯基";
+        Console.WriteLine("{0}\t{1}", name1, name2);
+        Console.ReadKey();
 
-        string zsName = "张三";
+        //删除前面的字符 \b
+        //放在字符串两边没有效果
+        Console.WriteLine("\b我前面没\b\b有东西\b");
+        Console.ReadKey();
 
-        char c = 'a';
-
-        decimal money = 5000m;
+        //取消转义 @后面不转义
+        string load = @"E:\桌面\000.txt";
+        Console.WriteLine(load);
+        //将字符串按原格式输出 @
+        Console.WriteLine(@"今天天气好晴朗
+处处好风光");
+        Console.ReadKey();
     }
 }
             </code>

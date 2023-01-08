@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,31 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">08 类型转换.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //隐式类型转换
+        int number = 10;
+        double d = number;
+        Console.WriteLine(d);  //10
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        //显式类型转换
+        double dou = 303.6;
+        int n = (int)dou;
+        Console.WriteLine(n);  //303
+        Console.ReadKey();
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        int n1 = 10;
+        int n2 = 3;
+        double d1 = n1 * 1.0 / n2;  //隐式类型转换
+        Console.WriteLine("{0}", d1);
+        Console.WriteLine("{0:0.00}", d1);  //保留2位小数
+        Console.ReadKey();
     }
 }
             </code>

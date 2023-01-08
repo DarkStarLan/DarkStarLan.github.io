@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,36 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">26 数组的定义.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        int[] num = { 1, 2, 3 };
+        int[] numThree = new int[3] { 1, 2, 3 };
+        //数组类型[] 数组名 = new 数组类型[数组长度]
+        int[] nums = new int[10];
 
-        int number;
-        number = 100;
+        //null 不等同于 ""，null没有开辟空间
+        string[] str = new string[10];
 
-        int n = 100;
+        //默认为false
+        bool[] bools = new bool[10];
 
-        string zsName = "张三";
+        nums[6] = 10;  //将下标(索引)为6的元素修改为10
 
-        char c = 'a';
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            nums[i] = i;
+        }
 
-        decimal money = 5000m;
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            Console.WriteLine(nums[i]);
+        }
+        Console.ReadKey();
     }
 }
             </code>

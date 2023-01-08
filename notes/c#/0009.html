@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,27 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">09 Convert类型转换.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //当相互转换的类型不兼容时，可使用Convert转换
+        string s = "123";
+        double d = Convert.ToDouble(s);
+        int i = Convert.ToInt32(s);
+        Console.WriteLine(d);
+        Console.WriteLine(i);
+        Console.ReadKey();
 
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        //可用于转换用户输入的字符串
+        Console.WriteLine("请输入一个数字");
+        string number = Console.ReadLine();
+        int num = Convert.ToInt32(number);
+        Console.WriteLine("这是{0}，它乘二是{1:0.00}(保留2位小数)", num, num * 2);
+        Console.ReadKey();
     }
 }
             </code>

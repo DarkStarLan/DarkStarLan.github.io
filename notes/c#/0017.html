@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,41 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">17 do-while循环.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        Console.WriteLine("你是否满意");
+        string answer = Console.ReadLine();
+        while(answer == "no")
+        {
+            Console.WriteLine("我再唱一遍");
+            answer = Console.ReadLine();
+        }
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        do
+        {
+            Console.WriteLine("你是否满意");
+            answer = Console.ReadLine();
+        } while (answer == "no");
+        Console.WriteLine("OK");
+        Console.ReadKey();
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        string name = "";
+        string pwd = "";
+        do
+        {
+            Console.WriteLine("请输入用户名");
+            name = Console.ReadLine();
+            Console.WriteLine("请输入密码");
+            pwd = Console.ReadLine();
+        } while (name != "admin" || pwd != "888888");
+        Console.WriteLine("登录成功");
+        Console.ReadKey();
     }
 }
             </code>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,39 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">16 break用法.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        int i = 1;
+        int j = 1;
+        while(i &lt;= 10)
+        {
+            while(j &lt;= 10)
+            {
+                Console.WriteLine("内部的while循环");
+                j++;
+                break;
+            }
+            Console.WriteLine("外部的while循环");
+            i++;
+        }
+        Console.ReadKey();
 
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        string userName = "";
+        string userPwd = "";
+        while(userName != "admin" || userPwd != "888888")
+        {
+            Console.WriteLine("请输入用户名");
+            userName = Console.ReadLine();
+            Console.WriteLine("请输入密码");
+            userPwd = Console.ReadLine();
+        }
+        Console.WriteLine("登录成功");
+        Console.ReadKey();
     }
 }
             </code>

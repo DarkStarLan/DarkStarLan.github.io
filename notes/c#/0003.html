@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,20 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">03 占位符.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
-
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        int n1 = 10;
+        int n2 = 20;
+        int n3 = 30;
+        int n4 = 40;
+        Console.WriteLine("第一个数字是: " + n1 + " ,第二个数字是: " + n2 + " ,第三个数字是: " + n3 + " ,第四个数字是: " + n4);
+        //不能少填，多填没效果
+        Console.WriteLine("第一个数字是: {0} ,第二个数字是: {1} ,第三个数字是: {2} ,第四个数字是: {3}", n1, n2, n3, n4);
     }
 }
             </code>

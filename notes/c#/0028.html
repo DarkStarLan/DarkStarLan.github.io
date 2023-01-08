@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,36 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">28 方法的调用问题.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
+    //使用字段模拟全局变量
+    //字段 属于类的字段
+    public static int _number = 10;
+
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //int b = 10;
+        int a = 3;
+        int res = Test(a);
+        Console.WriteLine(res);
+        Console.WriteLine(_number);
+        TestTwo();
+        Console.ReadKey();
+    }
 
-        int number;
-        number = 100;
+    public static int Test(int a)
+    {
+        Console.WriteLine(_number);
+        a += 5;
+        return a;
+    }
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+    public static void TestTwo()
+    {
+        Console.WriteLine(_number);
     }
 }
             </code>

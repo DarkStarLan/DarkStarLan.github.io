@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,34 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">23 枚举.cs</h1>
         <pre>
             <code class="code">
-﻿class Program
+﻿public enum Gender
+{
+    男,
+    女
+}
+
+public enum Seasons
+{
+    春,
+    夏,
+    秋,
+    冬
+}
+
+class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        Gender gender = Gender.男;
 
-        int number;
-        number = 100;
+        Seasons s = Seasons.春;
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        Console.WriteLine(gender);
+        Console.WriteLine(s);
+        Console.ReadKey();
     }
 }
             </code>

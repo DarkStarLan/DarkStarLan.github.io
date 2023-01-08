@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,27 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">18 continue用法.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
-
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        int sum = 0;
+        int i = 1;
+        while(i &lt;= 100)
+        {
+            if(i % 7 == 0)
+            {
+                i++;
+                continue;
+            }
+            sum += i;
+            i++;
+        }
+        Console.WriteLine(sum);
+        Console.ReadKey();
     }
 }
             </code>

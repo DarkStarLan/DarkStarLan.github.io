@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,30 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">04 交换变量.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        int n1 = 10;
+        int n2 = 20;
+        Console.WriteLine("n1 = {0}, n2 = {1}", n1, n2);
 
-        int number;
-        number = 100;
+        //交换n1和n2的三种方法
+        int temp = n1;
+        n1 = n2;
+        n2 = temp;
+        Console.WriteLine("n1 = {0}, n2 = {1}", n1, n2);
 
-        int n = 100;
+        n1 = n1 - n2;
+        n2 = n1 + n2;
+        n1 = n2 - n1;
+        Console.WriteLine("n1 = {0}, n2 = {1}", n1, n2);
 
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        (n1, n2) = (n2, n1);
+        Console.WriteLine("n1 = {0}, n2 = {1}", n1, n2);
     }
 }
             </code>

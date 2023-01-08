@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,41 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">14 switch语句.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
-
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        decimal salary = 5000m;
+        bool b = true;
+        Console.WriteLine("请输入年终评定");
+        string level = Console.ReadLine();
+        switch(level)
+        {
+            case "a":
+                salary += 500;
+                break;
+            case "b":
+                salary += 200;
+                break;
+            case "c":
+                salary -= 200;
+                break;
+            case "d":
+                salary -= 500;
+                break;
+            default:
+                Console.WriteLine("输入有误");
+                b = false;
+                break;
+        }
+        if(b)
+        {
+            Console.WriteLine("明年的工资是{0}元", salary);
+        }
+        Console.ReadKey();
     }
 }
             </code>

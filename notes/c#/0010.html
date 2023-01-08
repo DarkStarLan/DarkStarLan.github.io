@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,34 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">10 自增自减运算符.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //自增自减运算符
+        int number = 10;
+        ++number;  //先递增再返回值
+        number++;  //先返回值再递增
+        --number;  //先递减再返回值
+        number--;  //先返回值再递减
+        Console.WriteLine(number);
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        number = 10;
+        int result = 10 + number++;
+        Console.WriteLine(number);
+        Console.WriteLine(result);
+        Console.ReadKey();
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        int a = 5;
+        int b = a++ + ++a * 2 + --a + a++;
+        //       5  +  7  * 2 +  6  +  6
+        Console.WriteLine(a);  //7
+        Console.WriteLine(b);  //31
+        Console.ReadKey();
     }
 }
             </code>

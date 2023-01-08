@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,28 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">12 if判断语句.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
-
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        Console.WriteLine("请输入时间");
+        int mins = Convert.ToInt32(Console.ReadLine());
+        if(mins &gt; 60)
+        {
+            Console.WriteLine("不戳，时间够了");
+        }
+        else if (mins &gt; 40)
+        {
+            Console.WriteLine("还可以");
+        }
+        else
+        {
+            Console.WriteLine("不行，逊");
+        }
+        Console.ReadKey();
     }
 }
             </code>

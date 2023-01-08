@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,31 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">07 算术运算符.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //等号两边的类型必须一样(能发生隐式转换也行)
+        int n1 = 10;
+        int n2 = 3;
+        int result = n1 / n2;
+        Console.WriteLine(result);
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        int chinese = 67;
+        int math = 80;
+        int english = 67;
+        Console.WriteLine("总成绩是{0}，平均成绩是{1}", chinese + math + english, (chinese + math + english) / 3);
+        Console.ReadKey();
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        int r = 5;
+        double area = 3.14 * r * r;
+        double perimeter = 2 * 3.14 * r;
+        Console.WriteLine("圆的面积是{0}, 周长是{1}", area, perimeter);
+        Console.ReadKey();
     }
 }
             </code>

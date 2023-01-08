@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,58 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">25 结构体.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
+    public struct Person
+    {
+        public string _name;  //字段(加public)
+        public int _age;  //字段
+        public Gender _gender;  //字段
+    }
+
+    public enum Gender
+    {
+        男,
+        女
+    }
+
+    public struct MyColor
+    {
+        public int _red;
+        public int _green;
+        public int _blue;
+    }
+
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //XX大学管理系统
+        //姓名 性别 年龄 年级
+        //string zsName = "张三";
+        //int zsAge = 21;
+        //char zsGender = '男';
+        //int zsGrade = 3;
 
-        int number;
-        number = 100;
+        Person zsPerson;
+        zsPerson._name = "张三";
+        zsPerson._age = 21;
+        zsPerson._gender = Gender.男;
 
-        int n = 100;
+        Person lsPerson;
+        lsPerson._name = "李四";
+        lsPerson._age = 22;
+        lsPerson._gender = Gender.女;
 
-        string zsName = "张三";
+        Console.WriteLine(zsPerson._name);
+        Console.WriteLine(lsPerson._name);
+        Console.ReadKey();
 
-        char c = 'a';
-
-        decimal money = 5000m;
+        MyColor mc;
+        mc._red = 255;
+        mc._green = 0;
+        mc._blue = 0;
     }
 }
             </code>

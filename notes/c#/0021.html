@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,47 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">21 三元表达式.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //计算两个数字的大小 求出最大的
+        Console.WriteLine("请输入第一个数字");
+        int n1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("请输入第二个数字");
+        int n2 = Convert.ToInt32(Console.ReadLine());
+        
+        if(n1 &gt; n2)
+        {
+            Console.WriteLine(n1);
+        }
+        else
+        {
+            Console.WriteLine(n2);
+        }
 
-        int number;
-        number = 100;
+        int max = n1 &gt; n2 ? n1 : n2;
+        Console.WriteLine(max);
+        Console.ReadKey();
 
-        int n = 100;
+        Console.WriteLine("请输入姓名");
+        string name = Console.ReadLine();
 
-        string zsName = "张三";
+        if(name == "老赵")
+        {
+            Console.WriteLine("Yes");
+        }
+        else
+        {
+            Console.WriteLine("No");
+        }
 
-        char c = 'a';
-
-        decimal money = 5000m;
+        string result = name == "老赵" ? "Yes" : "No";
+        Console.WriteLine(result);
+        Console.ReadKey();
     }
 }
             </code>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,33 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">34 方法的递归.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //递归：方法自己调用自己
+        TellStory();
+        Console.ReadKey();
+    }
 
-        int number;
-        number = 100;
+    public static int i = 0;
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+    public static void TellStory()
+    {
+        //int i = 0;
+        Console.WriteLine("从前有座山");
+        Console.WriteLine("山里有座庙");
+        Console.WriteLine("庙里有个老和尚和小和尚");
+        Console.WriteLine("老和尚给小和尚讲了一个故事");
+        i++;
+        if(i &gt;= 10)
+        {
+            return;
+        }
+        TellStory();
     }
 }
             </code>

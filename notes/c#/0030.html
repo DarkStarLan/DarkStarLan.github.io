@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,33 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">30 out参数实例.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        int num;
+        //bool b = int.TryParse("123", out num);
+        bool b = MyTryParse("123", out num);
+        Console.WriteLine(num);
+        Console.WriteLine(b);
+        Console.ReadKey();
+    }
 
-        int number;
-        number = 100;
-
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+    public static bool MyTryParse(string s, out int result)
+    {
+        result = 0;
+        try
+        {
+            result = Convert.ToInt32(s);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }
             </code>

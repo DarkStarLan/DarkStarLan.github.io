@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,45 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">31 ref参数.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        //ref 相当于C++中的 引用&
+        double salary = 5000;
+        JiangJin(ref salary);
+        FaKuan(ref salary);
+        JiangJin(ref salary);
+        Console.WriteLine(salary);
+        Console.ReadKey();
 
-        int number;
-        number = 100;
+        int n1 = 10;
+        int n2 = 20;
+        //ref要求参数必须在方法外赋值，方法内可以不赋值
+        swap(ref n1, ref n2);
+        Console.WriteLine(n1);
+        Console.WriteLine(n2);
+        Console.ReadKey();
+    }
 
-        int n = 100;
+    public static void JiangJin(ref double s)
+    {
+        s += 500;
+    }
 
-        string zsName = "张三";
+    public static void FaKuan(ref double s)
+    {
+        s -= 500;
+    }
 
-        char c = 'a';
-
-        decimal money = 5000m;
+    public static void swap(ref int n1, ref int n2)
+    {
+        int temp = n1;
+        n1 = n2;
+        n2 = temp;
     }
 }
             </code>

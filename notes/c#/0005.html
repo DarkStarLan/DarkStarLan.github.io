@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zn-CH">
 <head>
@@ -33,27 +34,24 @@
         </div>
         <hr>
         <!-- 正文 -->
-        <h1 class="code">01 变量的类型.cs</h1>
+        <h1 class="code">05 接收用户输入.cs</h1>
         <pre>
             <code class="code">
 ﻿class Program
 {
     static void Main(string[] args)
     {
-        //变量类型 变量名;
-        //变量名 = 值;
-        //100
+        Console.WriteLine("请输入你的姓名");
+        //接收用户在控制台的输入
+        string name = Console.ReadLine();
 
-        int number;
-        number = 100;
+        Console.WriteLine("您的姓名是{0}", name);
+        Console.ReadKey();
 
-        int n = 100;
-
-        string zsName = "张三";
-
-        char c = 'a';
-
-        decimal money = 5000m;
+        Console.WriteLine("请输入你想吃的水果");
+        string fruit = Console.ReadLine();
+        Console.WriteLine("你喜欢吃{0}", fruit);
+        Console.ReadKey();
     }
 }
             </code>
