@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">37 接口的特点.cs</h1>
+        <pre>
+            <code class="code">
+﻿public interface IFlyable
+{
+    //不允许有访问修饰符 默认为public
+    //方法、自动属性、索引
+    void Fly();
+}
+
+class Person : IFlyable
+{
+    public void Fly()
+    {
+        Console.WriteLine("人类飞飞飞");
+    }
+}
+
+public interface M1
+{
+    void Test1();
+}
+
+public interface M2
+{
+    void Test2();
+}
+
+public interface M3
+{
+    void Test3();
+}
+
+public interface SupperInterface : M1, M2, M3
+{
+
+}
+
+public class Car : SupperInterface
+{
+    public void Test1()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Test2()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Test3()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class Bird : IFlyable
+{
+    public void Fly()
+    {
+        Console.WriteLine("鸟类飞飞飞");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //接口不能被实例化
+        //接口不能有字段和构造函数
+        //接口与接口之间可以多继承，并且可以多继承
+        //接口只能继承接口，不能继承类
+        //实现接口的派生类必须实现接口的全部成员
+        //如果一个派生类类继承了基类和接口，应该把基类写在前面
+        //IFlyable fly = new IFlyable();  //错误
+        IFlyable fly = new Person();
+        fly.Fly();  //多态
+        fly = new Bird();
+        fly.Fly();  //多态
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

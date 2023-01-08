@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">20 类型转换方法.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //使用Convert进行转换，失败了抛出异常
+        int numberOne = Convert.ToInt32("123");
+
+        int number = int.Parse("123");
+        Console.WriteLine(number);
+        Console.ReadKey();
+
+        bool b = int.TryParse("123", out number);
+        Console.WriteLine(b);
+        Console.WriteLine(number);
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

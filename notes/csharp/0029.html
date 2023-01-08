@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">29 out参数的使用.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //写一个方法 求一个数组中的最大值、最小值、总和、平均值
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        int[] res = GetMaxMinSumAvg(numbers);
+        Console.WriteLine("最大值是{0}，最小值是{1}，总和是{2}，平均值是{3}", res[0], res[1], res[2], res[3]);
+        Console.ReadKey();
+
+        int max = 0;
+        int min = 0;
+        int sum = 0;
+        int avg = 0;
+        //out类似于引用传递 &
+        Test(numbers, out max, out min, out sum, out avg);
+
+        Console.WriteLine(max);
+        Console.WriteLine(min);
+        Console.WriteLine(sum);
+        Console.WriteLine(avg);
+        Console.ReadKey();
+    }
+
+    public static int[] GetMaxMinSumAvg(int[] nums)
+    {
+        int[] res = new int[4];
+        res[0] = nums[0];  //max
+        res[1] = nums[0];  //min
+        res[2] = 0;  //sum
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            //如果当前循环到的元素比假定最大值还大
+            if (nums[i] &gt; res[0])
+            {
+                //将当前循环到的值赋值给最大值
+                res[0] = nums[i];
+            }
+            if (nums[i] &lt; res[1])
+            {
+                res[1] = nums[i];
+            }
+            res[2] += nums[i];
+        }
+        //平均值
+        res[3] = res[2] / nums.Length;
+        return res;
+    }
+
+    /// &lt;summary&gt;
+    /// 计算一个整数数组的最大值、最小值、总和、平均值
+    /// &lt;/summary&gt;
+    /// &lt;param name="nums"&gt;要求值的数组&lt;/param&gt;
+    /// &lt;param name="max"&gt;多余返回的最大值&lt;/param&gt;
+    /// &lt;param name="min"&gt;多余返回的最小值&lt;/param&gt;
+    /// &lt;param name="sum"&gt;多余返回的总和&lt;/param&gt;
+    /// &lt;param name="avg"&gt;多余返回的平均值&lt;/param&gt;
+    public static void Test(int[] nums, out int max, out int min, out int sum, out int avg)
+    {
+        //out参数要求在方法内部必须为其赋值
+        max = nums[0];
+        min = nums[0];
+        sum = 0;
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            if (nums[i] &gt; max)
+            {
+                max = nums[i];
+            }
+            if (nums[i] &lt; min)
+            {
+                min = nums[i];
+            }
+            sum += nums[i];
+        }
+        avg = sum / nums.Length;
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

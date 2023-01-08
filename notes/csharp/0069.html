@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">32 序列化和反序列化.cs</h1>
+        <pre>
+            <code class="code">
+﻿//只有被Serializable标记的类可以被序列化
+using System.Runtime.Serialization.Formatters.Binary;
+
+[Serializable]
+public class Person
+{
+    private string _name;
+    public string Name
+    {
+        get { return this._name; }
+        set { this._name = value; }
+    }
+
+    private int _age;
+    public int Age
+    {
+        get { return this._age; }
+        set { this._age = value; }
+    }
+
+    private char _gender;
+    public char Gender
+    {
+        get { return this._gender; }
+        set { this._gender = value; }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //序列化：就是将对象转换为二进制
+        //反序列化：就是将二进制转换为对象
+        //作用：传输数据
+        Person p = new Person();
+        p.Name = "张三";
+        p.Age = 19;
+        p.Gender = '男';
+        using(FileStream fsWrite = new FileStream(@"E:\桌面\test.txt", FileMode.OpenOrCreate, FileAccess.Write))
+        {
+            //开始序列化对象
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fsWrite, p);
+        }
+        Console.WriteLine("序列化成功");
+        Console.ReadKey();
+
+        //接收二进制 反序列化成对象
+        Person per;
+        using (FileStream fsRead = new FileStream(@"E:\桌面\test.txt", FileMode.OpenOrCreate, FileAccess.Read))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            per = (Person)bf.Deserialize(fsRead);
+        }
+        Console.WriteLine(per.Name);
+        Console.WriteLine(per.Age);
+        Console.WriteLine(per.Gender);
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

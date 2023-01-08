@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">09 字符串的不变性.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //字符串的不可变性
+        //字符串被重新赋值后，原值并没有被销毁
+        //而是重新开辟一块新的空间存储新字符串
+        string name = "孙全";
+
+        //程序结束后，GC扫描整个内存，如果发现
+        //有的空间没有被指向，则立即把它销毁
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">31 ref参数.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //ref 相当于C++中的 引用&
+        double salary = 5000;
+        JiangJin(ref salary);
+        FaKuan(ref salary);
+        JiangJin(ref salary);
+        Console.WriteLine(salary);
+        Console.ReadKey();
+
+        int n1 = 10;
+        int n2 = 20;
+        //ref要求参数必须在方法外赋值，方法内可以不赋值
+        swap(ref n1, ref n2);
+        Console.WriteLine(n1);
+        Console.WriteLine(n2);
+        Console.ReadKey();
+    }
+
+    public static void JiangJin(ref double s)
+    {
+        s += 500;
+    }
+
+    public static void FaKuan(ref double s)
+    {
+        s -= 500;
+    }
+
+    public static void swap(ref int n1, ref int n2)
+    {
+        int temp = n1;
+        n1 = n2;
+        n2 = temp;
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

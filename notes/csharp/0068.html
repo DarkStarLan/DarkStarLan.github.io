@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">31 值传递和引用传递.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Person
+{
+    private string _name;
+    public string Name
+    {
+        get { return this._name; }
+        set { this._name = value; }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //值类型: int double char decimal bool enum struct
+        //引用类型: string 数组 自定义类 集合 object 接口
+
+        //值传递和引用传递
+        int n1 = 10;
+        int n2 = n1;
+        n2 = 20;
+        Console.WriteLine(n1);
+        Console.WriteLine(n2);
+        Console.ReadKey();
+
+        Person p1 = new Person();
+        p1.Name = "张三";
+        Person p2 = p1;  //p2和p1指向同一块内存
+        p2.Name = "李四";  //修改p1和p2的Name
+        //Console.WriteLine(p1.Name);  //李四
+        //Console.WriteLine(p2.Name);  //李四
+        p1.Name = "abc";  //这里p2也被修改了
+        Console.WriteLine(p1.Name);  //abc
+        Console.WriteLine(p2.Name);  //abc
+
+        Console.ReadKey();
+
+        Person p = new Person();
+        p.Name = "张三";
+        Test(p);
+        Console.WriteLine(p.Name);  //李四
+        Console.ReadKey();
+
+        string s1 = "张三";
+        string s2 = s1;
+        s2 = "李四";
+        //字符串比较特殊：字符串的不可变性
+        Console.WriteLine(s1);  //张三
+        Console.WriteLine(s2);  //李四
+        Console.ReadKey();
+
+        int number = 10;
+        TestTwo(number);
+        Console.WriteLine(number);  //10
+        Console.ReadKey();
+
+        TestRef(ref number);  //引用传递
+        Console.WriteLine(number);  //20
+        Console.ReadKey();
+    }
+
+    public static void TestTwo(int n)
+    {
+        n += 10;
+    }
+
+    public static void TestRef(ref int n)
+    {
+        n += 10;
+    }
+
+    public static void Test(Person pp)
+    {
+        Person p = pp;
+        p.Name = "李四";
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

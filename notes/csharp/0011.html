@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">11 关系和逻辑运算符.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        bool b = 1500 &gt; 1;
+        Console.WriteLine(b);
+        Console.ReadKey();
+
+        Console.WriteLine("请输入你的语文成绩");
+        int chinese = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("请输入你的数学成绩");
+        int math = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(chinese &gt; 90 && math &gt; 90);
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

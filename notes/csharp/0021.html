@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">21 三元表达式.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //计算两个数字的大小 求出最大的
+        Console.WriteLine("请输入第一个数字");
+        int n1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("请输入第二个数字");
+        int n2 = Convert.ToInt32(Console.ReadLine());
+        
+        if(n1 &gt; n2)
+        {
+            Console.WriteLine(n1);
+        }
+        else
+        {
+            Console.WriteLine(n2);
+        }
+
+        int max = n1 &gt; n2 ? n1 : n2;
+        Console.WriteLine(max);
+        Console.ReadKey();
+
+        Console.WriteLine("请输入姓名");
+        string name = Console.ReadLine();
+
+        if(name == "老赵")
+        {
+            Console.WriteLine("Yes");
+        }
+        else
+        {
+            Console.WriteLine("No");
+        }
+
+        string result = name == "老赵" ? "Yes" : "No";
+        Console.WriteLine(result);
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

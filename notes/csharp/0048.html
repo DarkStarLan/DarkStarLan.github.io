@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">13 new隐藏父类成员.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Person
+{
+    public void SayHello()
+    {
+        Console.WriteLine("我是人类");
+    }
+}
+
+public class Reporter : Person
+{
+    public new void SayHello()
+    {
+        Console.WriteLine("我是记者");
+    }
+}
+
+public class Programmer : Person
+{
+    public new void SayHello()
+    {
+        Console.WriteLine("我是程序员");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //使用new关键字隐藏父类同名成员
+        //隐藏后派生类无法调用到基类同名成员
+        Reporter rep = new Reporter();
+        rep.SayHello();
+
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

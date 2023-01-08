@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">26 流读写文件.cs</h1>
+        <pre>
+            <code class="code">
+﻿using System.IO;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //StreamReader和StreamWriter
+
+        //读取文本文件
+        using (StreamReader sr = new StreamReader(@"E:\桌面\test.txt", Encoding.Default))
+        {
+            while(!sr.EndOfStream)
+            {
+                Console.WriteLine(sr.ReadLine());
+            }
+        }
+        Console.ReadKey();
+
+        //写入文本文件
+        using (StreamWriter sw = new StreamWriter(@"E:\桌面\new.txt", true))
+        {
+            sw.Write("123\r\nHello World");
+        }
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

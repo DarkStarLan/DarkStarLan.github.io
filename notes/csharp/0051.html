@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">16 ArrayList集合.cs</h1>
+        <pre>
+            <code class="code">
+﻿using System.Collections;
+
+public class Person
+{
+    public void SayHello()
+    {
+        Console.WriteLine("我是人类");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //创建集合对象
+        ArrayList list = new ArrayList();
+        //数组：长度不可变、类型单一
+        //集合的好处：长度可变 类型随便
+        list.Add(1);
+        list.Add(3.14);
+        list.Add(true);
+        list.Add("张三");
+        list.Add('男');
+        list.Add(5000m);
+
+        list.Add(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+        Person p = new Person();
+        list.Add(p);
+        list.Add(list);
+
+        //默认情况下打印这个对象
+        //自定义类型 打印的是这个类所在的命名空间
+        for(int i = 0; i &lt; list.Count; i++)
+        {
+            if (list[i] is Person)
+            {
+                ((Person)list[i]).SayHello();
+            }
+            else if (list[i] is int[])
+            {
+                for(int j = 0; j &lt; ((int[])list[i]).Length; j++)
+                {
+                    Console.WriteLine(((int[])list[i])[j]);
+                }
+            }
+            else
+            {
+                Console.WriteLine(list[i]);
+            }
+        }
+        Console.ReadKey();
+
+        list.Clear();
+        list.Add(true);
+        list.Add(1);
+        list.Add("张三");
+        list.AddRange(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+        list.AddRange(list);
+        for(int i = 0; i &lt; list.Count; i++)
+        {
+            Console.WriteLine(list[i]);
+        }
+        Console.ReadKey();
+
+        //根据值删除元素
+        list.Remove(true);
+        //根据下标删除元素
+        list.RemoveAt(0);
+        //根据下标和个数删除元素
+        list.RemoveRange(0, 2);
+
+        //list.Sort();  //程序不知道怎么排序
+        list.Reverse();
+
+        for (int i = 0; i &lt; list.Count; i++)
+        {
+            Console.WriteLine(list[i]);
+        }
+        Console.ReadKey();
+
+        list.Clear();
+
+        list.Insert(0, "插入元素");
+        list.InsertRange(1, new string[] { "张三", "李四" });
+        bool b = list.Contains("张三");
+        Console.WriteLine("是否包含: {0}", b);
+        for(int i = 0; i &lt; list.Count; i++)
+        {
+            Console.WriteLine(list[i]);
+        }
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

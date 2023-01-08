@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">33 方法的重载.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //方法重载和返回值类型没有关系
+        int i = M(1, 2);
+        double d = M(1.1, 2.2);
+        Console.WriteLine(i);
+        Console.WriteLine(d);
+        Console.ReadKey();
+    }
+
+    public static int M(int n1, int n2)
+    {
+        return n1 + n2;
+    }
+
+    public static double M(double d1, double d2)
+    {
+        return d1 + d2;
+    }
+
+    //public static int M1(int n1, int n2)
+    //{
+    //    return n1 + n2;
+    //}
+
+    //public static double M2(double d1, double d2)
+    //{
+    //    return d1 + d2;
+    //}
+}
+            </code>
+        </pre>
+    </body>
+</html>

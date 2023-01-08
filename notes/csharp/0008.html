@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">08 类型转换.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //隐式类型转换
+        int number = 10;
+        double d = number;
+        Console.WriteLine(d);  //10
+        Console.ReadKey();
+
+        //显式类型转换
+        double dou = 303.6;
+        int n = (int)dou;
+        Console.WriteLine(n);  //303
+        Console.ReadKey();
+
+        int n1 = 10;
+        int n2 = 3;
+        double d1 = n1 * 1.0 / n2;  //隐式类型转换
+        Console.WriteLine("{0}", d1);
+        Console.WriteLine("{0:0.00}", d1);  //保留2位小数
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

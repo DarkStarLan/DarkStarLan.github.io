@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">02 属性.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Person
+{
+    private string _name;
+    public string Name
+    {
+        //输出属性值的时候，首先会执行get方法
+        get { return _name; }
+        //给属性赋值的时候，首先会执行set方法
+        set { _name = value; }
+    }
+
+    private int _age;
+    public int Age
+    {
+        get { return _age; }
+        set { 
+            
+            if(value &lt; 0 || value &gt; 100)
+            {
+                value = 0;
+            }
+
+            _age = value; }
+    }
+
+    private char _gender;
+    public char Gender
+    {
+        get { 
+            
+            if(_gender != '男' && _gender != '女')
+            {
+                return _gender = '男';
+            }
+
+            return _gender; }
+        set { _gender = value; }
+    }
+
+    public void CHLSS()
+    {
+        Console.WriteLine("我叫{0}，我今年{1}岁了，我是{2}生，我可以吃喝拉撒睡", this.Name, this.Age, this.Gender);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //属性的作用就是保护字段，对字段的赋值和取值进行限定
+        //属性的本质就是两个方法
+        //Field(s)字段  Methon(s)方法  Property(ies)属性
+        //既有get()也有set()称为可读可写属性
+        //只有get()称为只读属性
+        //只有set()称为只写属性
+        Person sunQuan = new Person();
+        sunQuan.Name = "孙全";
+        sunQuan.Age = -23;
+        sunQuan.Gender = '春';
+        sunQuan.CHLSS();
+        Console.WriteLine(sunQuan.Name);
+        Console.WriteLine(sunQuan.Age);
+        Console.WriteLine(sunQuan.Gender);
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

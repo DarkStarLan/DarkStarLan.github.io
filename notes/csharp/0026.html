@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">26 数组的定义.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        int[] num = { 1, 2, 3 };
+        int[] numThree = new int[3] { 1, 2, 3 };
+        //数组类型[] 数组名 = new 数组类型[数组长度]
+        int[] nums = new int[10];
+
+        //null 不等同于 ""，null没有开辟空间
+        string[] str = new string[10];
+
+        //默认为false
+        bool[] bools = new bool[10];
+
+        nums[6] = 10;  //将下标(索引)为6的元素修改为10
+
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            nums[i] = i;
+        }
+
+        for(int i = 0; i &lt; nums.Length; i++)
+        {
+            Console.WriteLine(nums[i]);
+        }
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

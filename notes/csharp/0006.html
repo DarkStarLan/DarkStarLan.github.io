@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">06 转义符和@.cs</h1>
+        <pre>
+            <code class="code">
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        //换行转义符 \n
+        Console.WriteLine("今天天气好晴朗\n处处好风光");
+        Console.ReadKey();
+
+        //输出双引号
+        Console.WriteLine("输出一个\"\"双引号");
+        Console.ReadKey();
+
+        //制表符 \t对齐
+        string name1 = "张三";
+        string name2 = "李不斯基";
+        Console.WriteLine("{0}\t{1}", name1, name2);
+        Console.ReadKey();
+
+        //删除前面的字符 \b
+        //放在字符串两边没有效果
+        Console.WriteLine("\b我前面没\b\b有东西\b");
+        Console.ReadKey();
+
+        //取消转义 @后面不转义
+        string load = @"E:\桌面\000.txt";
+        Console.WriteLine(load);
+        //将字符串按原格式输出 @
+        Console.WriteLine(@"今天天气好晴朗
+处处好风光");
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>

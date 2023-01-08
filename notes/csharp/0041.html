@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zn-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++笔记</title>
+    <style type="text/css">
+        @import url("../note.css");
+    </style>
+</head>
+    <body style="background-color: rgb(13, 17, 22);" id="main">
+        <div id="lan">
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/">
+                    <button class="right">默认主页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/search.html">
+                    <button class="right">导航页</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/notes/java.html">
+                    <button class="right">返回目录</button>
+                </a>
+            </div>
+            <div class="class1">
+                <a href="https://darkstarlan.github.io/download/java.html">
+                    <button class="right">相关下载</button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <!-- 正文 -->
+        <h1 class="code">06 析构函数.cs</h1>
+        <pre>
+            <code class="code">
+﻿public class Student
+{
+    #region 构造函数
+    public Student(string name, int age, char gender, int chinese, int english, int math)
+    {
+        Console.WriteLine("Student构造函数");
+        this.Name = name;
+        this.Age = age;
+        this.Gender = gender;
+        this.Chinese = chinese;
+        this.Math = math;
+        this.English = english;
+    }
+    public Student(string name, int chinese, int math, int english) : this(name, 0, '男', chinese, math, english) { }
+    public Student(string name, int age, char gender) : this(name, age, gender, 0, 0, 0) { }
+    #endregion
+
+    //析构函数
+    //程序结束时 析构函数才执行
+    //GC Garbage Collection
+    ~Student()
+    {
+        Console.WriteLine("我是析构函数");
+    }
+
+    #region 字段和属性
+    private string _name;
+    public string Name
+    {
+        get { return this._name; }
+        set { this._name = value; }
+    }
+
+    private int _age;
+    public int Age
+    {
+        get { return this._age; }
+        set
+        {
+            if (value &lt; 0 || value &gt; 100)
+            {
+                value = 0;
+            }
+            this._age = value;
+        }
+    }
+
+    private char _gender;
+    public char Gender
+    {
+        get
+        {
+            if (_gender != '男' && _gender != '女')
+            {
+                return this._gender = '男';
+            }
+            return this._gender;
+        }
+        set { this._gender = value; }
+    }
+
+    private int _chinese;
+    public int Chinese
+    {
+        get { return this._chinese; }
+        set { this._chinese = value; }
+    }
+
+    private int _math;
+    public int Math
+    {
+        get { return this._math; }
+        set { this._math = value; }
+    }
+
+    private int _english;
+    public int English
+    {
+        get { return this._english; }
+        set { this._english = value; }
+    }
+    #endregion
+
+    #region 方法
+    public void SayHello()
+    {
+        Console.WriteLine("我叫{0}，我今年{1}岁了，我是{2}生", this.Name, this.Age, this.Gender);
+    }
+
+    public void ShowScore()
+    {
+        Console.WriteLine("我叫{0}，我的总成绩是{1}，平均成绩是{2}", this.Name, this.Chinese + this.Math + this.English, (this.Chinese + this.Math + this.English) / 3);
+    }
+    #endregion
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student zsStudent = new Student("张三", 100, 100, 100);
+        zsStudent.SayHello();
+        zsStudent.ShowScore();
+
+        Console.ReadKey();
+    }
+}
+            </code>
+        </pre>
+    </body>
+</html>
