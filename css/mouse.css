@@ -1,0 +1,25 @@
+#cursor {
+    position: fixed;
+    width: 296px;
+    height: 296px;
+    /* background: white; */
+    border-radius: 8px;
+    opacity: 0.25;
+    z-index: 100;
+    pointer-events: none;
+    transition: 0s ease-in-out;
+    transition-property: background, opacity, transform;
+	background-image: url("../img/pointer.png");
+	transform-origin: 0 0;
+	transform: scale(0.2);
+	opacity: 1;
+}
+#cursor.hidden {
+	
+}
+#cursor.hover {
+	background-image: url("../img/link.png");
+}
+#cursor.active {
+	
+}
