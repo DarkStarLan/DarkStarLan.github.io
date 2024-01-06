@@ -1,0 +1,380 @@
+/* --------------------网页CSS-------------------- */
+.lifang{
+	width: 200px;
+	height: 200px;
+	margin: 200px;
+	position: relative;
+	/* 设置transfo-style:保留子元素3D效果 */
+	transform-style: preserve-3d;
+	transform: rotate3d(1,1,1,0deg);
+	transition: all 5s;
+}
+.lifang:hover{
+	transform: rotate3d(1,1,1,720deg);
+}
+.page{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	/* 设定透明度 */
+	opacity: 1;
+	
+}
+
+.Front{
+	background-color: orange;
+	background-size: 100% auto;
+	transform: translateZ(100px);
+}
+.Back{
+	background-color: red;
+	background-size: 100% auto;
+	transform: translateZ(-100px);
+}
+.Right{
+	background-color: blue;
+	background-size: 100% auto;
+	transform: rotateY(90deg) translateZ(100px);
+}
+.Left{
+	background-color: green;
+	background-size: 100% auto;
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.Top{
+	background-color: yellow;
+	background-size: 100% auto;
+	transform: rotateX(90deg) translateZ(100px);;
+}
+.Bottom{
+	background-color: white;
+	background-size: 100% auto;
+	transform: rotateX(-90deg) translateZ(100px);;
+}
+.background{
+	width: auto;
+	height: 1000px;
+}
+#lan{
+	/* 修改头部选项栏长度 */
+	width: 720px;
+	height: 34px;
+	position: relative;
+	margin: auto;
+}
+.right{
+	/* 按钮属性 */
+	font-size: 20px;
+	width: 100px;
+	border-radius: 6px;
+	height: 34px;
+	box-shadow: 0 0 0px #999;
+	transition: all 0.2s;
+	position: relative;
+	left: 10px;
+}
+.right:hover{
+	color: orangered;
+	background: skyblue;
+	box-shadow: 0 5px 10px #999;
+}
+.class1{
+	/* 按钮间隔 */
+	width: 120px;
+	height: 34px;
+	float: left;
+	position: relative;
+}
+#d0{
+	width: 300px;
+	height: 429px;
+	position: relative;
+	/* margin: auto; */
+	background: #91404c;
+	border-radius: 20px;
+	position: relative;
+	left: 20px;
+	transition: all 0.2s;
+}
+#d0:hover{
+	box-shadow: 2px 2px 10px #808080;
+}
+#d1{
+	/* background: skyblue; */
+	width: 230px;
+	height: 255px;
+	position: relative;
+	margin: auto;
+	top: 28px;
+}
+.c1{
+	width: 220px;
+	height: 30px;
+	border-radius: 4px;
+	position: relative;
+	left: 1px;
+}
+text{
+	display: inline-block;
+	height: 32px;
+	font-size: 20px;
+	line-height: 32px;
+	color: #bea1a1;
+	text-align: center;
+	position: relative;
+	left: 5px;
+}
+#bt1{
+	text-align: center;
+	font-weight: 900;
+	font-size: 16px;
+	/* color: transparent; */
+	background: aquamarine;
+	width: 30px;
+	height: 30px;
+	border-radius: 40px;
+	position: relative;
+	top: 12px;
+	left: 100px;
+	/* transition: all 0.4s,color 0.2s; */
+	transition: all 0.4s;
+}
+#bt1:hover{
+	background: limegreen;
+	box-shadow: 0 0 5px orangered,0 0 20px yellow;
+	/* color: blue; */
+	border-radius: 3px;
+	width: 60px;
+	height: 30px;
+	left: 85px;
+	/* transition: all 0.4s,color 1s; */
+}
+#footer {
+    height: 40px;
+    line-height: 40px;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+/* --------------------灯笼CSS-------------------- */
+.deng-box1 {
+	position: fixed;
+	top: -30px;
+	left: 20px;
+	z-index: 999;
+}
+.deng-box2 {
+	position: fixed;
+	top: -40px;
+	left: 100px;
+	z-index: 999;
+}
+.deng-box3 {
+	position: fixed;
+	top: -40px;
+	right: 100px;
+	z-index: 999;
+}
+.deng-box4 {
+	position: fixed;
+	top: -30px;
+	right: 20px;
+	z-index: 999;
+}
+
+.deng-box1 .deng {
+	-webkit-animation: swing1 3.5s infinite ease-in-out;
+	box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+}
+.deng-box2 .deng {
+	-webkit-animation: swing2 5.5s infinite ease-in-out;
+	box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+}
+.deng-box3 .deng {
+	-webkit-animation: swing1 5.5s infinite ease-in-out;
+	box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+}
+.deng-box4 .deng {
+	-webkit-animation: swing2 3.5s infinite ease-in-out;
+	box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+}
+
+.deng {
+	position: relative;
+	width: 120px;
+	height: 90px;
+	margin: 50px;
+	background: #d8000f;
+	background: rgba(216, 0, 15, 0.8);
+	border-radius: 50% 50%;
+	-webkit-transform-origin: 50% -100px;
+	/* -webkit-animation: swing 3s infinite ease-in-out; */
+	box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+}
+
+.deng-a {
+	width: 100px;
+	height: 90px;
+	background: #d8000f;
+	background: rgba(216, 0, 15, 0.1);
+	margin: 12px 8px 8px 8px;
+	border-radius: 50% 50%;
+	border: 2px solid #dc8f03;
+}
+
+.deng-b {
+	width: 45px;
+	height: 90px;
+	background: #d8000f;
+	background: rgba(216, 0, 15, 0.1);
+	margin: -4px 8px 8px 26px;
+	border-radius: 50% 50%;
+	border: 2px solid #dc8f03;
+}
+
+.xian {
+	position: absolute;
+	top: -20px;
+	left: 60px;
+	width: 2px;
+	height: 20px;
+	background: #dc8f03;
+}
+
+.shui-a {
+	position: relative;
+	width: 5px;
+	height: 20px;
+	margin: -5px 0 0 59px;
+	-webkit-animation: swing 4s infinite ease-in-out;
+	-webkit-transform-origin: 50% -45px;
+	background: #ffa500;
+	border-radius: 0 0 5px 5px;
+}
+
+.shui-b {
+	position: absolute;
+	top: 14px;
+	left: -2px;
+	width: 10px;
+	height: 10px;
+	background: #dc8f03;
+	border-radius: 50%;
+}
+
+.shui-c {
+	position: absolute;
+	top: 18px;
+	left: -2px;
+	width: 10px;
+	height: 35px;
+	background: #ffa500;
+	border-radius: 0 0 0 5px;
+}
+
+.deng:before {
+	position: absolute;
+	top: -7px;
+	left: 29px;
+	height: 12px;
+	width: 60px;
+	content: " ";
+	display: block;
+	z-index: 999;
+	border-radius: 5px 5px 0 0;
+	border: solid 1px #dc8f03;
+	background: #ffa500;
+	background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+}
+
+.deng:after {
+	position: absolute;
+	bottom: -7px;
+	left: 10px;
+	height: 12px;
+	width: 60px;
+	content: " ";
+	display: block;
+	margin-left: 20px;
+	border-radius: 0 0 5px 5px;
+	border: solid 1px #dc8f03;
+	background: #ffa500;
+	background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+}
+
+.deng-t {
+	font-family: 华文行楷,Arial,Lucida Grande,Tahoma,sans-serif;
+	font-size: 3.2rem;
+	color: #dc8f03;
+	font-weight: bold;
+	line-height: 85px;
+	text-align: center;
+}
+
+.night .deng-t, 
+.night .deng-box, 
+.night .deng-box1 {
+	background: transparent !important;
+}
+
+@-moz-keyframes swing1 {
+	0% {
+		-moz-transform: rotate(-10deg)
+	}
+ 
+	50% {
+		-moz-transform: rotate(10deg)
+	}
+ 
+	100% {
+		-moz-transform: rotate(-10deg)
+	}
+}
+@-moz-keyframes swing2 {
+	0% {
+		-moz-transform: rotate(10deg)
+	}
+ 
+	50% {
+		-moz-transform: rotate(-10deg)
+	}
+ 
+	100% {
+		-moz-transform: rotate(10deg)
+	}
+}
+
+@-webkit-keyframes swing1 {
+	0% {
+		-webkit-transform: rotate(-10deg)
+	}
+ 
+	50% {
+		-webkit-transform: rotate(10deg)
+	}
+ 
+	100% {
+		-webkit-transform: rotate(-10deg)
+	}
+}
+@-webkit-keyframes swing2 {
+	0% {
+		-webkit-transform: rotate(10deg)
+	}
+ 
+	50% {
+		-webkit-transform: rotate(-10deg)
+	}
+ 
+	100% {
+		-webkit-transform: rotate(10deg)
+	}
+}
