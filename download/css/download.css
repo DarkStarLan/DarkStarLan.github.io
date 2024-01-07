@@ -1,0 +1,49 @@
+#main{
+    background-color: rgb(13, 17, 22);
+}
+class1{
+		width: 260px;
+		height: 40px;
+        float: left;
+        text-align: center;
+        border-radius: 10px;
+        position: relative;
+}
+.button{
+    width: 100px;
+    height: 40px;
+    position: relative;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: all 0.2s;
+}
+.button:hover{
+    color: orangered;
+	background: skyblue;
+	box-shadow: 0 5px 10px #999;
+}
+.buttonload{
+    width: 160px;
+    height: 40px;
+    position: relative;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: all 0.2s;
+    color: green;
+}
+.buttonload:hover{
+    color: orangered;
+	background: skyblue;
+	box-shadow: 0 5px 10px #999;
+}
+#head{
+    margin: auto;
+    width: 520px;
+    height: 40px;
+    position: relative;
+}
+#d1{
+    color: aquamarine;
+    position: relative;
+    left: 100px;
+}
